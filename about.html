@@ -5,794 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About KVS Spices & Traders - Our Heritage Since 1987</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="custom.css">
     <style>
-        /* Variables */
         :root {
             --primary-color: #2e7d32;
             --primary-light: #60ad5e;
             --primary-dark: #005005;
             --secondary-color: #e65100;
-            --secondary-light: #ff833a;
             --secondary-dark: #ac1900;
             --text-dark: #263238;
-            --text-light: #ffffff;
-            --bg-light: #ffffff;
-            --bg-dark: #ffffff;
-            --accent-light: #ffecb3;
-            --gray-100: #ffffff;
+            --text-light: #fff;
             --gray-200: #f8f9fa;
             --gray-300: #e9ecef;
             --gray-600: #6c757d;
-            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
-            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
-            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
-            --radius-sm: 4px;
             --radius-md: 8px;
-            --radius-lg: 16px;
-            --transition: all 0.3s ease;
+            --shadow-md: 0 4px 8px rgba(0,0,0,.06);
+            --shadow-lg: 0 10px 15px rgba(0,0,0,.08);
+            --transition: all 0.3s cubic-bezier(.4,0,.2,1);
             --container-width: 1200px;
         }
-        
-        /* Base Styles */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-        }
-        
-        body {
-            font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
-            color: var(--text-dark);
-            background-color: var(--bg-light);
-            overflow-x: hidden;
-        }
-        
-        a {
-            text-decoration: none;
-            color: inherit;
-            transition: var(--transition);
-        }
-        
-        ul {
-            list-style: none;
-        }
-        
-        img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-        }
-        
-        /* Container */
-        .container {
-            width: 90%;
-            max-width: var(--container-width);
-            margin: 0 auto;
-            padding: 0 15px;
-        }
-        
-        /* Typography */
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
-        }
-        
-        .section-title {
-            font-size: 2.25rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            color: var(--primary-dark);
-            position: relative;
-        }
-        
-        .section-subtitle {
-            text-align: center;
-            color: var(--gray-600);
-            font-size: 1.125rem;
-            max-width: 700px;
-            margin: 0 auto 3rem;
-        }
-        
-        /* Buttons */
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 12px 28px;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            font-weight: 500;
-            border-radius: var(--radius-md);
-            border: none;
-            cursor: pointer;
-            transition: var(--transition);
-            text-align: center;
-            font-size: 1rem;
-            box-shadow: var(--shadow-sm);
-        }
-        
-        .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
-        }
-        
-        .btn-secondary {
-            background-color: var(--secondary-color);
-        }
-        
-        .btn-secondary:hover {
-            background-color: var(--secondary-dark);
-        }
-        
-        .btn-outline {
-            background-color: transparent;
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
-        }
-        
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-        }
-        
-        /* Header - White Theme */
+        * { margin:0; padding:0; box-sizing:border-box;}
+        body { font-family: 'Poppins', sans-serif; background: #fff; color: var(--text-dark);}
+        a { color: inherit; text-decoration: none; transition: var(--transition);}
+        ul { list-style: none;}
+        img { max-width: 100%; height: auto; display: block; }
+        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; padding: 0 15px; }
         header {
-            background-color: var(--text-light);
-            color: var(--text-dark);
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow-md);
-            border-bottom: 1px solid var(--gray-300);
+            background: var(--text-light); color: var(--text-dark); padding: 1rem 0;
+            position: fixed; width: 100%; top: 0; z-index: 1000;
+            box-shadow: var(--shadow-md); border-bottom: 1px solid var(--gray-300);
         }
-        
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo {
-            z-index: 1001;
-        }
-        
-        .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .logo span {
-            font-weight: 300;
-            opacity: 0.8;
-            color: var(--gray-600);
-        }
-        
-        nav {
-            display: flex;
-            align-items: center;
-        }
-        
-        .nav-menu {
-            display: flex;
-            gap: 1.5rem;
-        }
-        
-        .nav-menu a {
-            font-weight: 500;
-            position: relative;
-            padding: 0.5rem 0;
-            color: var(--text-dark);
-        }
-        
-        .nav-menu a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-        
-        .nav-menu a:hover::after,
-        .nav-menu a.active::after {
-            width: 100%;
-        }
-        
-        .nav-menu a:hover {
-            color: var(--primary-color);
-        }
-        
-        .nav-toggle {
-            display: none;
-            background: transparent;
-            border: none;
-            color: var(--text-dark);
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 1001;
-        }
-        
+        .nav-container { display: flex; justify-content: space-between; align-items: center;}
+        .logo h1 { font-size: 1.5rem; font-weight: 700; color: var(--primary-color);}
+        .logo span { opacity: 0.8; color: var(--gray-600);}
+        nav { display: flex; align-items: center;}
+        .nav-menu { display: flex; gap: 1.5rem;}
+        .nav-menu a { font-weight: 500; padding: 0.5rem 0;}
+        .nav-toggle { display: none; background: none; border: none; color: var(--text-dark); font-size: 1.7rem; cursor: pointer; z-index:1001;}
+        .nav-menu a.active, .nav-menu a:hover { color: var(--primary-color);}
+        .section-title { font-size: 2.25rem; text-align: center; color: var(--primary-dark); margin-bottom: 1rem; }
+        .section-subtitle { text-align: center; color: var(--gray-600); margin-bottom: 2rem;}
         /* Page Hero */
-        .page-hero {
-            height: 60vh;
-            background-image: url('main.jpg');
-            background-size: cover;
-            background-position: center;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            text-align: center;
-            padding-top: 76px; /* Header height */
-        }
-        
-        .page-hero-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .page-hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-        
-        .page-hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-
-        /* Breadcrumbs */
-        .breadcrumbs {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
-        }
-
-        .breadcrumbs i {
-            font-size: 0.75rem;
-            color: var(--text-light);
-            opacity: 0.7;
-        }
-
-        /* Our Story Section */
-        .our-story {
-            padding: 5rem 0;
-        }
-        
-        .story-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .story-content h2 {
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-dark);
-        }
-        
-        .story-content p {
-            margin-bottom: 1.5rem;
-            color: var(--gray-600);
-        }
-        
-        .story-image {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .story-image img {
-            width: 100%;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-        }
-        
-        .story-image::before {
-            content: 'Since 1987';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            padding: 0.5rem 1rem;
-            font-weight: 500;
-        }
-
-        /* Timeline Section */
-        .timeline-section {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
-        }
-        
-        .timeline {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem 0;
-        }
-        
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            left: 50%;
-            width: 2px;
-            background-color: var(--primary-light);
-            transform: translateX(-50%);
-        }
-        
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-        }
-        
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-        
-        .timeline-content {
-            width: calc(50% - 2rem);
-            padding: 2rem;
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
-            position: relative;
-        }
-        
-        .timeline-content::before {
-            content: '';
-            position: absolute;
-            top: 20px;
-            width: 20px;
-            height: 20px;
-            background-color: var(--text-light);
-            transform: rotate(45deg);
-        }
-        
-        .timeline-date {
-            position: absolute;
-            top: 0;
-            width: 100px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            font-weight: 600;
-            border-radius: var(--radius-sm);
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content {
-            margin-left: auto;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-content::before {
-            left: -10px;
-        }
-        
-        .timeline-item:nth-child(odd) .timeline-date {
-            left: calc(50% - 150px);
-        }
-        
-        .timeline-item:nth-child(even) .timeline-content::before {
-            right: -10px;
-        }
-        
-        .timeline-item:nth-child(even) .timeline-date {
-            right: calc(50% - 150px);
-        }
-        
-        .timeline-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-dark);
-        }
-
-        /* Founders Section */
-        .founders-section {
-            padding: 5rem 0;
-        }
-        
-        .founders-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            margin-top: 3rem;
-        }
-        
-        .founder-card {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 2rem;
-            align-items: center;
-        }
-        
-        .founder-image {
-            position: relative;
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-        }
-        
-        .founder-image img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-        
-        .founder-info h3 {
-            font-size: 1.75rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-        }
-        
-        .founder-title {
-            display: inline-block;
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            padding: 0.3rem 1rem;
-            background-color: var(--primary-light);
-            color: var(--text-light);
-            border-radius: var(--radius-sm);
-        }
-        
-        .founder-bio p {
-            margin-bottom: 1rem;
-            color: var(--gray-600);
-        }
-
-        /* Values Section */
-        .values-section {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
-        }
-        
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .value-card {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            text-align: center;
-        }
-        
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .value-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-light);
-            color: var(--text-light);
-            border-radius: 50%;
-            font-size: 2rem;
-        }
-        
-        .value-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--primary-dark);
-        }
-
-        /* Team Section */
-        .team-section {
-            padding: 5rem 0;
-        }
-        
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-        
-        .team-card {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-        
-        .team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-        
-        .team-image {
-            height: 300px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .team-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: var(--transition);
-        }
-        
-        .team-card:hover .team-image img {
-            transform: scale(1.05);
-        }
-        
-        .team-info {
-            padding: 1.5rem;
-            text-align: center;
-        }
-        
-        .team-info h3 {
-            font-size: 1.25rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-dark);
-        }
-        
-        .team-title {
-            display: block;
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-        }
-        
-        .team-social {
-            display: flex;
-            justify-content: center;
-            gap: 1rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--gray-200);
-        }
-        
-        .team-social a {
-            width: 36px;
-            height: 36px;
-            background-color: var(--gray-100);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 50%;
-            color: var(--gray-600);
-            transition: var(--transition);
-        }
-        
-        .team-social a:hover {
-            background-color: var(--primary-color);
-            color: var(--text-light);
-        }
-
-        /* Call to Action */
-        .cta-section {
-            padding: 5rem 0;
-            background-color: var(--primary-dark);
-            color: var(--text-light);
-            text-align: center;
-        }
-        
-        .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-        }
-        
-        .cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-        
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        
-        .btn-light {
-            background-color: var(--text-light);
-            color: var(--primary-dark);
-        }
-        
-        .btn-light:hover {
-            background-color: var(--accent-light);
-        }
-        
-        .btn-outline-light {
-            background-color: transparent;
-            color: var(--text-light);
-            border: 2px solid var(--text-light);
-        }
-        
-        .btn-outline-light:hover {
-            background-color: var(--text-light);
-            color: var(--primary-dark);
-        }
-
-        /* Footer - White Theme */
-        footer {
-            background-color: var(--text-light);
-            color: var(--text-dark);
-            padding: 4rem 0 2rem;
-            border-top: 1px solid var(--gray-300);
-        }
-        
-        .footer-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-        
-        .footer-logo {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-        }
-        
-        .footer-logo span {
-            opacity: 0.8;
-            color: var(--gray-600);
-        }
-        
-        .footer-about p {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-            color: var(--gray-600);
-        }
-        
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-        
-        .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: var(--gray-200);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-            color: var(--text-dark);
-        }
-        
-        .social-link:hover {
-            background-color: var(--secondary-color);
-            color: var(--text-light);
-            transform: translateY(-3px);
-        }
-        
-        .footer-links h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary-dark);
-        }
-        
-        .footer-link {
-            display: block;
-            margin-bottom: 0.75rem;
-            opacity: 0.8;
-            transition: var(--transition);
-            color: var(--gray-600);
-        }
-        
-        .footer-link:hover {
-            opacity: 1;
-            padding-left: 5px;
-            color: var(--secondary-color);
-        }
-        
-        .copyright {
-            text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--gray-300);
-            color: var(--gray-600);
-        }
-        
-        /* Responsive Styles */
-        @media (max-width: 992px) {
-            .story-container,
-            .founders-grid {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-            
-            .founder-card {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-            
-            .founder-image {
-                max-width: 300px;
-                margin: 0 auto;
-            }
-            
-            .timeline::before {
-                left: 30px;
-            }
-            
-            .timeline-content {
-                width: calc(100% - 60px);
-                margin-left: 60px !important;
-            }
-            
-            .timeline-content::before {
-                left: -10px !important;
-            }
-            
-            .timeline-date {
-                left: 0 !important;
-                right: auto !important;
-                width: 60px;
-                height: 60px;
-                border-radius: 50%;
-            }
-        }
-        
+        .page-hero { min-height: 55vh; display: flex; align-items: center; background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.3)), url('main.jpg') center/cover; color: var(--text-light); margin-bottom: 2rem; }
+        .page-hero-content { width:100%; text-align:center; padding-top: 90px; }
+        .page-hero-title { font-size: 2.5rem; margin-bottom: .5rem;}
+        .page-hero-subtitle { font-size: 1.15rem; }
+        .breadcrumbs { display: flex; gap: 0.5rem; align-items: center; justify-content: center; font-size: 0.9rem; opacity: .9; margin-bottom: 1.5rem;}
+        .breadcrumbs a { color: var(--text-light); }
+        .breadcrumbs i { font-size: 0.8rem;}
+        /* Story */
+        .our-story { padding: 3rem 0 2rem; }
+        .story-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;}
+        .story-image { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);}
+        .story-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
+        .story-content h2 { font-size: 2rem; color: var(--primary-dark);}
+        .story-content p { color: var(--gray-600); margin-bottom: 1rem;}
+        /* Founders */
+        .founders-section { padding: 3rem 0;}
+        .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem;}
+        .founder-card { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; align-items: center;}
+        .founder-image { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);}
+        .founder-image img { width: 100%; aspect-ratio: 1; object-fit: cover;}
+        .founder-info h3 { font-size: 1.3rem; color: var(--primary-dark);}
+        .founder-title { font-size: 1rem; margin-bottom: 1rem; color: var(--primary-color);}
+        .founder-bio p { color: var(--gray-600); margin-bottom: 0.7rem;}
+        /* Values */
+        .values-section { padding: 3rem 0; background: var(--gray-200);}
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 2rem;}
+        .value-card { background: var(--text-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-md); transition: var(--transition); text-align: center;}
+        .value-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg);}
+        .value-icon { width: 70px; height: 70px; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center; background: var(--primary-light); color: #fff; border-radius: 50%; font-size: 2rem;}
+        .value-card h3 { font-size: 1.2rem; color: var(--primary-dark);}
+        /* CTA */
+        .cta-section { padding: 3rem 0; background: var(--primary-dark); color: #fff; text-align: center;}
+        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
+        .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: var(--radius-md); background: var(--primary-color); color: #fff; border: none; cursor: pointer; font-weight: 500; transition: var(--transition);}
+        .btn:hover { background: var(--primary-dark);}
+        .btn-outline-light { background: transparent; color: #fff; border: 2px solid #fff;}
+        .btn-outline-light:hover { background: #fff; color: var(--primary-dark);}
+        .btn-light { background: #fff; color: var(--primary-dark);}
+        .btn-light:hover { background: #ffe082; }
+        /* Footer */
+        footer { background: #fff; color: var(--text-dark); padding: 2.5rem 0 1.2rem; border-top: 1px solid var(--gray-300);}
+        .footer-container { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 2rem;}
+        .footer-logo { font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary-color);}
+        .footer-logo span { color: var(--gray-600);}
+        .social-links { display: flex; gap: 0.8rem;}
+        .social-link { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-200); display: flex; align-items: center; justify-content: center;}
+        .social-link:hover { background: var(--secondary-color); color: #fff;}
+        .footer-links h3 { font-size: 1.15rem; margin-bottom: 1rem; color: var(--primary-dark);}
+        .footer-link { display: block; margin-bottom: 0.7rem; color: var(--gray-600);}
+        .footer-link:hover { color: var(--secondary-color);}
+        .copyright { text-align: center; margin-top: 2rem; color: var(--gray-600);}
+        /* RESPONSIVE */
+        @media (max-width: 1100px) { .container { max-width: 920px; } }
+        @media (max-width: 900px) { .container { max-width: 98%; } }
+        @media (max-width: 900px) { .story-container, .founders-grid { grid-template-columns: 1fr; gap: 1.5rem;} .founder-card { grid-template-columns: 1fr; text-align: center;} .founder-image { max-width: 220px; margin: 0 auto;} }
         @media (max-width: 768px) {
-            .nav-toggle {
-                display: block;
-            }
-            
+            .nav-toggle { display: block;}
             .nav-menu {
-                position: fixed;
-                top: 0;
-                right: -100%;
-                width: 70%;
-                height: 100vh;
-                flex-direction: column;
-                background-color: var(--text-light);
-                padding: 5rem 2rem 2rem;
-                transition: var(--transition);
-                box-shadow: var(--shadow-lg);
-                border-left: 1px solid var(--gray-300);
+                position: fixed; top: 0; right: -100%; width: 75vw; height: 100vh;
+                flex-direction: column; background: #fff; padding: 5rem 2rem 2rem;
+                transition: var(--transition); box-shadow: var(--shadow-lg);
+                border-left: 1px solid var(--gray-300); z-index:1200;
             }
-            
-            .nav-menu.active {
-                right: 0;
-            }
-            
-            .page-hero-title {
-                font-size: 2.5rem;
-            }
+            .nav-menu.active { right: 0;}
+            .nav-menu li { margin-bottom: 2rem;}
+            .page-hero-title { font-size: 2rem;}
+            .footer-container { grid-template-columns: 1fr 1fr;}
+        }
+        @media (max-width: 520px) {
+            .container { padding: 0 5px;}
+            .page-hero-title { font-size: 1.2rem;}
+            .section-title { font-size: 1.15rem;}
+            .footer-container { grid-template-columns: 1fr;}
+            .btn, .btn-light, .btn-outline-light { padding: 0.5rem 1rem; font-size: .96rem;}
         }
     </style>
 </head>
@@ -800,12 +127,14 @@
     <!-- Header & Navigation -->
     <header>
         <div class="container nav-container">
-            <div class="logo">
-                <h1>KVS <span>Spices & Traders</span></h1>
-            </div>
-            <button class="nav-toggle" id="navToggle">
-                <i class="fas fa-bars"></i>
-            </button>
+            <div class="logo" style="display:flex;align-items:center;gap:12px;">
+    <img src="logo.png" alt="KVS Logo" style="height:40px;width:auto;display:block;">
+    <h1 style="margin:0;font-size:1.5rem; font-weight:700; color:#2e7d32;">
+        KVS <span style="font-weight:300; opacity:0.8; color:#6c757d;">Spices & Traders</span>
+    </h1>
+</div>
+
+            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">Home</a></li>
@@ -818,7 +147,6 @@
             </nav>
         </div>
     </header>
-
     <!-- Page Hero -->
     <section class="page-hero">
         <div class="container page-hero-content">
@@ -831,7 +159,6 @@
             <p class="page-hero-subtitle">Discover the heritage and values behind KVS Spices & Traders since 1987</p>
         </div>
     </section>
-
     <!-- Our Story Section -->
     <section class="our-story">
         <div class="container">
@@ -848,13 +175,11 @@
             </div>
         </div>
     </section>
-
     <!-- Founders Section -->
     <section class="founders-section">
         <div class="container">
             <h2 class="section-title">Our Leadership</h2>
             <p class="section-subtitle">The visionaries behind KVS Spices & Traders</p>
-            
             <div class="founders-grid">
                 <div class="founder-card">
                     <div class="founder-image">
@@ -870,7 +195,6 @@
                         </div>
                     </div>
                 </div>
-                
                 <div class="founder-card">
                     <div class="founder-image">
                         <img src="abison.jpg" alt="Abison Joseph" />
@@ -888,65 +212,45 @@
             </div>
         </div>
     </section>
-
     <!-- Values Section -->
     <section class="values-section">
         <div class="container">
             <h2 class="section-title">Our Core Values</h2>
             <p class="section-subtitle">The principles that guide everything we do at KVS Spices & Traders</p>
-            
             <div class="values-grid">
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
+                    <div class="value-icon"><i class="fas fa-award"></i></div>
                     <h3>Quality</h3>
                     <p>We are committed to maintaining the highest standards in everything we do, from the spices we trade to the services we provide. Quality is never compromised.</p>
                 </div>
-                
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
+                    <div class="value-icon"><i class="fas fa-handshake"></i></div>
                     <h3>Integrity</h3>
                     <p>We conduct our business with honesty, transparency, and ethical practices. Our word is our bond, and we stand behind everything we sell and every service we offer.</p>
                 </div>
-                
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
+                    <div class="value-icon"><i class="fas fa-users"></i></div>
                     <h3>Community</h3>
                     <p>We believe in supporting the local community that has supported us. Fair dealings with farmers, responsible business practices, and community involvement are central to our mission.</p>
                 </div>
-                
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-tree"></i>
-                    </div>
+                    <div class="value-icon"><i class="fas fa-tree"></i></div>
                     <h3>Sustainability</h3>
                     <p>We are committed to environmentally sustainable practices in our operations and encourage the same among our partner farmers, ensuring the long-term health of Kerala's spice gardens.</p>
                 </div>
-                
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-lightbulb"></i>
-                    </div>
+                    <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
                     <h3>Innovation</h3>
                     <p>While respecting tradition, we constantly seek to improve our processes, services, and offerings through innovation and adoption of best practices.</p>
                 </div>
-                
                 <div class="value-card">
-                    <div class="value-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
+                    <div class="value-icon"><i class="fas fa-heart"></i></div>
                     <h3>Passion</h3>
                     <p>We are passionate about spices, Kerala's agricultural heritage, and providing exceptional experiences to our customers. This passion drives everything we do.</p>
                 </div>
             </div>
         </div>
     </section>
-
     <!-- Call to Action -->
     <section class="cta-section">
         <div class="container">
@@ -958,7 +262,6 @@
             </div>
         </div>
     </section>
-
     <!-- Footer -->
     <footer>
         <div class="container">
@@ -966,14 +269,12 @@
                 <div class="footer-about">
                     <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
                     <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
-                    
                     <div class="social-links">
                         <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
-                
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <a href="index.html" class="footer-link">Home</a>
@@ -983,7 +284,6 @@
                     <a href="about.html" class="footer-link">About Us</a>
                     <a href="index.html#contact" class="footer-link">Contact</a>
                 </div>
-                
                 <div class="footer-links">
                     <h3>Our Services</h3>
                     <a href="munnar.html" class="footer-link">Spice Trading</a>
@@ -993,31 +293,34 @@
                     <a href="munnar.html" class="footer-link">Farmer Support</a>
                 </div>
             </div>
-            
             <div class="copyright">
                 <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
-
     <script>
-        // Mobile Navigation Toggle
+        // Hamburger Navigation Toggle
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
-        
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
+            const icon = navToggle.querySelector('i');
+            if (navMenu.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
         });
-        
-        // Close mobile menu when clicking a nav link
-        const navLinks = document.querySelectorAll('.nav-menu a');
-        
-        navLinks.forEach(link => {
+        document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
             });
         });
     </script>
-    <script src="scripts.js"></script>
 </body>
 </html>
