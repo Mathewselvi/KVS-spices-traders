@@ -1,0 +1,1358 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KVS 20 Acre Branch - Excellence in Spice Trading</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
+
+    <style>
+        /* Variables */
+        :root {
+            --primary-color: #2e7d32;
+            --primary-light: #60ad5e;
+            --primary-dark: #005005;
+            --secondary-color: #e65100;
+            --secondary-light: #ff833a;
+            --secondary-dark: #ac1900;
+            --text-dark: #263238;
+            --text-light: #ffffff;
+            --bg-light: #ffffff;
+            --bg-dark: #ffffff;
+            --accent-light: #ffecb3;
+            --gray-100: #ffffff;
+            --gray-200: #f8f9fa;
+            --gray-300: #e9ecef;
+            --gray-600: #6c757d;
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+            --radius-sm: 4px;
+            --radius-md: 8px;
+            --radius-lg: 16px;
+            --transition: all 0.3s ease;
+            --container-width: 1200px;
+        }
+        
+        /* Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+        
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+        
+        ul {
+            list-style: none;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Container */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Typography */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+        
+        .section-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+        
+        /* Buttons */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .btn-secondary {
+            background-color: var(--secondary-color);
+        }
+        
+        .btn-secondary:hover {
+            background-color: var(--secondary-dark);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            color: var(--primary-color);
+            border: 2px solid var(--primary-color);
+        }
+        
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        /* Header - White Theme */
+        header {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--gray-300);
+        }
+        
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            z-index: 1001;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .logo span {
+            font-weight: 300;
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+        
+        nav {
+            display: flex;
+            align-items: center;
+        }
+        
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+        
+        .nav-menu a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+        
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+        
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+        
+        .nav-menu a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        
+        /* Page Hero */
+        .page-hero {
+            height: 60vh;
+            background-image: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.65)), url('main.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            text-align: center;
+            padding-top: 76px; /* Header height */
+        }
+        
+        .page-hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .page-hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+        
+        .page-hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+            opacity: 0.9;
+        }
+
+        /* Breadcrumbs */
+        .breadcrumbs {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+        }
+
+        .breadcrumbs i {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            opacity: 0.7;
+        }
+
+        /* Branch Overview */
+        .branch-overview {
+            padding: 5rem 0;
+        }
+        
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+        
+        .overview-image {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .overview-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .overview-image:hover img {
+            transform: scale(1.05);
+        }
+        
+        .overview-image::after {
+            content: 'KVS 20 Acre';
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            font-weight: 600;
+        }
+        
+        .overview-content h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+        
+        .overview-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+        }
+        
+        .key-facts {
+            margin-top: 2rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+        
+        .fact-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .fact-icon {
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-light);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .fact-text h4 {
+            font-size: 1.125rem;
+            margin-bottom: 0.25rem;
+            color: var(--primary-dark);
+        }
+        
+        /* Services Section */
+        .branch-services {
+            padding: 5rem 0;
+            background-color: var(--gray-200);
+        }
+        
+        .services-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .service-box {
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-box:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .service-info {
+            padding: 2rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .service-info h3 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+        
+        .service-info h3 i {
+            color: var(--secondary-color);
+        }
+        
+        .service-info p {
+            margin-bottom: 1rem;
+            color: var(--gray-600);
+            flex-grow: 1;
+        }
+        
+        .service-definition {
+            margin-top: auto;
+            background-color: var(--gray-100);
+            padding: 1rem;
+            border-radius: var(--radius-sm);
+            font-style: italic;
+            color: var(--gray-600);
+            font-size: 0.9rem;
+        }
+
+        /* Processing Facilities */
+        .processing-facilities {
+            padding: 5rem 0;
+        }
+        
+        .process-steps {
+            margin-top: 3rem;
+        }
+        
+        .process-step {
+            display: flex;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .process-step:last-child {
+            margin-bottom: 0;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 80px;
+            left: 40px;
+            width: 2px;
+            height: calc(100% - 40px);
+            background-color: var(--primary-light);
+        }
+        
+        .step-number {
+            width: 80px;
+            height: 80px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-right: 2rem;
+            flex-shrink: 0;
+        }
+        
+        .step-content {
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            flex: 1;
+        }
+        
+        .step-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+        }
+
+        /* Gallery Grid */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            height: 250px;
+            cursor: pointer;
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.05);
+        }
+        
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 1rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            color: var(--text-light);
+            opacity: 0;
+            transition: var(--transition);
+        }
+        
+        .gallery-item:hover .gallery-caption {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        .contact {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        
+        .contact-info h3 {
+            font-size: 1.75rem;
+            color: var(--primary-dark);
+            margin-bottom: 2rem;
+            position: relative;
+            padding-bottom: 0.75rem;
+        }
+        
+        .contact-info h3::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+        
+        .contact-detail {
+            display: flex;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact-detail i {
+            width: 50px;
+            height: 50px;
+            background-color: var(--primary-light);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+            flex-shrink: 0;
+            font-size: 1.25rem;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .contact-detail strong {
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+        
+        .business-hours {
+            margin: 2.5rem 0;
+            padding: 1.5rem;
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .business-hours h4 {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--gray-300);
+        }
+        
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0.5rem;
+        }
+        
+        .day {
+            font-weight: 500;
+        }
+        
+        .social-contact h4 {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            transition: var(--transition);
+        }
+        
+        .social-icon:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-5px);
+        }
+        
+        .map-container {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            background-color: var(--text-light);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .map-container iframe {
+            width: 100%;
+            height: 450px;
+            display: block;
+            border: 0;
+            flex-grow: 1;
+        }
+        
+        .map-directions {
+            padding: 1rem;
+            text-align: center;
+            background-color: var(--text-light);
+        }
+        
+        .map-directions .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 12px 24px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: var(--radius-md);
+            transition: var(--transition);
+            font-weight: 500;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .map-directions .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn-light {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+        
+        .btn-light:hover {
+            background-color: var(--accent-light);
+        }
+        
+        .btn-outline-light {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+        
+        .btn-outline-light:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+
+        /* Footer - White Theme */
+        footer {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--gray-300);
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+        
+        .footer-logo span {
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+        
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+        
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+        
+        .footer-links h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+        
+        .footer-link {
+            display: block;
+            margin-bottom: 0.75rem;
+            opacity: 0.8;
+            transition: var(--transition);
+            color: var(--gray-600);
+        }
+        
+        .footer-link:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--secondary-color);
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-300);
+            color: var(--gray-600);
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .gallery-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .key-facts {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .map-container {
+                order: -1;
+                height: 500px;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 70%;
+                height: 100vh;
+                flex-direction: column;
+                background-color: var(--text-light);
+                padding: 5rem 2rem 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+                border-left: 1px solid var(--gray-300);
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .key-facts {
+                grid-template-columns: 1fr;
+            }
+            
+            .process-step {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .process-step:not(:last-child)::after {
+                left: 40px;
+                top: 80px;
+                width: 2px;
+                height: 40px;
+            }
+            
+            .step-number {
+                margin-right: 0;
+                margin-bottom: 1.5rem;
+            }
+            
+            .map-container {
+                height: 400px;
+            }
+            
+            .map-container iframe {
+                height: 350px;
+            }
+            
+            .hours-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .day {
+                font-weight: 600;
+                color: var(--primary-dark);
+            }
+            
+            .time {
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px dashed var(--gray-300);
+            }
+            
+            .hours-grid div:last-child {
+                border-bottom: none;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .gallery-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .map-container {
+                height: 350px;
+            }
+            
+            .map-container iframe {
+                height: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="container nav-container">
+            <div class="logo">
+                <h1>KVS <span>Spices & Traders</span></h1>
+            </div>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul class="nav-menu" id="navMenu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="munnar.html" class="active">20 Acre Branch</a></li>
+                    <li><a href="anachal.html">Anachal Branch</a></li>
+                    <li><a href="tours.html">Tour Packages</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+        <div class="container page-hero-content">
+            <div class="breadcrumbs">
+                <a href="index.html">Home</a>
+                <i class="fas fa-chevron-right"></i>
+                <span>20 Acre Branch</span>
+            </div>
+            <h1 class="page-hero-title">KVS 20 Acre Branch</h1>
+            <p class="page-hero-subtitle">Our flagship facility in the heart of Kerala's spice country</p>
+        </div>
+    </section>
+
+    <!-- Branch Overview -->
+    <section class="branch-overview">
+        <div class="container">
+            <div class="overview-grid">
+                <div class="overview-image">
+                    <img src="main.jpg" alt="KVS 20 Acre Facility" data-lightbox="true" />
+                </div>
+                <div class="overview-content">
+                    <h2>Main Facility – Excellence in Spice Trading</h2>
+                    <p>Our flagship facility at 20 Acre is the heart of KVS Spices & Traders, established in 1987. This expansive property serves as our primary spice processing and trading center, where we connect local farmers with global markets.</p>
+                    <p>Nestled among the lush hills of Kerala, our facility combines traditional knowledge with modern facilities to ensure the highest quality spices for our customers around the world.</p>
+                    
+                    <div class="key-facts">
+                        <div class="fact-item">
+                            <div class="fact-icon">
+                                <i class="fas fa-calendar-alt"></i>
+                            </div>
+                            <div class="fact-text">
+                                <h4>Established</h4>
+                                <p>1987</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fact-item">
+                            <div class="fact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="fact-text">
+                                <h4>Location</h4>
+                                <p>Bisonvalley Road, 20 Acre</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fact-item">
+                            <div class="fact-icon">
+                                <i class="fas fa-ruler-combined"></i>
+                            </div>
+                            <div class="fact-text">
+                                <h4>Property</h4>
+                                <p>20 Acre</p>
+                            </div>
+                        </div>
+                        
+                        <div class="fact-item">
+                            <div class="fact-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="fact-text">
+                                <h4>Farmer Network</h4>
+                                <p>500+ Local Farmers</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="branch-services">
+        <div class="container">
+            <h2 class="section-title">Our Services</h2>
+            <p class="section-subtitle">Comprehensive spice trading and processing services at our 20 Acre facility</p>
+            
+            <div class="services-wrapper">
+                <div class="service-box">
+                    <div class="service-info">
+                        <h3><i class="fas fa-balance-scale"></i> Spice Buying</h3>
+                        <p>We purchase premium quality cardamom, pepper, cloves, nutmeg, and dry cocoa directly from farmers at competitive prices, ensuring fair value for their produce.</p>
+                        <div class="service-definition">
+                            <strong>Definition:</strong> The process of directly sourcing spices from local farmers at fair market prices, eliminating middlemen and ensuring quality through careful inspection and grading.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-info">
+                        <h3><i class="fas fa-sort-amount-up"></i> Cardamom Grading</h3>
+                        <p>Our expert graders sort and classify cardamom based on size, color, and quality, ensuring proper market categorization and optimal pricing for farmers.</p>
+                        <div class="service-definition">
+                            <strong>Definition:</strong> A specialized process where cardamom is categorized into different grades (Extra Bold, Bold, Medium, Small) based on size, color, aroma, and oil content to determine market value.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-info">
+                        <h3><i class="fas fa-truck-loading"></i> Farmer Produce Collection</h3>
+                        <p>We provide a central collection point for farmer produce, making it convenient for small and large-scale farmers to sell their harvest directly to us.</p>
+                        <div class="service-definition">
+                            <strong>Definition:</strong> A centralized system where farmers can bring their harvest for assessment, weighing, and immediate payment, reducing transportation costs and time for local producers.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-info">
+                        <h3><i class="fas fa-temperature-high"></i> Cardamom Drying Unit</h3>
+                        <p>Our state-of-the-art drying facility ensures proper moisture content for cardamom, preserving its essential oils, flavor, and shelf life.</p>
+                        <div class="service-definition">
+                            <strong>Definition:</strong> A controlled environment process that reduces moisture content in cardamom to 10-11% using calibrated temperature and humidity settings to preserve color, flavor, and aromatic compounds.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-info">
+                        <h3><i class="fas fa-store"></i> Grocery Store</h3>
+                        <p>Visit our on-site grocery store for premium spices and local products available directly from our farm to your kitchen.</p>
+                        <div class="service-definition">
+                            <strong>Definition:</strong> A retail outlet offering freshly processed spices, local agricultural products, and specialty items with direct farm-to-consumer traceability for guaranteed quality and authenticity.
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="service-box">
+                    <div class="service-info">
+                        <h3><i class="fas fa-boxes"></i> Wholesale Distribution</h3>
+                        <p>We supply high-quality spices to retailers, exporters, and bulk buyers across India and internationally through our established distribution network.</p>
+                        <div class="service-definition">
+                            <strong>Definition:</strong> Business-to-business supply of large quantities of graded and processed spices with quality certification, competitive pricing, and reliable logistics support for commercial clients.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Processing Facilities -->
+    <section class="processing-facilities">
+        <div class="container">
+            <h2 class="section-title">Our Cardamom Processing</h2>
+            <p class="section-subtitle">From harvest to package, discover our meticulous cardamom processing workflow</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Collection & Inspection</h3>
+                        <p>Freshly harvested cardamom capsules are collected from local farmers and undergo thorough inspection for quality, maturity, and consistency. Our skilled inspectors examine each batch to ensure only the finest cardamom enters our processing chain.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Washing & Cleaning</h3>
+                        <p>The collected cardamom capsules are gently washed to remove dust, soil, and other impurities. This process is carefully managed to preserve the delicate essential oils that give cardamom its distinctive flavor and aroma.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Precision Drying</h3>
+                        <p>Our state-of-the-art drying facility uses controlled temperature and humidity to bring the moisture content to the optimal level (10-11%). This precision drying preserves the cardamom's natural green color, flavor compounds, and essential oils.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Grading & Sorting</h3>
+                        <p>Dried cardamom capsules are meticulously sorted and graded according to size, color, and quality. Our expert graders use both traditional knowledge and modern standards to classify the cardamom into various grades for different market segments.</p>
+                    </div>
+                </div>
+                
+                <div class="process-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Packaging & Distribution</h3>
+                        <p>The graded cardamom is packaged in moisture-proof, airtight containers to maintain freshness and quality. From here, it's distributed to our retail outlets, wholesale customers, and export partners worldwide, carrying the distinctive KVS quality guarantee.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section class="facility-gallery" style="padding: 5rem 0; background-color: var(--gray-200);">
+        <div class="container">
+            <h2 class="section-title">Facility Gallery</h2>
+            <p class="section-subtitle">Explore our 20 Acre facility through these images</p>
+            
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="main.jpg" alt="Grocery Store" />
+                    <div class="gallery-caption">Store</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="grosery.jpg" alt="Spice Buying" />
+                    <div class="gallery-caption">Grocery</div>
+                </div>
+                
+                <div class="gallery-item">
+                    <img src="malancherak.jpg" alt="Cardamom Sorting" />
+                    <div class="gallery-caption">Spice buying area</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="sorting.jpg" alt="Cardamom Sorting" />
+                    <div class="gallery-caption">Advanced Cardamom Sorting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="sorting.jpg" alt="Cardamom Sorting" />
+                    <div class="gallery-caption">Advanced Cardamom Sorting</div>
+                </div>
+                <div class="gallery-item">
+                    <img src="sorting.jpg" alt="Cardamom Sorting" />
+                    <div class="gallery-caption">Advanced Cardamom Sorting</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contact Our 20 Acre Branch</h2>
+            <p class="section-subtitle">Get in touch with our main facility for spice trading and processing services</p>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>20 Acre Branch Information</h3>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <p><strong>Main Address:</strong> Spice Valley Road, 20 Acre, Munnar, Kerala</p>
+                            <p><strong>Facility Type:</strong> Spice Processing & Trading Center</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <p><strong>Processing Unit:</strong> +91 XXXXX XXXXX</p>
+                            <p><strong>Trading Office:</strong> +91 XXXXX XXXXX</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-detail">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <p><strong>Trading Inquiries:</strong> trading@kvsspices.com</p>
+                            <p><strong>Farmer Services:</strong> farmers@kvsspices.com</p>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h4><i class="far fa-clock"></i> Operating Hours</h4>
+                        <div class="hours-grid">
+                            <div class="day">Monday - Friday:</div>
+                            <div class="time">8:00 AM - 6:00 PM</div>
+                            
+                            <div class="day">Saturday:</div>
+                            <div class="time">8:00 AM - 5:00 PM</div>
+                            
+                            <div class="day">Sunday:</div>
+                            <div class="time">9:00 AM - 3:00 PM</div>
+                        </div>
+                    </div>
+                    
+                    <div class="social-contact">
+                        <h4>Connect With Us</h4>
+                        <div class="social-icons">
+                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="map-container">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125525.30030296426!2d77.00174583217794!3d10.085069974947842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0799794d099a6d%3A0x63250e5553c7e0c!2sMunnar%2C%20Kerala!5e0!3m2!1sen!2sin!4v1621500015000!5m2!1sen!2sin" 
+                        width="100%" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    
+                    <div class="map-directions">
+                        <a href="https://goo.gl/maps/YourActualGoogleMapsLink" class="btn" target="_blank">
+                            <i class="fas fa-directions"></i> Get Directions to 20 Acre
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Experience the KVS Difference</h2>
+            <p>Visit our 20 Acre facility to see our premium spice processing operations, learn about sustainable farming practices, or discuss partnership opportunities with our team.</p>
+            <div class="cta-buttons">
+                <a href="#contact" class="btn btn-light">Contact Us</a>
+                <a href="anachal.html" class="btn btn-outline-light">Visit Our Retail Store</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
+                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
+                    
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <a href="index.html" class="footer-link">Home</a>
+                    <a href="munnar.html" class="footer-link">20 Acre Branch</a>
+                    <a href="anachal.html" class="footer-link">Anachal Branch</a>
+                    <a href="tours.html" class="footer-link">Tour Packages</a>
+                    <a href="about.html" class="footer-link">About Us</a>
+                    <a href="#contact" class="footer-link">Contact</a>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Our Services</h3>
+                    <a href="munnar.html" class="footer-link">Spice Trading</a>
+                    <a href="munnar.html" class="footer-link">Cardamom Processing</a>
+                    <a href="tours.html" class="footer-link">Tour Booking</a>
+                    <a href="anachal.html" class="footer-link">Grocery Store</a>
+                    <a href="munnar.html" class="footer-link">Farmer Support</a>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Close mobile menu when clicking a nav link
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                navMenu.classList.remove('active');
+            });
+        });
+        
+        // Smooth scrolling for all anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+    <script src="scripts.js"></script>
+</body>
+</html>

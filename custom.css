@@ -1,0 +1,832 @@
+/**
+ * KVS Spices & Traders - Custom CSS
+ * Additional styles and enhancements for the website
+ */
+
+/* =================== 
+   Animation Effects 
+   =================== */
+
+/* Fade In Animation for .animate-on-scroll elements */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for grid items */
+.animate-grid-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-grid-item.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Apply staggered delay to grid items */
+.animate-grid-item:nth-child(1) { transition-delay: 0.1s; }
+.animate-grid-item:nth-child(2) { transition-delay: 0.2s; }
+.animate-grid-item:nth-child(3) { transition-delay: 0.3s; }
+.animate-grid-item:nth-child(4) { transition-delay: 0.4s; }
+.animate-grid-item:nth-child(5) { transition-delay: 0.5s; }
+.animate-grid-item:nth-child(6) { transition-delay: 0.6s; }
+.animate-grid-item:nth-child(7) { transition-delay: 0.7s; }
+.animate-grid-item:nth-child(8) { transition-delay: 0.8s; }
+
+/* Scale animation for hover effects */
+.scale-on-hover {
+    transition: transform 0.3s ease-out;
+}
+
+.scale-on-hover:hover {
+    transform: scale(1.05);
+}
+
+/* =================== 
+   Enhanced Components 
+   =================== */
+
+/* Sticky Header */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(46, 125, 50, 0.95);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Back to Top Button */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Lightbox */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    border: 5px solid #fff;
+    border-radius: 4px;
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #fff;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+/* Form Validation Styles */
+.form-control.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Testimonial Carousel */
+.testimonial-carousel {
+    position: relative;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--gray-300);
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* =================== 
+   Enhanced Sections 
+   =================== */
+
+/* Hero Section Enhancements */
+.hero, .page-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after, .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, var(--bg-light) 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Card Hover Effects */
+.card-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title Enhancement */
+.enhanced-title {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.enhanced-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: var(--secondary-color);
+}
+
+/* Decorative Elements */
+.leaf-decoration {
+    position: relative;
+}
+
+.leaf-decoration::before {
+    content: '☘️';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 2rem;
+    opacity: 0.2;
+    transform: rotate(-15deg);
+}
+
+/* =================== 
+   Responsive Enhancements 
+   =================== */
+
+@media (max-width: 992px) {
+    .hide-on-tablet {
+        display: none !important;
+    }
+    
+    .full-width-on-tablet {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    .full-width-on-mobile {
+        width: 100% !important;
+    }
+    
+    .text-center-on-mobile {
+        text-align: center !important;
+    }
+    
+    .stack-on-mobile {
+        flex-direction: column !important;
+    }
+    
+    .hero-title, .page-hero-title {
+        font-size: 2rem !important;
+    }
+}
+
+/* =================== 
+   Print Styles 
+   =================== */
+
+@media print {
+    header, footer, .nav-toggle, #back-to-top {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: #000;
+        background-color: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+}
+/**
+ * KVS Spices & Traders - Custom CSS - White Theme
+ * Additional styles and enhancements for the website
+ */
+
+/* =================== 
+   Animation Effects 
+   =================== */
+
+/* Fade In Animation for .animate-on-scroll elements */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.animated {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for grid items */
+.animate-grid-item {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.animate-grid-item.animated {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+/* Apply staggered delay to grid items */
+.animate-grid-item:nth-child(1) { transition-delay: 0.1s; }
+.animate-grid-item:nth-child(2) { transition-delay: 0.2s; }
+.animate-grid-item:nth-child(3) { transition-delay: 0.3s; }
+.animate-grid-item:nth-child(4) { transition-delay: 0.4s; }
+.animate-grid-item:nth-child(5) { transition-delay: 0.5s; }
+.animate-grid-item:nth-child(6) { transition-delay: 0.6s; }
+.animate-grid-item:nth-child(7) { transition-delay: 0.7s; }
+.animate-grid-item:nth-child(8) { transition-delay: 0.8s; }
+
+/* Scale animation for hover effects */
+.scale-on-hover {
+    transition: transform 0.3s ease-out;
+}
+
+.scale-on-hover:hover {
+    transform: scale(1.05);
+}
+
+/* =================== 
+   Enhanced Components 
+   =================== */
+
+/* Sticky Header - White Theme */
+.sticky-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background-color: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+    animation: slideDown 0.3s ease-out;
+    border-bottom: 1px solid #e9ecef;
+}
+
+@keyframes slideDown {
+    from {
+        transform: translateY(-100%);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+/* Back to Top Button - White Theme */
+#back-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: #2e7d32;
+    color: #ffffff;
+    border: none;
+    font-size: 1.25rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    z-index: 999;
+}
+
+#back-to-top.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+#back-to-top:hover {
+    background-color: #005005;
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+}
+
+/* Gallery Lightbox - White Theme */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.95);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+}
+
+.lightbox-image {
+    max-width: 100%;
+    max-height: 80vh;
+    display: block;
+    border: 5px solid #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.lightbox-caption {
+    position: absolute;
+    bottom: -40px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    color: #263238;
+    padding: 10px;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border-radius: 4px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.lightbox-close {
+    position: absolute;
+    top: -40px;
+    right: 0;
+    color: #263238;
+    font-size: 2rem;
+    cursor: pointer;
+    background-color: #ffffff;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Validation Styles */
+.form-control.error {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25);
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Testimonial Carousel - White Theme */
+.testimonial-carousel {
+    position: relative;
+}
+
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 2rem;
+}
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #e9ecef;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.carousel-dot.active {
+    background-color: #2e7d32;
+    transform: scale(1.2);
+}
+
+/* =================== 
+   Enhanced Sections 
+   =================== */
+
+/* Hero Section Enhancements - White Theme */
+.hero, .page-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::after, .page-hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(to top, #ffffff 0%, transparent 100%);
+    pointer-events: none;
+}
+
+/* Card Hover Effects - White Theme */
+.card-hover-effect {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #ffffff;
+}
+
+.card-hover-effect:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Title Enhancement */
+.enhanced-title {
+    position: relative;
+    padding-bottom: 1.5rem;
+}
+
+.enhanced-title::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background-color: #e65100;
+}
+
+/* Decorative Elements */
+.leaf-decoration {
+    position: relative;
+}
+
+.leaf-decoration::before {
+    content: '☘️';
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    font-size: 2rem;
+    opacity: 0.2;
+    transform: rotate(-15deg);
+}
+
+/* =================== 
+   White Theme Specific Styles 
+   =================== */
+
+/* Navigation Menu Mobile - White Theme */
+.nav-menu {
+    background-color: #ffffff;
+    border-left: 1px solid #e9ecef;
+}
+
+.nav-menu a {
+    color: #263238;
+}
+
+.nav-menu a:hover,
+.nav-menu a.active {
+    color: #2e7d32;
+}
+
+/* Cards and Components - White Theme */
+.card, .service-box, .feature-card, .product-card, .tour-card {
+    background-color: #ffffff;
+    border: 1px solid #f8f9fa;
+}
+
+/* Buttons maintain their original colors */
+.btn {
+    /* Keep original button colors */
+}
+
+.btn-secondary {
+    /* Keep original secondary button colors */
+}
+
+/* Section Backgrounds - White Theme */
+.section-white {
+    background-color: #ffffff;
+}
+
+.section-light-gray {
+    background-color: #f8f9fa;
+}
+
+/* Footer - White Theme specific adjustments */
+footer {
+    background-color: #ffffff;
+    color: #263238;
+    border-top: 1px solid #e9ecef;
+}
+
+.footer-logo {
+    color: #2e7d32;
+}
+
+.footer-logo span {
+    color: #6c757d;
+}
+
+.footer-about p,
+.footer-link {
+    color: #6c757d;
+}
+
+.footer-links h3 {
+    color: #005005;
+}
+
+.social-link {
+    background-color: #f8f9fa;
+    color: #263238;
+}
+
+.social-link:hover {
+    background-color: #e65100;
+    color: #ffffff;
+}
+
+/* Copyright */
+.copyright {
+    color: #6c757d;
+    border-top: 1px solid #e9ecef;
+}
+
+/* =================== 
+   Responsive Enhancements 
+   =================== */
+
+@media (max-width: 992px) {
+    .hide-on-tablet {
+        display: none !important;
+    }
+    
+    .full-width-on-tablet {
+        width: 100% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .hide-on-mobile {
+        display: none !important;
+    }
+    
+    .full-width-on-mobile {
+        width: 100% !important;
+    }
+    
+    .text-center-on-mobile {
+        text-align: center !important;
+    }
+    
+    .stack-on-mobile {
+        flex-direction: column !important;
+    }
+    
+    .hero-title, .page-hero-title {
+        font-size: 2rem !important;
+    }
+
+    /* Mobile Navigation - White Theme */
+    .nav-menu {
+        background-color: #ffffff;
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    }
+}
+
+/* =================== 
+   Print Styles 
+   =================== */
+
+@media print {
+    header, footer, .nav-toggle, #back-to-top {
+        display: none !important;
+    }
+    
+    body {
+        font-size: 12pt;
+        color: #000;
+        background-color: #fff;
+    }
+    
+    a {
+        text-decoration: underline;
+        color: #000;
+    }
+    
+    .container {
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .page-break {
+        page-break-before: always;
+    }
+}
+
+/* =================== 
+   Enhanced Interactions 
+   =================== */
+
+/* Smooth Focus States */
+.btn:focus,
+.form-control:focus,
+.nav-menu a:focus {
+    outline: 2px solid #2e7d32;
+    outline-offset: 2px;
+}
+
+/* Loading States */
+.loading {
+    position: relative;
+    pointer-events: none;
+}
+
+.loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 20px;
+    height: 20px;
+    margin: -10px 0 0 -10px;
+    border: 2px solid #f8f9fa;
+    border-top: 2px solid #2e7d32;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Enhanced Tab Styles - White Theme */
+.tab-btn {
+    background-color: #f8f9fa;
+    color: #263238;
+    border: 1px solid #e9ecef;
+}
+
+.tab-btn.active {
+    background-color: #2e7d32;
+    color: #ffffff;
+    border-color: #2e7d32;
+}
+
+/* Enhanced Filter Buttons - White Theme */
+.filter-btn {
+    background-color: #ffffff;
+    color: #263238;
+    border: 1px solid #e9ecef;
+}
+
+.filter-btn.active {
+    background-color: #e65100;
+    color: #ffffff;
+    border-color: #e65100;
+}
