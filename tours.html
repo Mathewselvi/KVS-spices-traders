@@ -4,164 +4,989 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KVS Tours - Experience Kerala's Beauty</title>
+    
+    <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ================================
+           CSS VARIABLES & ROOT STYLES
+        ================================ */
         :root {
+            /* Primary Colors */
             --primary-color: #2e7d32;
+            --primary-light: #60ad5e;
             --primary-dark: #005005;
+            
+            /* Secondary Colors */
             --secondary-color: #e65100;
+            --secondary-light: #ff833a;
             --secondary-dark: #ac1900;
+            
+            /* Text Colors */
             --text-dark: #263238;
-            --text-light: #fff;
+            --text-light: #ffffff;
+            
+            /* Background Colors */
+            --bg-light: #ffffff;
+            --gray-100: #ffffff;
             --gray-200: #f8f9fa;
             --gray-300: #e9ecef;
             --gray-600: #6c757d;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+            
+            /* Border Radius */
+            --radius-sm: 4px;
             --radius-md: 8px;
-            --shadow-md: 0 4px 8px rgba(0,0,0,.06);
-            --shadow-lg: 0 10px 15px rgba(0,0,0,.08);
-            --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            --radius-lg: 16px;
+            
+            /* Transitions & Layout */
+            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
             --container-width: 1200px;
         }
-        * { margin:0; padding:0; box-sizing:border-box;}
-        body { font-family: 'Poppins', sans-serif; background: #fff; color: var(--text-dark);}
-        a { color: inherit; text-decoration: none; transition: var(--transition);}
-        ul { list-style: none;}
-        img { max-width: 100%; height: auto; display: block; }
-        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; padding: 0 15px; }
+
+        /* ================================
+           GLOBAL RESET & BASE STYLES
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ================================
+           LAYOUT & CONTAINER STYLES
+        ================================ */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ================================
+           TYPOGRAPHY STYLES
+        ================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* ================================
+           BUTTON COMPONENTS
+        ================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-light {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+
+        .btn-light:hover {
+            background-color: var(--gray-200);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-light {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+
+        /* ================================
+           HEADER & NAVIGATION
+        ================================ */
         header {
-            background: var(--text-light); color: var(--text-dark); padding: 1rem 0;
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            box-shadow: var(--shadow-md); border-bottom: 1px solid var(--gray-300);
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--gray-300);
+            transition: var(--transition);
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center;}
-        .logo h1 { font-size: 1.5rem; font-weight: 700; color: var(--primary-color);}
-        .logo span { opacity: 0.8; color: var(--gray-600);}
-        nav { display: flex; align-items: center;}
-        .nav-menu { display: flex; gap: 1.5rem;}
-        .nav-menu a { font-weight: 500; padding: 0.5rem 0;}
-        .nav-toggle { display: none; background: none; border: none; color: var(--text-dark); font-size: 1.7rem; cursor: pointer; z-index:1001;}
-        .nav-menu a.active, .nav-menu a:hover { color: var(--primary-color);}
-        .section-title { font-size: 2.25rem; text-align: center; color: var(--primary-dark); margin-bottom: 1rem; }
-        .section-subtitle { text-align: center; color: var(--gray-600); margin-bottom: 2rem;}
-        /* Hero */
-        .page-hero { min-height: 55vh; display: flex; align-items: center; background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.3)), url('anachalimg.jpg') center/cover; color: var(--text-light); margin-bottom: 2rem; }
-        .page-hero-content { width:100%; text-align:center; padding-top: 90px; }
-        .page-hero-title { font-size: 2.5rem; margin-bottom: .5rem;}
-        .page-hero-subtitle { font-size: 1.15rem; }
-        .breadcrumbs { display: flex; gap: 0.5rem; align-items: center; justify-content: center; font-size: 0.9rem; opacity: .9; margin-bottom: 1.5rem;}
-        .breadcrumbs a { color: var(--text-light); }
-        .breadcrumbs i { font-size: 0.8rem;}
-        /* Tour Intro */
-        .tour-intro { padding: 3rem 0 2rem; }
-        .intro-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;}
-        .intro-img { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);}
-        .intro-img img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-        .intro-content h2 { font-size: 2rem; color: var(--primary-dark);}
-        .intro-content p { color: var(--gray-600); margin-bottom: 1rem;}
-        .intro-feature { display: flex; align-items: flex-start; margin-bottom: 0.8rem;}
-        .intro-feature i { color: var(--secondary-color); margin-right: .75rem;}
-        /* Tour Grid */
-        .tour-categories { padding: 4rem 0; background: var(--gray-200);}
-        .filter-buttons { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 2rem;}
-        .filter-btn { background: var(--text-light); border-radius: var(--radius-md); padding: 0.65rem 1.3rem; box-shadow: var(--shadow-md); cursor: pointer; border: none; font-weight: 500; }
-        .filter-btn.active { background: var(--secondary-color); color: var(--text-light);}
-        .tour-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(300px,1fr)); gap: 2rem;}
-        .tour-card { background: #fff; border-radius: var(--radius-md); box-shadow: var(--shadow-md); overflow: hidden; transition: var(--transition);}
-        .tour-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg);}
-        .tour-img { position: relative; height: 220px;}
-        .tour-img img { width: 100%; height: 100%; object-fit: cover;}
-        .tour-category { position: absolute; top: 1rem; right: 1rem; background: var(--secondary-color); color: #fff; padding: 0.5rem 1rem; border-radius: 5px; font-size: 0.95rem;}
-        .tour-content { padding: 1.25rem;}
-        .tour-title { font-size: 1.2rem; color: var(--primary-dark); margin-bottom: .5rem;}
-        .tour-description { color: var(--gray-600);}
-        /* Tour Highlights */
-        .tour-highlights { padding: 3rem 0;}
-        .highlights-grid { display: grid; grid-template-columns: repeat(auto-fit,minmax(260px,1fr)); gap: 2rem;}
-        .highlight-card { padding: 1.3rem; border-radius: var(--radius-md); background: #fff; box-shadow: var(--shadow-md); text-align: center;}
-        .highlight-icon { width: 60px; height: 60px; margin: 0 auto 1rem; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.3rem;}
-        .highlight-title { font-size: 1.15rem; margin-bottom: .5rem; color: var(--primary-dark);}
-        /* Booking */
-        .booking-process { padding: 3rem 0; }
-        .process-steps { display: flex; justify-content: space-between; margin-top: 2rem; flex-wrap: wrap; gap: 1.5rem;}
-        .process-step { flex: 1; min-width: 180px; background: var(--gray-200); border-radius: var(--radius-md); padding: 1.5rem; text-align: center;}
-        .step-number { width: 50px; height: 50px; background: var(--primary-color); color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; margin: 0 auto 1rem;}
-        .step-title { color: var(--primary-dark); font-size: 1.08rem; margin-bottom: .5rem;}
-        .step-description { color: var(--gray-600);}
-        /* FAQ */
-        .faq-section { padding: 3rem 0; background: var(--gray-200);}
-        .faq-container { max-width: 800px; margin: 0 auto;}
-        .faq-item { margin-bottom: 1rem; background: #fff; border-radius: var(--radius-md);}
-        .faq-question { padding: 1rem 1.5rem; display: flex; justify-content: space-between; align-items: center; cursor: pointer; font-weight: 500; color: var(--primary-dark);}
-        .faq-answer { padding: 0 1.5rem; max-height: 0; overflow: hidden; color: var(--gray-600); transition: max-height .4s;}
-        .faq-item.active .faq-answer { max-height: 180px; padding: 0 1.5rem 1rem;}
-        .faq-question i { transition: transform 0.2s;}
-        .faq-item.active .faq-question i { transform: rotate(180deg);}
-        /* CTA */
-        .cta-section { padding: 3rem 0; background: var(--primary-dark); color: #fff; text-align: center;}
-        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
-        .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: var(--radius-md); background: var(--primary-color); color: #fff; border: none; cursor: pointer; font-weight: 500; transition: var(--transition);}
-        .btn:hover { background: var(--primary-dark);}
-        .btn-outline-light { background: transparent; color: #fff; border: 2px solid #fff;}
-        .btn-outline-light:hover { background: #fff; color: var(--primary-dark);}
-        .btn-light { background: #fff; color: var(--primary-dark);}
-        .btn-light:hover { background: #ffe082; }
-        /* Footer */
-        footer { background: #fff; color: var(--text-dark); padding: 2.5rem 0 1.2rem; border-top: 1px solid var(--gray-300);}
-        .footer-container { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 2rem;}
-        .footer-logo { font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary-color);}
-        .footer-logo span { color: var(--gray-600);}
-        .social-links { display: flex; gap: 0.8rem;}
-        .social-link { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-200); display: flex; align-items: center; justify-content: center;}
-        .social-link:hover { background: var(--secondary-color); color: #fff;}
-        .footer-links h3 { font-size: 1.15rem; margin-bottom: 1rem; color: var(--primary-dark);}
-        .footer-link { display: block; margin-bottom: 0.7rem; color: var(--gray-600);}
-        .footer-link:hover { color: var(--secondary-color);}
-        .copyright { text-align: center; margin-top: 2rem; color: var(--gray-600);}
-        /* RESPONSIVE */
-        @media (max-width:1100px) { .container { max-width: 920px; } }
-        @media (max-width:900px) { .container { max-width: 98%; } }
-        @media (max-width: 900px) {
-            .intro-grid { grid-template-columns: 1fr; gap: 1.5rem;}
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
-        @media (max-width: 768px) {
-            .nav-toggle { display: block;}
-            .nav-menu {
-                position: fixed; top: 0; right: -100%; width: 75vw; height: 100vh;
-                flex-direction: column; background: #fff; padding: 5rem 2rem 2rem;
-                transition: var(--transition); box-shadow: var(--shadow-lg);
-                border-left: 1px solid var(--gray-300); z-index:1200;
+
+        .logo {
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            font-weight: 300;
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ================================
+           PAGE HERO SECTION
+        ================================ */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('anachalimg.jpg') center/cover;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .page-hero-content {
+            width: 100%;
+            text-align: center;
+            padding-top: 90px;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-light);
+        }
+
+        .breadcrumbs i {
+            font-size: 0.8rem;
+        }
+
+        /* ================================
+           TOUR INTRODUCTION SECTION
+        ================================ */
+        .tour-intro {
+            padding: 5rem 0;
+        }
+
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-img {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .intro-img:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .intro-img img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .intro-img:hover img {
+            transform: scale(1.05);
+        }
+
+        .intro-content h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .intro-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .intro-features {
+            margin-top: 2rem;
+        }
+
+        .intro-feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .intro-feature i {
+            color: var(--secondary-color);
+            margin-right: 0.75rem;
+            margin-top: 0.25rem;
+            font-size: 1.1rem;
+        }
+
+        .intro-feature p {
+            margin: 0;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* ================================
+           TOUR CATEGORIES SECTION
+        ================================ */
+        .tour-categories {
+            padding: 5rem 0;
+            background-color: var(--gray-200);
+        }
+
+        .filter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 3rem;
+        }
+
+        .filter-btn {
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            padding: 0.75rem 1.5rem;
+            box-shadow: var(--shadow-md);
+            cursor: pointer;
+            border: none;
+            font-weight: 500;
+            font-family: 'Poppins', sans-serif;
+            color: var(--text-dark);
+            transition: var(--transition);
+            font-size: 0.95rem;
+        }
+
+        .filter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .filter-btn.active {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+        }
+
+        .tour-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .tour-card {
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            overflow: hidden;
+            transition: var(--transition);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tour-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .tour-img {
+            position: relative;
+            height: 240px;
+            overflow: hidden;
+        }
+
+        .tour-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .tour-card:hover .tour-img img {
+            transform: scale(1.05);
+        }
+
+        .tour-category {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-sm);
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        .tour-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .tour-title {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .tour-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* ================================
+           TOUR HIGHLIGHTS SECTION
+        ================================ */
+        .tour-highlights {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .highlights-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .highlights-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .highlights-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .highlight-card {
+            padding: 2rem;
+            border-radius: var(--radius-md);
+            background-color: var(--text-light);
+            box-shadow: var(--shadow-md);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .highlight-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .highlight-card:hover .highlight-icon {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .highlight-title {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            font-weight: 600;
+        }
+
+        .highlight-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ================================
+           BOOKING PROCESS SECTION
+        ================================ */
+        .booking-process {
+            padding: 5rem 0;
+            background-color: var(--gray-200);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .process-step {
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .process-step:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0 auto 1.5rem;
+            transition: var(--transition);
+        }
+
+        .process-step:hover .step-number {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .step-title {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .step-description {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ================================
+           FAQ SECTION
+        ================================ */
+        .faq-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            overflow: hidden;
+            transition: var(--transition);
+        }
+
+        .faq-item:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            cursor: pointer;
+            font-weight: 500;
+            color: var(--primary-dark);
+            transition: var(--transition);
+        }
+
+        .faq-question:hover {
+            background-color: var(--gray-100);
+        }
+
+        .faq-question h3 {
+            font-size: 1.1rem;
+            margin: 0;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            color: var(--gray-600);
+            transition: max-height 0.4s ease, padding 0.4s ease;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 200px;
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .faq-question i {
+            transition: transform 0.3s ease;
+            color: var(--secondary-color);
+        }
+
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+
+        /* ================================
+           CTA SECTION
+        ================================ */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ================================
+           FOOTER
+        ================================ */
+        footer {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .footer-logo span {
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .footer-link {
+            display: block;
+            margin-bottom: 0.75rem;
+            opacity: 0.8;
+            transition: var(--transition);
+            color: var(--gray-600);
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-300);
+            color: var(--gray-600);
+        }
+
+        /* ================================
+           RESPONSIVE DESIGN
+        ================================ */
+        
+        /* Large Screens */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
             }
-            .nav-menu.active { right: 0;}
-            .nav-menu li { margin-bottom: 2rem;}
-            .page-hero-title { font-size: 2rem;}
-            .footer-container { grid-template-columns: 1fr 1fr;}
-            .process-steps { flex-direction: column;}
-            .process-step { min-width: unset;}
         }
-        @media (max-width: 500px) {
-            .container { padding: 0 5px;}
-            .page-hero-title { font-size: 1.2rem;}
-            .cta-section h2 { font-size: 1.3rem;}
-            .section-title { font-size: 1.15rem;}
-            .highlights-title { font-size: 1.1rem;}
-            .footer-container { grid-template-columns: 1fr;}
-            .tour-card { font-size: .96rem;}
+
+        /* Medium Screens */
+        @media (max-width: 992px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .tour-grid {
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            }
+        }
+
+        /* Small Screens */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75vw;
+                height: 100vh;
+                flex-direction: column;
+                background-color: var(--text-light);
+                padding: 5rem 2rem 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+                border-left: 1px solid var(--gray-300);
+                z-index: 1200;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin-bottom: 2rem;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title,
+            .highlights-title {
+                font-size: 1.75rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .process-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .filter-buttons {
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding-bottom: 0.5rem;
+            }
+            
+            .filter-btn {
+                white-space: nowrap;
+                flex-shrink: 0;
+            }
+        }
+
+        /* Extra Small Screens */
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title,
+            .highlights-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .tour-card {
+                font-size: 0.95rem;
+            }
+            
+            .tour-img {
+                height: 200px;
+            }
+            
+            .highlight-card,
+            .process-step {
+                padding: 1.5rem;
+            }
+        }
+
+        /* Very Small Screens */
+        @media (max-width: 400px) {
+            .page-hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-title,
+            .highlights-title {
+                font-size: 1.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Header & Navigation -->
+    <!-- ================================
+         HEADER & NAVIGATION SECTION
+    ================================ -->
     <header>
         <div class="container nav-container">
-            <div class="logo" style="display:flex;align-items:center;gap:12px;">
-    <img src="logo.png" alt="KVS Logo" style="height:40px;width:auto;display:block;">
-    <h1 style="margin:0;font-size:1.5rem; font-weight:700; color:#2e7d32;">
-        KVS <span style="font-weight:300; opacity:0.8; color:#6c757d;">Spices & Traders</span>
-    </h1>
-</div>
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="logo.png" alt="KVS Logo">
+                <h1>KVS <span>Spices & Traders</span></h1>
+            </div>
 
-            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <!-- Mobile Navigation Toggle -->
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">Home</a></li>
@@ -174,30 +999,42 @@
             </nav>
         </div>
     </header>
-    <!-- Page Hero -->
+
+    <!-- ================================
+         PAGE HERO SECTION
+    ================================ -->
     <section class="page-hero">
         <div class="container page-hero-content">
+            <!-- Breadcrumb Navigation -->
             <div class="breadcrumbs">
                 <a href="index.html">Home</a>
                 <i class="fas fa-chevron-right"></i>
                 <span>Tour Packages</span>
             </div>
+            
             <h1 class="page-hero-title">Experience Kerala</h1>
             <p class="page-hero-subtitle">Discover the beauty and culture of God's Own Country with our premium tour services</p>
         </div>
     </section>
-    <!-- Tour Introduction -->
+
+    <!-- ================================
+         TOUR INTRODUCTION SECTION
+    ================================ -->
     <section class="tour-intro">
         <div class="container">
             <div class="intro-grid">
+                <!-- Introduction Image -->
                 <div class="intro-img">
                     <img src="anachalimg.jpg" alt="Kerala Backwaters" />
                 </div>
+                
+                <!-- Introduction Content -->
                 <div class="intro-content">
                     <h2>KVS Tour Booking Services</h2>
                     <p>Welcome to KVS Tour Services, your gateway to experiencing the authentic beauty of Kerala. As part of our commitment to providing comprehensive services to visitors, we offer a wide range of tour booking options at our Anachal branch.</p>
                     <p>Our experienced team works with trusted local operators to ensure you get the best experience during your stay in Kerala. From serene houseboat cruises to adventurous wildlife expeditions, we can arrange the perfect tour package tailored to your preferences.</p>
                     
+                    <!-- Key Features -->
                     <div class="intro-features">
                         <div class="intro-feature">
                             <i class="fas fa-check-circle"></i>
@@ -221,229 +1058,239 @@
         </div>
     </section>
 
-    <!-- Tour Categories -->
+    <!-- ================================
+         TOUR CATEGORIES SECTION
+    ================================ -->
     <section class="tour-categories">
         <div class="container">
             <h2 class="section-title">Our Tour Packages</h2>
             <p class="section-subtitle">Choose from our selection of carefully curated tour experiences</p>
             
+            <!-- Filter Buttons -->
             <div class="filter-buttons">
-                <div class="filter-btn active" data-filter="all">All Tours</div>
-                <div class="filter-btn" data-filter="backwater">Backwater Tours</div>
-                <div class="filter-btn" data-filter="wildlife">Wildlife Tours</div>
-                <div class="filter-btn" data-filter="cultural">Cultural Tours</div>
-                <div class="filter-btn" data-filter="adventure">Adventure Tours</div>
+                <button class="filter-btn active" data-filter="all">All Tours</button>
+                <button class="filter-btn" data-filter="backwater">Backwater Tours</button>
+                <button class="filter-btn" data-filter="wildlife">Wildlife Tours</button>
+                <button class="filter-btn" data-filter="cultural">Cultural Tours</button>
+                <button class="filter-btn" data-filter="adventure">Adventure Tours</button>
             </div>
             
+            <!-- Tour Cards Grid -->
             <div class="tour-grid">
-                <!-- Backwater Tours -->
+                <!-- Backwater Tour 1 -->
                 <div class="tour-card" data-category="backwater">
                     <div class="tour-img">
                         <img src="alappeyhouseboat.jpg" alt="Alleppey Houseboat" />
                         <div class="tour-category">Backwater</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Alleppey Houseboat Cruise</h3>
                         <p class="tour-description">Experience the tranquil backwaters of Kerala on a traditional houseboat. Cruise through the network of lagoons, lakes, and canals while enjoying authentic Kerala cuisine prepared fresh onboard.</p>
-                       
                     </div>
                 </div>
                 
+                <!-- Backwater Tour 2 -->
                 <div class="tour-card" data-category="backwater">
                     <div class="tour-img">
                         <img src="kumarokam.jpg" alt="Kumarakom Backwaters" />
                         <div class="tour-category">Backwater</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Kumarakom Bird Sanctuary & Backwaters</h3>
                         <p class="tour-description">Combine bird watching at the famous Kumarakom Bird Sanctuary with a serene backwater cruise. Perfect for nature lovers and photographers wanting to capture Kerala's diverse ecosystem.</p>
-                        
                     </div>
                 </div>
                 
-                <!-- Wildlife Tours -->
+                <!-- Wildlife Tour 1 -->
                 <div class="tour-card" data-category="wildlife">
                     <div class="tour-img">
                         <img src="periyar.jpg" alt="Periyar Wildlife" />
                         <div class="tour-category">Wildlife</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Periyar Wildlife Sanctuary Jeep Safari</h3>
                         <p class="tour-description">Explore the Periyar Wildlife Sanctuary in a guided jeep safari. Spot elephants, tigers, leopards, and various deer species in their natural habitat in one of India's most beautiful tiger reserves.</p>
-                        
                     </div>
                 </div>
                 
+                <!-- Wildlife Tour 2 -->
                 <div class="tour-card" data-category="wildlife">
                     <div class="tour-img">
                         <img src="eravikulam.jpg" alt="Eravikulam National Park" />
                         <div class="tour-category">Wildlife</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Eravikulam National Park Tour</h3>
                         <p class="tour-description">Visit the home of the endangered Nilgiri Tahr. This national park offers breathtaking views of the Western Ghats and opportunities to spot various endemic species of flora and fauna.</p>
-                        
                     </div>
                 </div>
                 
-                <!-- Cultural Tours -->
+                <!-- Cultural Tour 1 -->
                 <div class="tour-card" data-category="cultural">
                     <div class="tour-img">
                         <img src="kathakali.jpg" alt="Kathakali Performance" />
                         <div class="tour-category">Cultural</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Kerala Cultural Experience</h3>
                         <p class="tour-description">Immerse yourself in Kerala's rich cultural heritage. Witness traditional Kathakali performances, Kalaripayattu martial arts, and visit ancient temples to understand the spiritual roots of Kerala.</p>
-                        
                     </div>
                 </div>
                 
+                <!-- Cultural Tour 2 -->
                 <div class="tour-card" data-category="cultural">
                     <div class="tour-img">
                         <img src="spiceplantation.jpg" alt="Spice Plantation Tour" />
                         <div class="tour-category">Cultural</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Spice Plantation Tour</h3>
                         <p class="tour-description">Discover the origins of Kerala's famous spices with a guided tour of local spice plantations. Learn about cultivation practices, medicinal properties, and the historical spice trade that shaped Kerala.</p>
-                        
                     </div>
                 </div>
                 
-                <!-- Adventure Tours -->
+                <!-- Adventure Tour 1 -->
                 <div class="tour-card" data-category="adventure">
                     <div class="tour-img">
                         <img src="munnarhillstation.jpg" alt="Trekking in Munnar" />
                         <div class="tour-category">Adventure</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Munnar Hill Station Trekking</h3>
                         <p class="tour-description">Trek through the lush tea plantations and misty hills of Munnar. Various difficulty levels are available, from beginner-friendly walks to challenging mountain hikes for experienced trekkers.</p>
-                        
                     </div>
                 </div>
                 
+                <!-- Adventure Tour 2 -->
                 <div class="tour-card" data-category="adventure">
                     <div class="tour-img">
                         <img src="kayaking.jpg" alt="Kayaking in Kerala" />
                         <div class="tour-category">Adventure</div>
-                        
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Backwater Kayaking Adventure</h3>
                         <p class="tour-description">Experience Kerala's backwaters up close with a guided kayaking tour. Navigate through narrow canals, mangrove forests, and quaint villages for an intimate view of rural Kerala life.</p>
-                        
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Tour Highlights -->
+    <!-- ================================
+         TOUR HIGHLIGHTS SECTION
+    ================================ -->
     <section class="tour-highlights">
         <div class="container">
             <h2 class="highlights-title">Why Choose Our Tour Services</h2>
             
             <div class="highlights-grid">
+                <!-- Premium Quality -->
                 <div class="highlight-card">
                     <div class="highlight-icon">
                         <i class="fas fa-medal"></i>
                     </div>
                     <h3 class="highlight-title">Premium Quality</h3>
-                    <p>We partner only with the best tour operators and accommodations to ensure a high-quality experience.</p>
+                    <p>We partner only with the best tour operators and accommodations to ensure a high-quality experience that exceeds your expectations.</p>
                 </div>
                 
+                <!-- Competitive Pricing -->
                 <div class="highlight-card">
                     <div class="highlight-icon">
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
                     <h3 class="highlight-title">Competitive Pricing</h3>
-                    <p>Get the best value for your money with our transparent pricing and no hidden charges.</p>
+                    <p>Get the best value for your money with our transparent pricing structure and no hidden charges. We guarantee competitive rates.</p>
                 </div>
                 
+                <!-- Personalized Service -->
                 <div class="highlight-card">
                     <div class="highlight-icon">
                         <i class="fas fa-user-check"></i>
                     </div>
                     <h3 class="highlight-title">Personalized Service</h3>
-                    <p>We customize tour packages to match your preferences, time constraints, and interests.</p>
+                    <p>We customize tour packages to match your preferences, time constraints, and interests for a truly unique experience.</p>
                 </div>
                 
+                <!-- 24/7 Support -->
                 <div class="highlight-card">
                     <div class="highlight-icon">
                         <i class="fas fa-headset"></i>
                     </div>
                     <h3 class="highlight-title">24/7 Support</h3>
-                    <p>Our team is available round the clock to assist you before and during your tour.</p>
+                    <p>Our dedicated team is available round the clock to assist you before, during, and after your tour for complete peace of mind.</p>
                 </div>
                 
+                <!-- Local Expertise -->
                 <div class="highlight-card">
                     <div class="highlight-icon">
                         <i class="fas fa-users"></i>
                     </div>
                     <h3 class="highlight-title">Local Expertise</h3>
-                    <p>Benefit from our deep local knowledge and connections throughout Kerala.</p>
+                    <p>Benefit from our deep local knowledge and extensive connections throughout Kerala to discover hidden gems and authentic experiences.</p>
                 </div>
                 
+                <!-- Responsible Tourism -->
                 <div class="highlight-card">
                     <div class="highlight-icon">
                         <i class="fas fa-leaf"></i>
                     </div>
                     <h3 class="highlight-title">Responsible Tourism</h3>
-                    <p>We promote sustainable and responsible tourism practices that respect local communities and the environment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Booking Process -->
-    <section class="booking-process">
-        <div class="container">
-            <h2 class="section-title">How To Book</h2>
-            <p class="section-subtitle">Follow these simple steps to book your perfect Kerala tour</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Inquire</h3>
-                    <p class="step-description">Visit our Anachal branch or contact us through phone or email to discuss your tour preferences.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Customize</h3>
-                    <p class="step-description">Our team will help you customize a tour package based on your interests, budget, and schedule.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Confirm</h3>
-                    <p class="step-description">Review the itinerary and confirm your booking with a deposit payment.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Enjoy</h3>
-                    <p class="step-description">Receive your tour vouchers and enjoy your Kerala adventure!</p>
+                    <p>We promote sustainable and responsible tourism practices that respect local communities and preserve the natural environment.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ Section -->
+    <!-- ================================
+         BOOKING PROCESS SECTION
+    ================================ -->
+    <section class="booking-process">
+        <div class="container">
+            <h2 class="section-title">How To Book</h2>
+            <p class="section-subtitle">Follow these simple steps to book your perfect Kerala tour experience</p>
+            
+            <div class="process-steps">
+                <!-- Step 1: Inquire -->
+                <div class="process-step">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Inquire</h3>
+                    <p class="step-description">Visit our Anachal branch or contact us through phone or email to discuss your tour preferences and requirements.</p>
+                </div>
+                
+                <!-- Step 2: Customize -->
+                <div class="process-step">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Customize</h3>
+                    <p class="step-description">Our experienced team will help you customize a tour package based on your interests, budget, and schedule.</p>
+                </div>
+                
+                <!-- Step 3: Confirm -->
+                <div class="process-step">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Confirm</h3>
+                    <p class="step-description">Review the detailed itinerary and confirm your booking with a secure deposit payment through our trusted partners.</p>
+                </div>
+                
+                <!-- Step 4: Enjoy -->
+                <div class="process-step">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Enjoy</h3>
+                    <p class="step-description">Receive your tour vouchers and comprehensive travel information, then enjoy your unforgettable Kerala adventure!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         FAQ SECTION
+    ================================ -->
     <section class="faq-section">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
             <p class="section-subtitle">Answers to common questions about our tour services</p>
             
             <div class="faq-container">
+                <!-- FAQ Item 1 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>What types of tours do you offer?</h3>
@@ -454,6 +1301,7 @@
                     </div>
                 </div>
                 
+                <!-- FAQ Item 2 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>How far in advance should I book my tour?</h3>
@@ -464,6 +1312,7 @@
                     </div>
                 </div>
                 
+                <!-- FAQ Item 3 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>What payment methods do you accept?</h3>
@@ -474,6 +1323,7 @@
                     </div>
                 </div>
                 
+                <!-- FAQ Item 4 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Is transportation included in the tour packages?</h3>
@@ -484,6 +1334,7 @@
                     </div>
                 </div>
                 
+                <!-- FAQ Item 5 -->
                 <div class="faq-item">
                     <div class="faq-question">
                         <h3>Can you arrange special dietary requirements?</h3>
@@ -497,7 +1348,9 @@
         </div>
     </section>
 
-    <!-- Call to Action -->
+    <!-- ================================
+         CALL TO ACTION SECTION
+    ================================ -->
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Experience Kerala?</h2>
@@ -509,9 +1362,13 @@
         </div>
     </section>
 
+    <!-- ================================
+         FOOTER SECTION
+    ================================ -->
     <footer>
         <div class="container">
             <div class="footer-container">
+                <!-- Company Information -->
                 <div class="footer-about">
                     <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
                     <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
@@ -521,6 +1378,8 @@
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <a href="index.html" class="footer-link">Home</a>
@@ -530,6 +1389,8 @@
                     <a href="about.html" class="footer-link">About Us</a>
                     <a href="index.html#contact" class="footer-link">Contact</a>
                 </div>
+
+                <!-- Services Links -->
                 <div class="footer-links">
                     <h3>Our Services</h3>
                     <a href="munnar.html" class="footer-link">Spice Trading</a>
@@ -539,18 +1400,29 @@
                     <a href="munnar.html" class="footer-link">Farmer Support</a>
                 </div>
             </div>
+            
+            <!-- Copyright -->
             <div class="copyright">
                 <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- ================================
+         JAVASCRIPT FUNCTIONALITY
+    ================================ -->
     <script>
-        // Mobile Navigation Toggle
+        // ================================
+        // MOBILE NAVIGATION FUNCTIONALITY
+        // ================================
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+
+        // Toggle mobile navigation menu with icon change
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const icon = navToggle.querySelector('i');
+            
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
@@ -559,6 +1431,8 @@
                 icon.classList.add('fa-bars');
             }
         });
+
+        // Close mobile menu when clicking navigation links
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -567,357 +1441,151 @@
                 icon.classList.add('fa-bars');
             });
         });
-        // FAQ Accordion
+
+        // ================================
+        // FAQ ACCORDION FUNCTIONALITY
+        // ================================
         document.querySelectorAll('.faq-item').forEach(item => {
             const question = item.querySelector('.faq-question');
+            
             question.addEventListener('click', () => {
+                // Close other open items
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                    }
+                });
+                
+                // Toggle current item
                 item.classList.toggle('active');
             });
         });
-        // Tour Filter
+
+        // ================================
+        // TOUR FILTER FUNCTIONALITY
+        // ================================
         const filterBtns = document.querySelectorAll('.filter-btn');
         const tourCards = document.querySelectorAll('.tour-card');
+
         filterBtns.forEach(btn => {
             btn.addEventListener('click', () => {
+                // Remove active class from all buttons
                 filterBtns.forEach(b => b.classList.remove('active'));
+                
+                // Add active class to clicked button
                 btn.classList.add('active');
+                
+                // Get filter value
                 const filter = btn.getAttribute('data-filter');
-                tourCards.forEach(card => {
-                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
-                        card.style.display = 'block';
+                
+                // Filter tour cards with animation
+                tourCards.forEach((card, index) => {
+                    const category = card.getAttribute('data-category');
+                    
+                    if (filter === 'all' || category === filter) {
+                        // Show card with staggered animation
+                        setTimeout(() => {
+                            card.style.display = 'block';
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            
+                            // Animate in
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 50);
+                        }, index * 100);
                     } else {
-                        card.style.display = 'none';
+                        // Hide card
+                        card.style.opacity = '0';
+                        card.style.transform = 'translateY(20px)';
+                        setTimeout(() => {
+                            card.style.display = 'none';
+                        }, 300);
                     }
                 });
+            });
+        });
+
+        // ================================
+        // SMOOTH SCROLLING FUNCTIONALITY
+        // ================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ================================
+        // ADDITIONAL INTERACTIVE FEATURES
+        // ================================
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Add scroll effect to navigation bar
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'var(--text-light)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // ================================
+        // ENHANCED CARD ANIMATIONS
+        // ================================
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe tour cards for scroll animations
+        document.querySelectorAll('.tour-card, .highlight-card, .process-step').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Enhanced hover effects for tour cards
+        document.querySelectorAll('.tour-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
             });
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-<!-- Tour Introduction -->
-    <section class="tour-intro">
-        <div class="container">
-            <div class="intro-grid">
-                <div class="intro-img">
-                    <img src="anachalimg.jpg" alt="Kerala Backwaters" />
-                </div>
-                <div class="intro-content">
-                    <h2>KVS Tour Booking Services</h2>
-                    <p>Welcome to KVS Tour Services, your gateway to experiencing the authentic beauty of Kerala. As part of our commitment to providing comprehensive services to visitors, we offer a wide range of tour booking options at our Anachal branch.</p>
-                    <p>Our experienced team works with trusted local operators to ensure you get the best experience during your stay in Kerala. From serene houseboat cruises to adventurous wildlife expeditions, we can arrange the perfect tour package tailored to your preferences.</p>
-                    
-                    <div class="intro-features">
-                        <div class="intro-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Handpicked, quality-verified tour operators and accommodations</p>
-                        </div>
-                        <div class="intro-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Personalized itineraries to suit your preferences and schedule</p>
-                        </div>
-                        <div class="intro-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Competitive pricing with no hidden fees or commissions</p>
-                        </div>
-                        <div class="intro-feature">
-                            <i class="fas fa-check-circle"></i>
-                            <p>Dedicated support throughout your journey</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tour Categories -->
-    <section class="tour-categories">
-        <div class="container">
-            <h2 class="section-title">Our Tour Packages</h2>
-            <p class="section-subtitle">Choose from our selection of carefully curated tour experiences</p>
-            
-            <div class="filter-buttons">
-                <div class="filter-btn active" data-filter="all">All Tours</div>
-                <div class="filter-btn" data-filter="backwater">Backwater Tours</div>
-                <div class="filter-btn" data-filter="wildlife">Wildlife Tours</div>
-                <div class="filter-btn" data-filter="cultural">Cultural Tours</div>
-                <div class="filter-btn" data-filter="adventure">Adventure Tours</div>
-            </div>
-            
-            <div class="tour-grid">
-                <!-- Backwater Tours -->
-                <div class="tour-card" data-category="backwater">
-                    <div class="tour-img">
-                        <img src="alappeyhouseboat.jpg" alt="Alleppey Houseboat" />
-                        <div class="tour-category">Backwater</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Alleppey Houseboat Cruise</h3>
-                        <p class="tour-description">Experience the tranquil backwaters of Kerala on a traditional houseboat. Cruise through the network of lagoons, lakes, and canals while enjoying authentic Kerala cuisine prepared fresh onboard.</p>
-                       
-                    </div>
-                </div>
-                
-                <div class="tour-card" data-category="backwater">
-                    <div class="tour-img">
-                        <img src="kumarokam.jpg" alt="Kumarakom Backwaters" />
-                        <div class="tour-category">Backwater</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Kumarakom Bird Sanctuary & Backwaters</h3>
-                        <p class="tour-description">Combine bird watching at the famous Kumarakom Bird Sanctuary with a serene backwater cruise. Perfect for nature lovers and photographers wanting to capture Kerala's diverse ecosystem.</p>
-                        
-                    </div>
-                </div>
-                
-                <!-- Wildlife Tours -->
-                <div class="tour-card" data-category="wildlife">
-                    <div class="tour-img">
-                        <img src="periyar.jpg" alt="Periyar Wildlife" />
-                        <div class="tour-category">Wildlife</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Periyar Wildlife Sanctuary Jeep Safari</h3>
-                        <p class="tour-description">Explore the Periyar Wildlife Sanctuary in a guided jeep safari. Spot elephants, tigers, leopards, and various deer species in their natural habitat in one of India's most beautiful tiger reserves.</p>
-                        
-                    </div>
-                </div>
-                
-                <div class="tour-card" data-category="wildlife">
-                    <div class="tour-img">
-                        <img src="eravikulam.jpg" alt="Eravikulam National Park" />
-                        <div class="tour-category">Wildlife</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Eravikulam National Park Tour</h3>
-                        <p class="tour-description">Visit the home of the endangered Nilgiri Tahr. This national park offers breathtaking views of the Western Ghats and opportunities to spot various endemic species of flora and fauna.</p>
-                        
-                    </div>
-                </div>
-                
-                <!-- Cultural Tours -->
-                <div class="tour-card" data-category="cultural">
-                    <div class="tour-img">
-                        <img src="kathakali.jpg" alt="Kathakali Performance" />
-                        <div class="tour-category">Cultural</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Kerala Cultural Experience</h3>
-                        <p class="tour-description">Immerse yourself in Kerala's rich cultural heritage. Witness traditional Kathakali performances, Kalaripayattu martial arts, and visit ancient temples to understand the spiritual roots of Kerala.</p>
-                        
-                    </div>
-                </div>
-                
-                <div class="tour-card" data-category="cultural">
-                    <div class="tour-img">
-                        <img src="spiceplantation.jpg" alt="Spice Plantation Tour" />
-                        <div class="tour-category">Cultural</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Spice Plantation Tour</h3>
-                        <p class="tour-description">Discover the origins of Kerala's famous spices with a guided tour of local spice plantations. Learn about cultivation practices, medicinal properties, and the historical spice trade that shaped Kerala.</p>
-                        
-                    </div>
-                </div>
-                
-                <!-- Adventure Tours -->
-                <div class="tour-card" data-category="adventure">
-                    <div class="tour-img">
-                        <img src="munnarhillstation.jpg" alt="Trekking in Munnar" />
-                        <div class="tour-category">Adventure</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Munnar Hill Station Trekking</h3>
-                        <p class="tour-description">Trek through the lush tea plantations and misty hills of Munnar. Various difficulty levels are available, from beginner-friendly walks to challenging mountain hikes for experienced trekkers.</p>
-                        
-                    </div>
-                </div>
-                
-                <div class="tour-card" data-category="adventure">
-                    <div class="tour-img">
-                        <img src="kayaking.jpg" alt="Kayaking in Kerala" />
-                        <div class="tour-category">Adventure</div>
-                        
-                    </div>
-                    <div class="tour-content">
-                        <h3 class="tour-title">Backwater Kayaking Adventure</h3>
-                        <p class="tour-description">Experience Kerala's backwaters up close with a guided kayaking tour. Navigate through narrow canals, mangrove forests, and quaint villages for an intimate view of rural Kerala life.</p>
-                        
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Tour Highlights -->
-    <section class="tour-highlights">
-        <div class="container">
-            <h2 class="highlights-title">Why Choose Our Tour Services</h2>
-            
-            <div class="highlights-grid">
-                <div class="highlight-card">
-                    <div class="highlight-icon">
-                        <i class="fas fa-medal"></i>
-                    </div>
-                    <h3 class="highlight-title">Premium Quality</h3>
-                    <p>We partner only with the best tour operators and accommodations to ensure a high-quality experience.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-icon">
-                        <i class="fas fa-hand-holding-usd"></i>
-                    </div>
-                    <h3 class="highlight-title">Competitive Pricing</h3>
-                    <p>Get the best value for your money with our transparent pricing and no hidden charges.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-icon">
-                        <i class="fas fa-user-check"></i>
-                    </div>
-                    <h3 class="highlight-title">Personalized Service</h3>
-                    <p>We customize tour packages to match your preferences, time constraints, and interests.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-icon">
-                        <i class="fas fa-headset"></i>
-                    </div>
-                    <h3 class="highlight-title">24/7 Support</h3>
-                    <p>Our team is available round the clock to assist you before and during your tour.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="highlight-title">Local Expertise</h3>
-                    <p>Benefit from our deep local knowledge and connections throughout Kerala.</p>
-                </div>
-                
-                <div class="highlight-card">
-                    <div class="highlight-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="highlight-title">Responsible Tourism</h3>
-                    <p>We promote sustainable and responsible tourism practices that respect local communities and the environment.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- Booking Process -->
-    <section class="booking-process">
-        <div class="container">
-            <h2 class="section-title">How To Book</h2>
-            <p class="section-subtitle">Follow these simple steps to book your perfect Kerala tour</p>
-            
-            <div class="process-steps">
-                <div class="process-step">
-                    <div class="step-number">1</div>
-                    <h3 class="step-title">Inquire</h3>
-                    <p class="step-description">Visit our Anachal branch or contact us through phone or email to discuss your tour preferences.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">2</div>
-                    <h3 class="step-title">Customize</h3>
-                    <p class="step-description">Our team will help you customize a tour package based on your interests, budget, and schedule.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">3</div>
-                    <h3 class="step-title">Confirm</h3>
-                    <p class="step-description">Review the itinerary and confirm your booking with a deposit payment.</p>
-                </div>
-                
-                <div class="process-step">
-                    <div class="step-number">4</div>
-                    <h3 class="step-title">Enjoy</h3>
-                    <p class="step-description">Receive your tour vouchers and enjoy your Kerala adventure!</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ Section -->
-    <section class="faq-section">
-        <div class="container">
-            <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Answers to common questions about our tour services</p>
-            
-            <div class="faq-container">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What types of tours do you offer?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We offer a wide range of tours including backwater cruises, wildlife safaris, cultural tours, adventure activities, and customized multi-day packages. Whether you're interested in exploring Kerala's natural beauty, cultural heritage, or culinary delights, we have options for you.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>How far in advance should I book my tour?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>For regular tours, we recommend booking at least 2-3 days in advance. For houseboat tours, especially during peak season (October to March), we suggest booking 1-2 weeks ahead. For customized multi-day packages, booking 2-4 weeks in advance is ideal to ensure availability of your preferred accommodations and activities.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>What payment methods do you accept?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>We accept cash (Indian Rupees), major credit/debit cards, and bank transfers. For international guests, we also offer currency exchange services at our Anachal branch. A deposit is typically required to confirm your booking, with the balance payable before the tour begins.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Is transportation included in the tour packages?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Most of our packages include transportation from a designated pickup point. For day tours, pickup from hotels in Munnar and surrounding areas is typically included. For multi-day packages, transportation between destinations is included, but airport transfers may be arranged at an additional cost. Details are clearly specified in each tour description.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <h3>Can you arrange special dietary requirements?</h3>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer">
-                        <p>Yes, we can accommodate vegetarian, vegan, gluten-free, and other special dietary requirements with advance notice. Please inform us about your dietary preferences when booking your tour, and we will make the necessary arrangements with our tour operators and accommodation partners.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Call to Action -->
-    <section class="cta-section">
-        <div class="container">
-            <h2>Ready to Experience Kerala?</h2>
-            <p>Visit our Anachal branch or contact us to book your perfect Kerala tour. Let us help you create memories that will last a lifetime!</p>
-            <div class="cta-buttons">
-                <a href="index.html#contact" class="btn btn-light">Contact Us</a>
-                <a href="anachal.html" class="btn btn-outline-light">Visit Our Store</a>
-            </div>
-        </div>
-    </section>

@@ -4,137 +4,912 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About KVS Spices & Traders - Our Heritage Since 1987</title>
+    
+    <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
+        /* ================================
+           CSS VARIABLES & ROOT STYLES
+        ================================ */
         :root {
+            /* Primary Colors */
             --primary-color: #2e7d32;
             --primary-light: #60ad5e;
             --primary-dark: #005005;
+            
+            /* Secondary Colors */
             --secondary-color: #e65100;
+            --secondary-light: #ff833a;
             --secondary-dark: #ac1900;
+            
+            /* Text Colors */
             --text-dark: #263238;
-            --text-light: #fff;
+            --text-light: #ffffff;
+            
+            /* Background Colors */
+            --bg-light: #ffffff;
+            --gray-100: #ffffff;
             --gray-200: #f8f9fa;
             --gray-300: #e9ecef;
             --gray-600: #6c757d;
+            
+            /* Shadows */
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
+            --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+            
+            /* Border Radius */
+            --radius-sm: 4px;
             --radius-md: 8px;
-            --shadow-md: 0 4px 8px rgba(0,0,0,.06);
-            --shadow-lg: 0 10px 15px rgba(0,0,0,.08);
-            --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+            --radius-lg: 16px;
+            
+            /* Transitions & Layout */
+            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
             --container-width: 1200px;
         }
-        * { margin:0; padding:0; box-sizing:border-box;}
-        body { font-family: 'Poppins', sans-serif; background: #fff; color: var(--text-dark);}
-        a { color: inherit; text-decoration: none; transition: var(--transition);}
-        ul { list-style: none;}
-        img { max-width: 100%; height: auto; display: block; }
-        .container { width: 90%; max-width: var(--container-width); margin: 0 auto; padding: 0 15px; }
+
+        /* ================================
+           GLOBAL RESET & BASE STYLES
+        ================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* ================================
+           LAYOUT & CONTAINER STYLES
+        ================================ */
+        .container {
+            width: 90%;
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        /* ================================
+           TYPOGRAPHY STYLES
+        ================================ */
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+            line-height: 1.3;
+        }
+
+        .section-title {
+            font-size: 2.25rem;
+            text-align: center;
+            margin-bottom: 1rem;
+            color: var(--primary-dark);
+            position: relative;
+            padding-bottom: 1.5rem;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: var(--secondary-color);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--gray-600);
+            font-size: 1.125rem;
+            max-width: 700px;
+            margin: 0 auto 3rem;
+        }
+
+        /* ================================
+           BUTTON COMPONENTS
+        ================================ */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 28px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            font-weight: 500;
+            border-radius: var(--radius-md);
+            border: none;
+            cursor: pointer;
+            transition: var(--transition);
+            text-align: center;
+            font-size: 1rem;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .btn-light {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+
+        .btn-light:hover {
+            background-color: var(--gray-200);
+            transform: translateY(-2px);
+        }
+
+        .btn-outline-light {
+            background-color: transparent;
+            color: var(--text-light);
+            border: 2px solid var(--text-light);
+        }
+
+        .btn-outline-light:hover {
+            background-color: var(--text-light);
+            color: var(--primary-dark);
+        }
+
+        /* ================================
+           HEADER & NAVIGATION
+        ================================ */
         header {
-            background: var(--text-light); color: var(--text-dark); padding: 1rem 0;
-            position: fixed; width: 100%; top: 0; z-index: 1000;
-            box-shadow: var(--shadow-md); border-bottom: 1px solid var(--gray-300);
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: var(--shadow-md);
+            border-bottom: 1px solid var(--gray-300);
+            transition: var(--transition);
         }
-        .nav-container { display: flex; justify-content: space-between; align-items: center;}
-        .logo h1 { font-size: 1.5rem; font-weight: 700; color: var(--primary-color);}
-        .logo span { opacity: 0.8; color: var(--gray-600);}
-        nav { display: flex; align-items: center;}
-        .nav-menu { display: flex; gap: 1.5rem;}
-        .nav-menu a { font-weight: 500; padding: 0.5rem 0;}
-        .nav-toggle { display: none; background: none; border: none; color: var(--text-dark); font-size: 1.7rem; cursor: pointer; z-index:1001;}
-        .nav-menu a.active, .nav-menu a:hover { color: var(--primary-color);}
-        .section-title { font-size: 2.25rem; text-align: center; color: var(--primary-dark); margin-bottom: 1rem; }
-        .section-subtitle { text-align: center; color: var(--gray-600); margin-bottom: 2rem;}
-        /* Page Hero */
-        .page-hero { min-height: 55vh; display: flex; align-items: center; background: linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.3)), url('main.jpg') center/cover; color: var(--text-light); margin-bottom: 2rem; }
-        .page-hero-content { width:100%; text-align:center; padding-top: 90px; }
-        .page-hero-title { font-size: 2.5rem; margin-bottom: .5rem;}
-        .page-hero-subtitle { font-size: 1.15rem; }
-        .breadcrumbs { display: flex; gap: 0.5rem; align-items: center; justify-content: center; font-size: 0.9rem; opacity: .9; margin-bottom: 1.5rem;}
-        .breadcrumbs a { color: var(--text-light); }
-        .breadcrumbs i { font-size: 0.8rem;}
-        /* Story */
-        .our-story { padding: 3rem 0 2rem; }
-        .story-container { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center;}
-        .story-image { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);}
-        .story-image img { width: 100%; aspect-ratio: 4/3; object-fit: cover; }
-        .story-content h2 { font-size: 2rem; color: var(--primary-dark);}
-        .story-content p { color: var(--gray-600); margin-bottom: 1rem;}
-        /* Founders */
-        .founders-section { padding: 3rem 0;}
-        .founders-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; margin-top: 2rem;}
-        .founder-card { display: grid; grid-template-columns: 1fr 1.5fr; gap: 2rem; align-items: center;}
-        .founder-image { border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-md);}
-        .founder-image img { width: 100%; aspect-ratio: 1; object-fit: cover;}
-        .founder-info h3 { font-size: 1.3rem; color: var(--primary-dark);}
-        .founder-title { font-size: 1rem; margin-bottom: 1rem; color: var(--primary-color);}
-        .founder-bio p { color: var(--gray-600); margin-bottom: 0.7rem;}
-        /* Values */
-        .values-section { padding: 3rem 0; background: var(--gray-200);}
-        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; margin-top: 2rem;}
-        .value-card { background: var(--text-light); border-radius: var(--radius-md); padding: 2rem; box-shadow: var(--shadow-md); transition: var(--transition); text-align: center;}
-        .value-card:hover { transform: translateY(-10px); box-shadow: var(--shadow-lg);}
-        .value-icon { width: 70px; height: 70px; margin: 0 auto 1.3rem; display: flex; align-items: center; justify-content: center; background: var(--primary-light); color: #fff; border-radius: 50%; font-size: 2rem;}
-        .value-card h3 { font-size: 1.2rem; color: var(--primary-dark);}
-        /* CTA */
-        .cta-section { padding: 3rem 0; background: var(--primary-dark); color: #fff; text-align: center;}
-        .cta-buttons { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center;}
-        .btn { display: inline-block; padding: 0.75rem 2rem; border-radius: var(--radius-md); background: var(--primary-color); color: #fff; border: none; cursor: pointer; font-weight: 500; transition: var(--transition);}
-        .btn:hover { background: var(--primary-dark);}
-        .btn-outline-light { background: transparent; color: #fff; border: 2px solid #fff;}
-        .btn-outline-light:hover { background: #fff; color: var(--primary-dark);}
-        .btn-light { background: #fff; color: var(--primary-dark);}
-        .btn-light:hover { background: #ffe082; }
-        /* Footer */
-        footer { background: #fff; color: var(--text-dark); padding: 2.5rem 0 1.2rem; border-top: 1px solid var(--gray-300);}
-        .footer-container { display: grid; grid-template-columns: repeat(auto-fit,minmax(220px,1fr)); gap: 2rem;}
-        .footer-logo { font-size: 1.4rem; margin-bottom: 1rem; color: var(--primary-color);}
-        .footer-logo span { color: var(--gray-600);}
-        .social-links { display: flex; gap: 0.8rem;}
-        .social-link { width: 36px; height: 36px; border-radius: 50%; background: var(--gray-200); display: flex; align-items: center; justify-content: center;}
-        .social-link:hover { background: var(--secondary-color); color: #fff;}
-        .footer-links h3 { font-size: 1.15rem; margin-bottom: 1rem; color: var(--primary-dark);}
-        .footer-link { display: block; margin-bottom: 0.7rem; color: var(--gray-600);}
-        .footer-link:hover { color: var(--secondary-color);}
-        .copyright { text-align: center; margin-top: 2rem; color: var(--gray-600);}
-        /* RESPONSIVE */
-        @media (max-width: 1100px) { .container { max-width: 920px; } }
-        @media (max-width: 900px) { .container { max-width: 98%; } }
-        @media (max-width: 900px) { .story-container, .founders-grid { grid-template-columns: 1fr; gap: 1.5rem;} .founder-card { grid-template-columns: 1fr; text-align: center;} .founder-image { max-width: 220px; margin: 0 auto;} }
-        @media (max-width: 768px) {
-            .nav-toggle { display: block;}
-            .nav-menu {
-                position: fixed; top: 0; right: -100%; width: 75vw; height: 100vh;
-                flex-direction: column; background: #fff; padding: 5rem 2rem 2rem;
-                transition: var(--transition); box-shadow: var(--shadow-lg);
-                border-left: 1px solid var(--gray-300); z-index:1200;
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            z-index: 1001;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .logo h1 {
+            margin: 0;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+
+        .logo span {
+            font-weight: 300;
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .nav-menu a {
+            font-weight: 500;
+            position: relative;
+            padding: 0.5rem 0;
+            color: var(--text-dark);
+        }
+
+        .nav-menu a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .nav-menu a:hover::after,
+        .nav-menu a.active::after {
+            width: 100%;
+        }
+
+        .nav-menu a:hover,
+        .nav-menu a.active {
+            color: var(--primary-color);
+        }
+
+        .nav-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            color: var(--text-dark);
+            font-size: 1.8rem;
+            cursor: pointer;
+            z-index: 1001;
+        }
+
+        /* ================================
+           PAGE HERO SECTION
+        ================================ */
+        .page-hero {
+            min-height: 60vh;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('main.jpg') center/cover;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            position: relative;
+        }
+
+        .page-hero-content {
+            width: 100%;
+            text-align: center;
+            padding-top: 90px;
+        }
+
+        .page-hero-title {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .page-hero-subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+
+        .breadcrumbs {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            margin-bottom: 1.5rem;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-light);
+        }
+
+        .breadcrumbs i {
+            font-size: 0.8rem;
+        }
+
+        /* ================================
+           OUR STORY SECTION
+        ================================ */
+        .our-story {
+            padding: 5rem 0;
+        }
+
+        .story-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .story-image {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .story-image:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .story-image img {
+            width: 100%;
+            aspect-ratio: 4/3;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .story-image:hover img {
+            transform: scale(1.05);
+        }
+
+        .story-content h2 {
+            font-size: 2rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+        }
+
+        .story-content p {
+            color: var(--gray-600);
+            margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        /* ================================
+           FOUNDERS SECTION
+        ================================ */
+        .founders-section {
+            padding: 5rem 0;
+            background-color: var(--gray-200);
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .founder-card {
+            display: grid;
+            grid-template-columns: 350px 1fr;
+            gap: 3rem;
+            align-items: start;
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .founder-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .founder-card:nth-child(even) {
+            grid-template-columns: 1fr 350px;
+        }
+
+        .founder-card:nth-child(even) .founder-image {
+            order: 2;
+        }
+
+        .founder-card:nth-child(even) .founder-info {
+            order: 1;
+        }
+
+        .founder-image {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+        }
+
+        .founder-image:hover {
+            transform: scale(1.02);
+        }
+
+        .founder-image img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .founder-info h3 {
+            font-size: 1.5rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .founder-title {
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            color: var(--secondary-color);
+            font-weight: 500;
+        }
+
+        .founder-bio p {
+            color: var(--gray-600);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        /* ================================
+           VALUES SECTION
+        ================================ */
+        .values-section {
+            padding: 5rem 0;
+            background-color: var(--bg-light);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .value-card {
+            background-color: var(--text-light);
+            border-radius: var(--radius-md);
+            padding: 2rem;
+            box-shadow: var(--shadow-md);
+            transition: var(--transition);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .value-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--primary-light);
+            color: var(--text-light);
+            border-radius: 50%;
+            font-size: 2rem;
+            transition: var(--transition);
+        }
+
+        .value-card:hover .value-icon {
+            background-color: var(--secondary-color);
+            transform: scale(1.1);
+        }
+
+        .value-card h3 {
+            font-size: 1.25rem;
+            color: var(--primary-dark);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: var(--gray-600);
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        /* ================================
+           TIMELINE SECTION (NEW)
+        ================================ */
+        .timeline-section {
+            padding: 5rem 0;
+            background-color: var(--gray-200);
+        }
+
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 3px;
+            height: 100%;
+            background-color: var(--primary-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-item:nth-child(odd) {
+            flex-direction: row;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background-color: var(--text-light);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            width: 45%;
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .timeline-year {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 60px;
+            background-color: var(--primary-color);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+            z-index: 1;
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content p {
+            color: var(--gray-600);
+            line-height: 1.6;
+        }
+
+        /* ================================
+           CTA SECTION
+        ================================ */
+        .cta-section {
+            padding: 5rem 0;
+            background-color: var(--primary-dark);
+            color: var(--text-light);
+            text-align: center;
+        }
+
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-section p {
+            font-size: 1.125rem;
+            margin-bottom: 2.5rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* ================================
+           FOOTER
+        ================================ */
+        footer {
+            background-color: var(--text-light);
+            color: var(--text-dark);
+            padding: 4rem 0 2rem;
+            border-top: 1px solid var(--gray-300);
+        }
+
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-logo {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .footer-logo span {
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+
+        .footer-about p {
+            margin-bottom: 1.5rem;
+            opacity: 0.8;
+            color: var(--gray-600);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            background-color: var(--gray-200);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition);
+            color: var(--text-dark);
+        }
+
+        .social-link:hover {
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            transform: translateY(-3px);
+        }
+
+        .footer-links h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: var(--primary-dark);
+        }
+
+        .footer-link {
+            display: block;
+            margin-bottom: 0.75rem;
+            opacity: 0.8;
+            transition: var(--transition);
+            color: var(--gray-600);
+        }
+
+        .footer-link:hover {
+            opacity: 1;
+            padding-left: 5px;
+            color: var(--secondary-color);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--gray-300);
+            color: var(--gray-600);
+        }
+
+        /* ================================
+           RESPONSIVE DESIGN
+        ================================ */
+        
+        /* Large Screens */
+        @media (max-width: 1200px) {
+            .container {
+                max-width: 1000px;
             }
-            .nav-menu.active { right: 0;}
-            .nav-menu li { margin-bottom: 2rem;}
-            .page-hero-title { font-size: 2rem;}
-            .footer-container { grid-template-columns: 1fr 1fr;}
+            
+            .founder-card {
+                grid-template-columns: 300px 1fr;
+            }
+            
+            .founder-card:nth-child(even) {
+                grid-template-columns: 1fr 300px;
+            }
         }
-        @media (max-width: 520px) {
-            .container { padding: 0 5px;}
-            .page-hero-title { font-size: 1.2rem;}
-            .section-title { font-size: 1.15rem;}
-            .footer-container { grid-template-columns: 1fr;}
-            .btn, .btn-light, .btn-outline-light { padding: 0.5rem 1rem; font-size: .96rem;}
+
+        /* Medium Screens */
+        @media (max-width: 992px) {
+            .story-container {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .founder-card,
+            .founder-card:nth-child(even) {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .founder-card:nth-child(even) .founder-image,
+            .founder-card:nth-child(even) .founder-info {
+                order: unset;
+            }
+            
+            .founder-image {
+                max-width: 300px;
+                margin: 0 auto;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                flex-direction: row;
+                padding-left: 70px;
+            }
+            
+            .timeline-content {
+                width: 100%;
+            }
+            
+            .timeline-year {
+                left: 30px;
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Small Screens */
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            .nav-menu {
+                position: fixed;
+                top: 0;
+                right: -100%;
+                width: 75vw;
+                height: 100vh;
+                flex-direction: column;
+                background-color: var(--text-light);
+                padding: 5rem 2rem 2rem;
+                transition: var(--transition);
+                box-shadow: var(--shadow-lg);
+                border-left: 1px solid var(--gray-300);
+                z-index: 1200;
+            }
+            
+            .nav-menu.active {
+                right: 0;
+            }
+            
+            .nav-menu li {
+                margin-bottom: 2rem;
+            }
+            
+            .page-hero-title {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.75rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .founder-card {
+                padding: 1.5rem;
+            }
+            
+            .values-grid {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+        }
+
+        /* Extra Small Screens */
+        @media (max-width: 576px) {
+            .container {
+                padding: 0 10px;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 1.75rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .value-card,
+            .founder-card {
+                padding: 1.5rem;
+            }
+            
+            .timeline-item {
+                padding-left: 50px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-year {
+                left: 20px;
+                width: 40px;
+                height: 40px;
+                font-size: 0.8rem;
+            }
+        }
+
+        /* Very Small Screens */
+        @media (max-width: 400px) {
+            .page-hero-title {
+                font-size: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.3rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn,
+            .btn-light,
+            .btn-outline-light {
+                padding: 0.75rem 1.5rem;
+                font-size: 0.95rem;
+            }
         }
     </style>
 </head>
+
 <body>
-    <!-- Header & Navigation -->
+    <!-- ================================
+         HEADER & NAVIGATION SECTION
+    ================================ -->
     <header>
         <div class="container nav-container">
-            <div class="logo" style="display:flex;align-items:center;gap:12px;">
-    <img src="logo.png" alt="KVS Logo" style="height:40px;width:auto;display:block;">
-    <h1 style="margin:0;font-size:1.5rem; font-weight:700; color:#2e7d32;">
-        KVS <span style="font-weight:300; opacity:0.8; color:#6c757d;">Spices & Traders</span>
-    </h1>
-</div>
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="logo.png" alt="KVS Logo">
+                <h1>KVS <span>Spices & Traders</span></h1>
+            </div>
 
-            <button class="nav-toggle" id="navToggle"><i class="fas fa-bars"></i></button>
+            <!-- Mobile Navigation Toggle -->
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <!-- Navigation Menu -->
             <nav>
                 <ul class="nav-menu" id="navMenu">
                     <li><a href="index.html">Home</a></li>
@@ -147,40 +922,113 @@
             </nav>
         </div>
     </header>
-    <!-- Page Hero -->
+
+    <!-- ================================
+         PAGE HERO SECTION
+    ================================ -->
     <section class="page-hero">
         <div class="container page-hero-content">
+            <!-- Breadcrumb Navigation -->
             <div class="breadcrumbs">
                 <a href="index.html">Home</a>
                 <i class="fas fa-chevron-right"></i>
                 <span>About Us</span>
             </div>
+            
             <h1 class="page-hero-title">Our Story</h1>
             <p class="page-hero-subtitle">Discover the heritage and values behind KVS Spices & Traders since 1987</p>
         </div>
     </section>
-    <!-- Our Story Section -->
+
+    <!-- ================================
+         OUR STORY SECTION
+    ================================ -->
     <section class="our-story">
         <div class="container">
             <div class="story-container">
+                <!-- Story Content -->
                 <div class="story-content">
                     <h2>Rooted in Kerala's Spice Tradition</h2>
                     <p>KVS Spices & Traders was founded in 1987 by the late KV Joseph, a visionary local farmer with a passion for quality and fair trade. What began as a small spice trading business has grown into a respected enterprise spanning two locations and over 20 acres in Munnar's spice heartland.</p>
                     <p>Our journey started when KV Joseph recognized the challenges faced by local spice farmers in getting fair prices for their produce. He established KVS with a vision to create a direct market link between farmers and buyers, ensuring quality products while supporting the local agricultural community.</p>
-                    <p>Today, after 38+ years in business, KVS Spices & Traders is proudly managed by Alyson Joseph, who continues his father's legacy of excellence, community support, and innovation in the spice trade. Under his leadership, we've expanded our services to include tourism while maintaining our core values of quality, integrity, and community development.</p>
+                    <p>Today, after 38+ years in business, KVS Spices & Traders is proudly managed by Abison Joseph, who continues his father's legacy of excellence, community support, and innovation in the spice trade. Under his leadership, we've expanded our services to include tourism while maintaining our core values of quality, integrity, and community development.</p>
                 </div>
+                
+                <!-- Story Image -->
                 <div class="story-image">
                     <img src="main.jpg" alt="KVS Spices History" />
                 </div>
             </div>
         </div>
     </section>
-    <!-- Founders Section -->
+
+    <!-- ================================
+         COMPANY TIMELINE SECTION
+    ================================ -->
+    <section class="timeline-section">
+        <div class="container">
+            <h2 class="section-title">Our Journey Through Time</h2>
+            <p class="section-subtitle">Key milestones in the growth and evolution of KVS Spices & Traders</p>
+            
+            <div class="timeline">
+                <!-- Timeline Item 1 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Foundation</h3>
+                        <p>KV Joseph establishes KVS Spices & Traders with a small spice trading operation, focusing on fair trade practices and supporting local farmers.</p>
+                    </div>
+                    <div class="timeline-year">1987</div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Expansion</h3>
+                        <p>Acquired the 20-acre facility in Munnar, establishing our main processing and trading center with advanced cardamom drying and grading facilities.</p>
+                    </div>
+                    <div class="timeline-year">1995</div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Growth</h3>
+                        <p>Expanded farmer network to over 200 local producers and began exporting premium Kerala spices to international markets.</p>
+                    </div>
+                    <div class="timeline-year">2005</div>
+                </div>
+
+                <!-- Timeline Item 4 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>Diversification</h3>
+                        <p>Opened the Anachal retail outlet and launched tourism services, creating a comprehensive one-stop destination for visitors to Kerala.</p>
+                    </div>
+                    <div class="timeline-year">2015</div>
+                </div>
+
+                <!-- Timeline Item 5 -->
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <h3>New Leadership</h3>
+                        <p>Abison Joseph takes over leadership, bringing fresh innovations while maintaining the company's core values and commitment to quality.</p>
+                    </div>
+                    <div class="timeline-year">2022</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================
+         FOUNDERS SECTION
+    ================================ -->
     <section class="founders-section">
         <div class="container">
             <h2 class="section-title">Our Leadership</h2>
             <p class="section-subtitle">The visionaries behind KVS Spices & Traders</p>
+            
             <div class="founders-grid">
+                <!-- Founder 1: KV Joseph -->
                 <div class="founder-card">
                     <div class="founder-image">
                         <img src="joseph.jpg" alt="KV Joseph" />
@@ -191,67 +1039,87 @@
                         <div class="founder-bio">
                             <p>KV Joseph was born in a small village near Munnar and began his career as a cardamom farmer. Recognizing the challenges faced by local spice farmers in getting fair prices for their produce, he established KVS Spices & Traders in 1987 with a vision to create a direct market link between farmers and buyers.</p>
                             <p>His pioneering approach to spice trading, emphasis on quality, and unwavering integrity quickly made KVS a trusted name in Kerala's spice industry. Under his leadership, the company expanded to include a 20-acre facility in Munnar dedicated to spice processing and trading.</p>
-                            <p>KV Joseph's legacy lives on through the business practices and community relationships he established over his lifetime.</p>
+                            <p>KV Joseph's legacy lives on through the business practices and community relationships he established over his lifetime, continuing to guide the company's mission of supporting local farmers while delivering premium quality spices to customers worldwide.</p>
                         </div>
                     </div>
                 </div>
+
+                <!-- Founder 2: Abison Joseph -->
                 <div class="founder-card">
                     <div class="founder-image">
                         <img src="abison.jpg" alt="Abison Joseph" />
                     </div>
                     <div class="founder-info">
-                        <h3>Abyson Joseph</h3>
-                        <span class="founder-title">Director</span>
+                        <h3>Abison Joseph</h3>
+                        <span class="founder-title">Director & CEO</span>
                         <div class="founder-bio">
-                            <p>Abyson Joseph, son of founder KV Joseph, took over the family business in 2022. With a background in business management and a deep understanding of the spice trade inherited from his father, Alyson has successfully expanded KVS Spices & Traders while maintaining its core values.</p>
-                            <p>Under his leadership, the company opened its Anachal retail outlet and diversified into tourism services, creating new opportunities for growth while strengthening connections with the local farming community.</p>
-                            <p>Alyson is committed to sustainable farming practices, technological innovation in spice processing, and creating fair opportunities for the next generation of spice farmers in Kerala.</p>
+                            <p>Abison Joseph, son of founder KV Joseph, took over the family business in 2022. With a background in business management and a deep understanding of the spice trade inherited from his father, Abison has successfully expanded KVS Spices & Traders while maintaining its core values.</p>
+                            <p>Under his leadership, the company opened its Anachal retail outlet and diversified into tourism services, creating new opportunities for growth while strengthening connections with the local farming community. He has also modernized many of the company's operations while preserving traditional processing methods.</p>
+                            <p>Abison is committed to sustainable farming practices, technological innovation in spice processing, and creating fair opportunities for the next generation of spice farmers in Kerala. His vision extends beyond business success to community development and environmental stewardship.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Values Section -->
+
+    <!-- ================================
+         VALUES SECTION
+    ================================ -->
     <section class="values-section">
         <div class="container">
             <h2 class="section-title">Our Core Values</h2>
             <p class="section-subtitle">The principles that guide everything we do at KVS Spices & Traders</p>
+            
             <div class="values-grid">
+                <!-- Quality -->
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-award"></i></div>
-                    <h3>Quality</h3>
-                    <p>We are committed to maintaining the highest standards in everything we do, from the spices we trade to the services we provide. Quality is never compromised.</p>
+                    <h3>Quality Excellence</h3>
+                    <p>We are committed to maintaining the highest standards in everything we do, from the spices we trade to the services we provide. Quality is never compromised in our pursuit of excellence.</p>
                 </div>
+
+                <!-- Integrity -->
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Integrity</h3>
+                    <h3>Integrity & Trust</h3>
                     <p>We conduct our business with honesty, transparency, and ethical practices. Our word is our bond, and we stand behind everything we sell and every service we offer.</p>
                 </div>
+
+                <!-- Community -->
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-users"></i></div>
-                    <h3>Community</h3>
+                    <h3>Community Support</h3>
                     <p>We believe in supporting the local community that has supported us. Fair dealings with farmers, responsible business practices, and community involvement are central to our mission.</p>
                 </div>
+
+                <!-- Sustainability -->
                 <div class="value-card">
-                    <div class="value-icon"><i class="fas fa-tree"></i></div>
+                    <div class="value-icon"><i class="fas fa-leaf"></i></div>
                     <h3>Sustainability</h3>
                     <p>We are committed to environmentally sustainable practices in our operations and encourage the same among our partner farmers, ensuring the long-term health of Kerala's spice gardens.</p>
                 </div>
+
+                <!-- Innovation -->
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-lightbulb"></i></div>
-                    <h3>Innovation</h3>
-                    <p>While respecting tradition, we constantly seek to improve our processes, services, and offerings through innovation and adoption of best practices.</p>
+                    <h3>Innovation & Growth</h3>
+                    <p>While respecting tradition, we constantly seek to improve our processes, services, and offerings through innovation and adoption of modern best practices.</p>
                 </div>
+
+                <!-- Passion -->
                 <div class="value-card">
                     <div class="value-icon"><i class="fas fa-heart"></i></div>
-                    <h3>Passion</h3>
-                    <p>We are passionate about spices, Kerala's agricultural heritage, and providing exceptional experiences to our customers. This passion drives everything we do.</p>
+                    <h3>Passion & Dedication</h3>
+                    <p>We are passionate about spices, Kerala's agricultural heritage, and providing exceptional experiences to our customers. This passion drives everything we do with unwavering dedication.</p>
                 </div>
             </div>
         </div>
     </section>
-    <!-- Call to Action -->
+
+    <!-- ================================
+         CALL TO ACTION SECTION
+    ================================ -->
     <section class="cta-section">
         <div class="container">
             <h2>Experience Our Legacy</h2>
@@ -262,10 +1130,14 @@
             </div>
         </div>
     </section>
-    <!-- Footer -->
+
+    <!-- ================================
+         FOOTER SECTION
+    ================================ -->
     <footer>
         <div class="container">
             <div class="footer-container">
+                <!-- Company Information -->
                 <div class="footer-about">
                     <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
                     <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
@@ -275,6 +1147,8 @@
                         <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
+
+                <!-- Quick Links -->
                 <div class="footer-links">
                     <h3>Quick Links</h3>
                     <a href="index.html" class="footer-link">Home</a>
@@ -284,6 +1158,8 @@
                     <a href="about.html" class="footer-link">About Us</a>
                     <a href="index.html#contact" class="footer-link">Contact</a>
                 </div>
+
+                <!-- Services Links -->
                 <div class="footer-links">
                     <h3>Our Services</h3>
                     <a href="munnar.html" class="footer-link">Spice Trading</a>
@@ -293,18 +1169,29 @@
                     <a href="munnar.html" class="footer-link">Farmer Support</a>
                 </div>
             </div>
+            
+            <!-- Copyright -->
             <div class="copyright">
                 <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
             </div>
         </div>
     </footer>
+
+    <!-- ================================
+         JAVASCRIPT FUNCTIONALITY
+    ================================ -->
     <script>
-        // Hamburger Navigation Toggle
+        // ================================
+        // MOBILE NAVIGATION FUNCTIONALITY
+        // ================================
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+
+        // Toggle mobile navigation menu with icon change
         navToggle.addEventListener('click', () => {
             navMenu.classList.toggle('active');
             const icon = navToggle.querySelector('i');
+            
             if (navMenu.classList.contains('active')) {
                 icon.classList.remove('fa-bars');
                 icon.classList.add('fa-times');
@@ -313,6 +1200,8 @@
                 icon.classList.add('fa-bars');
             }
         });
+
+        // Close mobile menu when clicking navigation links
         document.querySelectorAll('.nav-menu a').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -320,6 +1209,122 @@
                 icon.classList.remove('fa-times');
                 icon.classList.add('fa-bars');
             });
+        });
+
+        // ================================
+        // SMOOTH SCROLLING FUNCTIONALITY
+        // ================================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ 
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // ================================
+        // ADDITIONAL INTERACTIVE FEATURES
+        // ================================
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                navMenu.classList.remove('active');
+                const icon = navToggle.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+
+        // Add scroll effect to navigation bar
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+            } else {
+                header.style.backgroundColor = 'var(--text-light)';
+                header.style.backdropFilter = 'none';
+            }
+        });
+
+        // ================================
+        // SCROLL ANIMATIONS
+        // ================================
+        
+        // Intersection Observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for scroll animations
+        document.querySelectorAll('.value-card, .founder-card, .timeline-content').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+
+        // ================================
+        // ENHANCED HOVER EFFECTS
+        // ================================
+        
+        // Enhanced hover effects for value cards
+        document.querySelectorAll('.value-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-10px) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // Enhanced hover effects for founder cards
+        document.querySelectorAll('.founder-card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-5px) scale(1.01)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) scale(1)';
+            });
+        });
+
+        // ================================
+        // TIMELINE ANIMATION
+        // ================================
+        
+        // Animate timeline items on scroll
+        const timelineObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'scale(1)';
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.timeline-year').forEach(year => {
+            year.style.opacity = '0';
+            year.style.transform = 'scale(0.5)';
+            year.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+            timelineObserver.observe(year);
         });
     </script>
 </body>
