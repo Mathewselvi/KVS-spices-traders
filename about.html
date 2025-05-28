@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About KVS Spices & Traders - Our Heritage Since 1987</title>
+    <title>About KVS Spices & Traders - Our Heritage Since 1987 | Kerala's Premier Spice Company</title>
+    <meta name="description" content="Discover the story of KVS Spices & Traders, founded in 1987. Learn about our heritage, values, and commitment to Kerala's spice tradition and community development.">
     
     <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* ================================
@@ -18,36 +19,48 @@
             --primary-color: #2e7d32;
             --primary-light: #60ad5e;
             --primary-dark: #005005;
+            --primary-gradient: linear-gradient(135deg, #2e7d32 0%, #60ad5e 100%);
             
             /* Secondary Colors */
             --secondary-color: #e65100;
             --secondary-light: #ff833a;
             --secondary-dark: #ac1900;
+            --secondary-gradient: linear-gradient(135deg, #e65100 0%, #ff833a 100%);
             
             /* Text Colors */
             --text-dark: #263238;
             --text-light: #ffffff;
+            --text-medium: #546e7a;
             
             /* Background Colors */
             --bg-light: #ffffff;
+            --bg-subtle: #fafbfc;
             --gray-100: #ffffff;
             --gray-200: #f8f9fa;
             --gray-300: #e9ecef;
+            --gray-400: #dee2e6;
             --gray-600: #6c757d;
             
             /* Shadows */
             --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
             
             /* Border Radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
             
             /* Transitions & Layout */
-            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s ease;
             --container-width: 1200px;
+            
+            /* Header Heights */
+            --header-height: 85px;
+            --header-height-mobile: 70px;
         }
 
         /* ================================
@@ -61,14 +74,16 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--bg-light);
             overflow-x: hidden;
+            font-weight: 400;
         }
 
         a {
@@ -94,23 +109,25 @@
             width: 90%;
             max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* ================================
            TYPOGRAPHY STYLES
         ================================ */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
         }
 
         .section-title {
-            font-size: 2.25rem;
+            font-size: 2.75rem;
             text-align: center;
             margin-bottom: 1rem;
             color: var(--primary-dark);
             position: relative;
+            font-weight: 800;
             padding-bottom: 1.5rem;
         }
 
@@ -121,16 +138,18 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--gray-600);
-            font-size: 1.125rem;
+            color: var(--text-medium);
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 4rem;
+            font-weight: 400;
         }
 
         /* ================================
@@ -140,59 +159,80 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 28px;
-            background-color: var(--primary-color);
+            padding: 14px 32px;
+            background: var(--primary-gradient);
             color: var(--text-light);
-            font-weight: 500;
+            font-weight: 600;
             border-radius: var(--radius-md);
             border: none;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
             font-size: 1rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-light {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--primary-dark);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-light:hover {
-            background-color: var(--gray-200);
-            transform: translateY(-2px);
+            background: var(--gray-200);
+            transform: translateY(-3px);
         }
 
         .btn-outline-light {
-            background-color: transparent;
+            background: transparent;
             color: var(--text-light);
             border: 2px solid var(--text-light);
+            box-shadow: none;
         }
 
         .btn-outline-light:hover {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--primary-dark);
         }
 
         /* ================================
-           HEADER & NAVIGATION
+           HEADER & NAVIGATION - ENHANCED
         ================================ */
         header {
-            background-color: var(--text-light);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: var(--text-dark);
-            padding: 1rem 0;
+            padding: 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow-md);
-            border-bottom: 1px solid var(--gray-300);
+            border-bottom: 1px solid rgba(233, 236, 239, 0.6);
+            height: var(--header-height);
             transition: var(--transition);
         }
 
@@ -200,31 +240,48 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
+            padding: 0 20px;
         }
 
+        /* Enhanced Logo Styling */
         .logo {
             z-index: 1001;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo img {
-            height: 40px;
+            height: 65px; /* Enhanced size */
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
         }
 
         .logo h1 {
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: -0.025em;
         }
 
         .logo span {
-            font-weight: 300;
+            font-weight: 400;
             opacity: 0.8;
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-size: 0.9em;
         }
 
         nav {
@@ -234,14 +291,17 @@
 
         .nav-menu {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-menu a {
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             color: var(--text-dark);
+            font-size: 0.95rem;
+            letter-spacing: 0.025em;
         }
 
         .nav-menu a::after {
@@ -250,9 +310,10 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
+            height: 3px;
+            background: var(--secondary-gradient);
             transition: var(--transition);
+            border-radius: 2px;
         }
 
         .nav-menu a:hover::after,
@@ -273,51 +334,91 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 1001;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .nav-toggle:hover {
+            background-color: var(--gray-200);
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--secondary-gradient);
+            z-index: 10000;
+            transition: width 0.3s ease;
         }
 
         /* ================================
-           PAGE HERO SECTION
+           PAGE HERO SECTION - ENHANCED
         ================================ */
         .page-hero {
-            min-height: 60vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('main.jpg') center/cover;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%), url('main.jpg') center/cover;
+            background-attachment: fixed;
             color: var(--text-light);
-            margin-bottom: 2rem;
             position: relative;
         }
 
         .page-hero-content {
             width: 100%;
             text-align: center;
-            padding-top: 90px;
+            padding-top: var(--header-height);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .page-hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .page-hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.6;
         }
 
         .breadcrumbs {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.9;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .breadcrumbs a {
             color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--secondary-light);
         }
 
         .breadcrumbs i {
@@ -325,209 +426,69 @@
         }
 
         /* ================================
-           OUR STORY SECTION
+           OUR STORY SECTION - ENHANCED
         ================================ */
         .our-story {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-subtle) 100%);
         }
 
         .story-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .story-image {
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-xl);
             transition: var(--transition);
         }
 
         .story-image:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
 
         .story-image img {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .story-image:hover img {
-            transform: scale(1.05);
-        }
-
-        .story-content h2 {
-            font-size: 2rem;
-            color: var(--primary-dark);
-            margin-bottom: 1.5rem;
-        }
-
-        .story-content p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
-        }
-
-        /* ================================
-           FOUNDERS SECTION
-        ================================ */
-        .founders-section {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
-        }
-
-        .founders-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
-        }
-
-        .founder-card {
-            display: grid;
-            grid-template-columns: 350px 1fr;
-            gap: 3rem;
-            align-items: start;
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .founder-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .founder-card:nth-child(even) {
-            grid-template-columns: 1fr 350px;
-        }
-
-        .founder-card:nth-child(even) .founder-image {
-            order: 2;
-        }
-
-        .founder-card:nth-child(even) .founder-info {
-            order: 1;
-        }
-
-        .founder-image {
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .founder-image:hover {
-            transform: scale(1.02);
-        }
-
-        .founder-image img {
-            width: 100%;
-            aspect-ratio: 1;
-            object-fit: cover;
-        }
-
-        .founder-info h3 {
-            font-size: 1.5rem;
-            color: var(--primary-dark);
-            margin-bottom: 0.5rem;
-        }
-
-        .founder-title {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
-            color: var(--secondary-color);
-            font-weight: 500;
-        }
-
-        .founder-bio p {
-            color: var(--gray-600);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        /* ================================
-           VALUES SECTION
-        ================================ */
-        .values-section {
-            padding: 5rem 0;
-            background-color: var(--bg-light);
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
-        }
-
-        .value-card {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-            text-align: center;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .value-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .value-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--primary-light);
-            color: var(--text-light);
-            border-radius: 50%;
-            font-size: 2rem;
-            transition: var(--transition);
-        }
-
-        .value-card:hover .value-icon {
-            background-color: var(--secondary-color);
             transform: scale(1.1);
         }
 
-        .value-card h3 {
-            font-size: 1.25rem;
+        .story-content h2 {
+            font-size: 2.5rem;
             color: var(--primary-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
         }
 
-        .value-card p {
-            color: var(--gray-600);
-            line-height: 1.6;
-            flex-grow: 1;
+        .story-content p {
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         /* ================================
-           TIMELINE SECTION (NEW)
+           TIMELINE SECTION - ENHANCED
         ================================ */
         .timeline-section {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
+            padding: 6rem 0;
+            background: var(--gray-200);
         }
 
         .timeline {
             position: relative;
-            max-width: 800px;
-            margin: 3rem auto 0;
+            max-width: 900px;
+            margin: 4rem auto 0;
         }
 
         .timeline::before {
@@ -535,14 +496,15 @@
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 3px;
+            width: 4px;
             height: 100%;
-            background-color: var(--primary-color);
+            background: var(--primary-gradient);
+            border-radius: 2px;
         }
 
         .timeline-item {
             position: relative;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             display: flex;
             align-items: center;
         }
@@ -556,164 +518,404 @@
         }
 
         .timeline-content {
-            background-color: var(--text-light);
-            padding: 1.5rem;
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
+            background: var(--text-light);
+            padding: 2rem;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
             width: 45%;
             position: relative;
             transition: var(--transition);
         }
 
         .timeline-content:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-8px);
+            box-shadow: var(--shadow-xl);
         }
 
         .timeline-year {
             position: absolute;
             left: 50%;
             transform: translateX(-50%);
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-color);
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: 600;
-            font-size: 0.9rem;
+            font-weight: 800;
+            font-size: 1rem;
             z-index: 1;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .timeline-year:hover {
+            transform: translateX(-50%) scale(1.1);
         }
 
         .timeline-content h3 {
             color: var(--primary-dark);
-            margin-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
         }
 
         .timeline-content p {
-            color: var(--gray-600);
-            line-height: 1.6;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         /* ================================
-           CTA SECTION
+           FOUNDERS SECTION - ENHANCED
+        ================================ */
+        .founders-section {
+            padding: 6rem 0;
+            background: var(--bg-light);
+        }
+
+        .founders-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+            margin-top: 4rem;
+        }
+
+        .founder-card {
+            display: grid;
+            grid-template-columns: 400px 1fr;
+            gap: 4rem;
+            align-items: start;
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            padding: 3rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .founder-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(46, 125, 50, 0.03) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .founder-card:hover::before {
+            opacity: 1;
+        }
+
+        .founder-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .founder-card:nth-child(even) {
+            grid-template-columns: 1fr 400px;
+        }
+
+        .founder-card:nth-child(even) .founder-image {
+            order: 2;
+        }
+
+        .founder-card:nth-child(even) .founder-info {
+            order: 1;
+        }
+
+        .founder-image {
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-image:hover {
+            transform: scale(1.03);
+        }
+
+        .founder-image img {
+            width: 100%;
+            aspect-ratio: 1;
+            object-fit: cover;
+        }
+
+        .founder-info {
+            position: relative;
+            z-index: 1;
+        }
+
+        .founder-info h3 {
+            font-size: 1.75rem;
+            color: var(--primary-dark);
+            margin-bottom: 0.75rem;
+            font-weight: 800;
+        }
+
+        .founder-title {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            color: var(--secondary-color);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, rgba(230, 81, 0, 0.1) 0%, rgba(255, 131, 58, 0.1) 100%);
+            border-radius: var(--radius-sm);
+            display: inline-block;
+        }
+
+        .founder-bio p {
+            color: var(--text-medium);
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+        }
+
+        /* ================================
+           VALUES SECTION - ENHANCED
+        ================================ */
+        .values-section {
+            padding: 6rem 0;
+            background: var(--gray-200);
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .value-card {
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+            text-align: center;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .value-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(96, 173, 94, 0.03) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .value-card:hover::before {
+            opacity: 1;
+        }
+
+        .value-card:hover {
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .value-icon {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--primary-gradient);
+            color: var(--text-light);
+            border-radius: 50%;
+            font-size: 2.2rem;
+            transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-card:hover .value-icon {
+            background: var(--secondary-gradient);
+            transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
+        }
+
+        .value-card h3 {
+            font-size: 1.4rem;
+            color: var(--primary-dark);
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
+        }
+
+        .value-card p {
+            color: var(--text-medium);
+            line-height: 1.7;
+            flex-grow: 1;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ================================
+           CTA SECTION - ENHANCED
         ================================ */
         .cta-section {
-            padding: 5rem 0;
-            background-color: var(--primary-dark);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
             color: var(--text-light);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 700px;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
 
         /* ================================
-           FOOTER
+           FOOTER - ENHANCED
         ================================ */
         footer {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--text-dark);
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
             border-top: 1px solid var(--gray-300);
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
         }
 
         .footer-logo {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
             color: var(--primary-color);
+            font-weight: 800;
         }
 
         .footer-logo span {
             opacity: 0.8;
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-weight: 400;
         }
 
         .footer-about p {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-            color: var(--gray-600);
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: var(--gray-200);
+            width: 45px;
+            height: 45px;
+            background: var(--gray-200);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
         }
 
         .social-link:hover {
-            background-color: var(--secondary-color);
+            background: var(--secondary-gradient);
             color: var(--text-light);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-md);
         }
 
         .footer-links h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
             color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .footer-link {
             display: block;
-            margin-bottom: 0.75rem;
-            opacity: 0.8;
+            margin-bottom: 1rem;
+            color: var(--text-medium);
             transition: var(--transition);
-            color: var(--gray-600);
+            font-size: 1.05rem;
         }
 
         .footer-link:hover {
-            opacity: 1;
-            padding-left: 5px;
             color: var(--secondary-color);
+            padding-left: 8px;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--gray-300);
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-size: 1.05rem;
         }
 
         /* ================================
-           RESPONSIVE DESIGN
+           ENHANCED RESPONSIVE DESIGN
         ================================ */
         
         /* Large Screens */
@@ -723,19 +925,23 @@
             }
             
             .founder-card {
-                grid-template-columns: 300px 1fr;
+                grid-template-columns: 350px 1fr;
             }
             
             .founder-card:nth-child(even) {
-                grid-template-columns: 1fr 300px;
+                grid-template-columns: 1fr 350px;
             }
         }
 
         /* Medium Screens */
         @media (max-width: 992px) {
+            :root {
+                --header-height: 75px;
+            }
+            
             .story-container {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
             
             .founder-card,
@@ -750,7 +956,7 @@
             }
             
             .founder-image {
-                max-width: 300px;
+                max-width: 350px;
                 margin: 0 auto;
             }
             
@@ -761,7 +967,7 @@
             .timeline-item,
             .timeline-item:nth-child(even) {
                 flex-direction: row;
-                padding-left: 70px;
+                padding-left: 80px;
             }
             
             .timeline-content {
@@ -772,27 +978,70 @@
                 left: 30px;
                 transform: translateX(-50%);
             }
+            
+            .section-title {
+                font-size: 2.25rem;
+            }
+            
+            .page-hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Small-Medium Screens */
+        @media (max-width: 850px) {
+            .page-hero-title {
+                font-size: 2.4rem;
+            }
+            
+            .page-hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .our-story,
+            .timeline-section,
+            .founders-section,
+            .values-section,
+            .cta-section {
+                padding: 4rem 0;
+            }
         }
 
         /* Small Screens */
         @media (max-width: 768px) {
+            :root {
+                --header-height: var(--header-height-mobile);
+            }
+            
             .nav-toggle {
                 display: block;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
             }
             
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 75vw;
+                width: 80vw;
+                max-width: 350px;
                 height: 100vh;
                 flex-direction: column;
-                background-color: var(--text-light);
-                padding: 5rem 2rem 2rem;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 6rem 2rem 2rem;
                 transition: var(--transition);
-                box-shadow: var(--shadow-lg);
+                box-shadow: var(--shadow-xl);
                 border-left: 1px solid var(--gray-300);
                 z-index: 1200;
+                justify-content: flex-start;
+                gap: 0;
             }
             
             .nav-menu.active {
@@ -800,34 +1049,42 @@
             }
             
             .nav-menu li {
-                margin-bottom: 2rem;
+                width: 100%;
+                margin-bottom: 1rem;
             }
             
-            .page-hero-title {
-                font-size: 2.5rem;
+            .nav-menu a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid var(--gray-200);
             }
             
             .section-title {
-                font-size: 1.75rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
+                font-size: 2rem;
             }
             
             .founder-card {
-                padding: 1.5rem;
+                padding: 2rem;
             }
             
             .values-grid {
-                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             }
         }
 
         /* Extra Small Screens */
         @media (max-width: 576px) {
             .container {
-                padding: 0 10px;
+                padding: 0 15px;
+            }
+            
+            .logo img {
+                height: 45px;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
             }
             
             .page-hero-title {
@@ -835,24 +1092,20 @@
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .cta-section h2 {
-                font-size: 1.75rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
+                font-size: 2.2rem;
             }
             
             .value-card,
             .founder-card {
-                padding: 1.5rem;
+                padding: 2rem 1.5rem;
             }
             
             .timeline-item {
-                padding-left: 50px;
+                padding-left: 60px;
             }
             
             .timeline::before {
@@ -861,51 +1114,106 @@
             
             .timeline-year {
                 left: 20px;
-                width: 40px;
-                height: 40px;
-                font-size: 0.8rem;
+                width: 60px;
+                height: 60px;
+                font-size: 0.9rem;
             }
         }
 
         /* Very Small Screens */
         @media (max-width: 400px) {
+            .logo img {
+                height: 40px;
+            }
+            
+            .logo h1 {
+                font-size: 1.1rem;
+            }
+            
             .page-hero-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .section-title {
-                font-size: 1.3rem;
+                font-size: 1.6rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
             }
             
             .cta-buttons {
                 flex-direction: column;
                 align-items: center;
             }
-            
-            .btn,
-            .btn-light,
-            .btn-outline-light {
-                padding: 0.75rem 1.5rem;
-                font-size: 0.95rem;
+        }
+
+        /* ================================
+           SCROLL ANIMATIONS
+        ================================ */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================
+           LOADING STATES
+        ================================ */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
     <!-- ================================
          HEADER & NAVIGATION SECTION
     ================================ -->
     <header>
         <div class="container nav-container">
-            <!-- Logo Section -->
+            <!-- Enhanced Logo Section -->
             <div class="logo">
-                <img src="logo.png" alt="KVS Logo">
+                <img src="logo.png" alt="KVS Spices & Traders Logo" loading="eager">
                 <h1>KVS <span>Spices & Traders</span></h1>
             </div>
 
             <!-- Mobile Navigation Toggle -->
-            <button class="nav-toggle" id="navToggle">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -936,14 +1244,14 @@
             </div>
             
             <h1 class="page-hero-title">Our Story</h1>
-            <p class="page-hero-subtitle">Discover the heritage and values behind KVS Spices & Traders since 1987</p>
+            <p class="page-hero-subtitle">Discover the heritage and values behind KVS Spices & Traders since 1987 - A legacy of quality and community</p>
         </div>
     </section>
 
     <!-- ================================
          OUR STORY SECTION
     ================================ -->
-    <section class="our-story">
+    <section class="our-story fade-in-on-scroll">
         <div class="container">
             <div class="story-container">
                 <!-- Story Content -->
@@ -956,7 +1264,7 @@
                 
                 <!-- Story Image -->
                 <div class="story-image">
-                    <img src="main.jpg" alt="KVS Spices History" />
+                    <img src="main.jpg" alt="KVS Spices Heritage and History" loading="lazy" />
                 </div>
             </div>
         </div>
@@ -965,17 +1273,17 @@
     <!-- ================================
          COMPANY TIMELINE SECTION
     ================================ -->
-    <section class="timeline-section">
+    <section class="timeline-section fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Our Journey Through Time</h2>
-            <p class="section-subtitle">Key milestones in the growth and evolution of KVS Spices & Traders</p>
+            <p class="section-subtitle">Key milestones in the growth and evolution of KVS Spices & Traders over nearly four decades</p>
             
             <div class="timeline">
                 <!-- Timeline Item 1 -->
                 <div class="timeline-item">
                     <div class="timeline-content">
                         <h3>Foundation</h3>
-                        <p>KV Joseph establishes KVS Spices & Traders with a small spice trading operation, focusing on fair trade practices and supporting local farmers.</p>
+                        <p>KV Joseph establishes KVS Spices & Traders with a small spice trading operation, focusing on fair trade practices and supporting local farmers in the Munnar region.</p>
                     </div>
                     <div class="timeline-year">1987</div>
                 </div>
@@ -983,7 +1291,7 @@
                 <!-- Timeline Item 2 -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Expansion</h3>
+                        <h3>Major Expansion</h3>
                         <p>Acquired the 20-acre facility in Munnar, establishing our main processing and trading center with advanced cardamom drying and grading facilities.</p>
                     </div>
                     <div class="timeline-year">1995</div>
@@ -992,8 +1300,8 @@
                 <!-- Timeline Item 3 -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Growth</h3>
-                        <p>Expanded farmer network to over 200 local producers and began exporting premium Kerala spices to international markets.</p>
+                        <h3>Network Growth</h3>
+                        <p>Expanded farmer network to over 200 local producers and began exporting premium Kerala spices to international markets, establishing global partnerships.</p>
                     </div>
                     <div class="timeline-year">2005</div>
                 </div>
@@ -1001,8 +1309,8 @@
                 <!-- Timeline Item 4 -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>Diversification</h3>
-                        <p>Opened the Anachal retail outlet and launched tourism services, creating a comprehensive one-stop destination for visitors to Kerala.</p>
+                        <h3>Service Diversification</h3>
+                        <p>Opened the Anachal retail outlet and launched comprehensive tourism services, creating a one-stop destination for visitors to Kerala.</p>
                     </div>
                     <div class="timeline-year">2015</div>
                 </div>
@@ -1010,8 +1318,8 @@
                 <!-- Timeline Item 5 -->
                 <div class="timeline-item">
                     <div class="timeline-content">
-                        <h3>New Leadership</h3>
-                        <p>Abison Joseph takes over leadership, bringing fresh innovations while maintaining the company's core values and commitment to quality.</p>
+                        <h3>New Leadership Era</h3>
+                        <p>Abison Joseph takes over leadership, bringing fresh innovations while maintaining the company's core values and commitment to quality and community.</p>
                     </div>
                     <div class="timeline-year">2022</div>
                 </div>
@@ -1022,16 +1330,16 @@
     <!-- ================================
          FOUNDERS SECTION
     ================================ -->
-    <section class="founders-section">
+    <section class="founders-section fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Our Leadership</h2>
-            <p class="section-subtitle">The visionaries behind KVS Spices & Traders</p>
+            <p class="section-subtitle">The visionaries behind KVS Spices & Traders who built and continue our legacy</p>
             
             <div class="founders-grid">
                 <!-- Founder 1: KV Joseph -->
                 <div class="founder-card">
                     <div class="founder-image">
-                        <img src="joseph.jpg" alt="KV Joseph" />
+                        <img src="joseph.jpg" alt="KV Joseph - Founder of KVS Spices & Traders" loading="lazy" />
                     </div>
                     <div class="founder-info">
                         <h3>KV Joseph</h3>
@@ -1047,7 +1355,7 @@
                 <!-- Founder 2: Abison Joseph -->
                 <div class="founder-card">
                     <div class="founder-image">
-                        <img src="abison.jpg" alt="Abison Joseph" />
+                        <img src="abison.jpg" alt="Abison Joseph - Director of KVS Spices & Traders" loading="lazy" />
                     </div>
                     <div class="founder-info">
                         <h3>Abison Joseph</h3>
@@ -1066,10 +1374,10 @@
     <!-- ================================
          VALUES SECTION
     ================================ -->
-    <section class="values-section">
+    <section class="values-section fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Our Core Values</h2>
-            <p class="section-subtitle">The principles that guide everything we do at KVS Spices & Traders</p>
+            <p class="section-subtitle">The principles that guide everything we do at KVS Spices & Traders and define our commitment to excellence</p>
             
             <div class="values-grid">
                 <!-- Quality -->
@@ -1123,7 +1431,7 @@
     <section class="cta-section">
         <div class="container">
             <h2>Experience Our Legacy</h2>
-            <p>Visit our facilities in Munnar and Anachal to discover the quality and tradition behind KVS Spices & Traders. Learn about spice cultivation, processing, and the rich heritage of Kerala's spice trade.</p>
+            <p>Visit our facilities in Munnar and Anachal to discover the quality and tradition behind KVS Spices & Traders. Learn about spice cultivation, processing, and the rich heritage of Kerala's spice trade that has shaped our journey for nearly four decades.</p>
             <div class="cta-buttons">
                 <a href="munnar.html" class="btn btn-light">Visit Munnar Branch</a>
                 <a href="anachal.html" class="btn btn-outline-light">Explore Anachal Store</a>
@@ -1140,11 +1448,11 @@
                 <!-- Company Information -->
                 <div class="footer-about">
                     <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
-                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
+                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987. Experience authentic Kerala flavors and unforgettable journeys.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
@@ -1165,20 +1473,20 @@
                     <a href="munnar.html" class="footer-link">Spice Trading</a>
                     <a href="munnar.html" class="footer-link">Cardamom Processing</a>
                     <a href="tours.html" class="footer-link">Tour Booking</a>
-                    <a href="anachal.html" class="footer-link">Grocery Store</a>
+                    <a href="anachal.html" class="footer-link">Premium Spices</a>
                     <a href="munnar.html" class="footer-link">Farmer Support</a>
                 </div>
             </div>
             
             <!-- Copyright -->
             <div class="copyright">
-                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
+                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved. | Designed with ❤️ for Kerala's Spice Heritage</p>
             </div>
         </div>
     </footer>
 
     <!-- ================================
-         JAVASCRIPT FUNCTIONALITY
+         ENHANCED JAVASCRIPT FUNCTIONALITY
     ================================ -->
     <script>
         // ================================
@@ -1186,29 +1494,85 @@
         // ================================
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+        let isMenuOpen = false;
 
         // Toggle mobile navigation menu with icon change
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = navToggle.querySelector('i');
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isMenuOpen = !isMenuOpen;
+            navMenu.classList.toggle('active', isMenuOpen);
             
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            icon.className = isMenuOpen ? 'fas fa-times' : 'fas fa-bars';
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
         });
 
         // Close mobile menu when clicking navigation links
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                closeMenu();
             });
+        });
+
+        // Close menu function
+        function closeMenu() {
+            isMenuOpen = false;
+            navMenu.classList.remove('active');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+            document.body.style.overflow = '';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // SCROLL PROGRESS INDICATOR
+        // ================================
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollIndicator.style.width = scrollPercent + '%';
+        });
+
+        // ================================
+        // ENHANCED HEADER SCROLL EFFECT
+        // ================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Add/remove backdrop blur based on scroll position
+            if (currentScrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-lg)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            }
+            
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
         });
 
         // ================================
@@ -1219,45 +1583,22 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
+                    
+                    closeMenu();
                 }
             });
         });
 
         // ================================
-        // ADDITIONAL INTERACTIVE FEATURES
+        // INTERSECTION OBSERVER FOR ANIMATIONS
         // ================================
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Add scroll effect to navigation bar
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.backgroundColor = 'var(--text-light)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-
-        // ================================
-        // SCROLL ANIMATIONS
-        // ================================
-        
-        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1266,18 +1607,39 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe elements for scroll animations
-        document.querySelectorAll('.value-card, .founder-card, .timeline-content').forEach(element => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // ================================
+        // ENHANCED SCROLL ANIMATIONS
+        // ================================
+        
+        // Enhanced animations for value cards
+        document.querySelectorAll('.value-card, .founder-card, .timeline-content').forEach((element, index) => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(element);
+            
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            cardObserver.observe(element);
         });
 
         // ================================
@@ -1287,22 +1649,30 @@
         // Enhanced hover effects for value cards
         document.querySelectorAll('.value-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(-15px) scale(1.02)';
+                }
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(0) scale(1)';
+                }
             });
         });
 
         // Enhanced hover effects for founder cards
         document.querySelectorAll('.founder-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-5px) scale(1.01)';
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(-10px)';
+                }
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(0)';
+                }
             });
         });
 
@@ -1315,17 +1685,125 @@
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'scale(1)';
+                    entry.target.style.transform = 'translateX(-50%) scale(1)';
                 }
             });
         }, { threshold: 0.5 });
 
-        document.querySelectorAll('.timeline-year').forEach(year => {
+        document.querySelectorAll('.timeline-year').forEach((year, index) => {
             year.style.opacity = '0';
-            year.style.transform = 'scale(0.5)';
+            year.style.transform = 'translateX(-50%) scale(0.5)';
             year.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-            timelineObserver.observe(year);
+            
+            setTimeout(() => {
+                timelineObserver.observe(year);
+            }, index * 200);
         });
+
+        // ================================
+        // PERFORMANCE OPTIMIZATIONS
+        // ================================
+        
+        // Lazy load images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loading');
+                    img.addEventListener('load', () => {
+                        img.classList.remove('loading');
+                    });
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // ================================
+        // KEYBOARD NAVIGATION SUPPORT
+        // ================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // TOUCH GESTURES FOR MOBILE
+        // ================================
+        let startX, startY, distX, distY;
+
+        navMenu.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        navMenu.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+            
+            distX = e.touches[0].clientX - startX;
+            distY = e.touches[0].clientY - startY;
+            
+            // Close menu on swipe right
+            if (distX > 100 && Math.abs(distY) < 100) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // REDUCE MOTION FOR ACCESSIBILITY
+        // ================================
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (prefersReducedMotion.matches) {
+            document.documentElement.style.scrollBehavior = 'auto';
+            // Remove transitions for users who prefer reduced motion
+            const style = document.createElement('style');
+            style.textContent = `
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // ================================
+        // LOADING OPTIMIZATION
+        // ================================
+        window.addEventListener('load', () => {
+            // Remove loading classes
+            document.querySelectorAll('.loading').forEach(el => {
+                el.classList.remove('loading');
+            });
+            
+            // Initialize animations after load
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+
+        // ================================
+        // ERROR HANDLING FOR IMAGES
+        // ================================
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.opacity = '0.5';
+                this.alt = 'Image could not be loaded';
+                console.warn('Failed to load image:', this.src);
+            });
+        });
+
+        // ================================
+        // THEME DETECTION AND ADJUSTMENT
+        // ================================
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDarkMode) {
+            document.documentElement.style.filter = 'brightness(0.95)';
+        }
     </script>
 </body>
 </html>

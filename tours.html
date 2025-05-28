@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KVS Tours - Experience Kerala's Beauty</title>
+    <title>KVS Tours - Experience Kerala's Beauty | Premium Tour Packages</title>
+    <meta name="description" content="Discover Kerala's enchanting beauty with KVS Tours. Premium houseboat cruises, wildlife safaris, cultural tours, and adventure packages. Book authentic Kerala experiences.">
     
     <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* ================================
@@ -18,36 +19,48 @@
             --primary-color: #2e7d32;
             --primary-light: #60ad5e;
             --primary-dark: #005005;
+            --primary-gradient: linear-gradient(135deg, #2e7d32 0%, #60ad5e 100%);
             
             /* Secondary Colors */
             --secondary-color: #e65100;
             --secondary-light: #ff833a;
             --secondary-dark: #ac1900;
+            --secondary-gradient: linear-gradient(135deg, #e65100 0%, #ff833a 100%);
             
             /* Text Colors */
             --text-dark: #263238;
             --text-light: #ffffff;
+            --text-medium: #546e7a;
             
             /* Background Colors */
             --bg-light: #ffffff;
+            --bg-subtle: #fafbfc;
             --gray-100: #ffffff;
             --gray-200: #f8f9fa;
             --gray-300: #e9ecef;
+            --gray-400: #dee2e6;
             --gray-600: #6c757d;
             
             /* Shadows */
             --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
             
             /* Border Radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
             
             /* Transitions & Layout */
-            --transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s ease;
             --container-width: 1200px;
+            
+            /* Header Heights */
+            --header-height: 85px;
+            --header-height-mobile: 70px;
         }
 
         /* ================================
@@ -61,14 +74,16 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--bg-light);
             overflow-x: hidden;
+            font-weight: 400;
         }
 
         a {
@@ -94,23 +109,25 @@
             width: 90%;
             max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* ================================
            TYPOGRAPHY STYLES
         ================================ */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
         }
 
         .section-title {
-            font-size: 2.25rem;
+            font-size: 2.75rem;
             text-align: center;
             margin-bottom: 1rem;
             color: var(--primary-dark);
             position: relative;
+            font-weight: 800;
             padding-bottom: 1.5rem;
         }
 
@@ -121,16 +138,18 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--gray-600);
-            font-size: 1.125rem;
+            color: var(--text-medium);
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 4rem;
+            font-weight: 400;
         }
 
         /* ================================
@@ -140,59 +159,80 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 28px;
-            background-color: var(--primary-color);
+            padding: 14px 32px;
+            background: var(--primary-gradient);
             color: var(--text-light);
-            font-weight: 500;
+            font-weight: 600;
             border-radius: var(--radius-md);
             border: none;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
             font-size: 1rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-light {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--primary-dark);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-light:hover {
-            background-color: var(--gray-200);
-            transform: translateY(-2px);
+            background: var(--gray-200);
+            transform: translateY(-3px);
         }
 
         .btn-outline-light {
-            background-color: transparent;
+            background: transparent;
             color: var(--text-light);
             border: 2px solid var(--text-light);
+            box-shadow: none;
         }
 
         .btn-outline-light:hover {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--primary-dark);
         }
 
         /* ================================
-           HEADER & NAVIGATION
+           HEADER & NAVIGATION - ENHANCED
         ================================ */
         header {
-            background-color: var(--text-light);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: var(--text-dark);
-            padding: 1rem 0;
+            padding: 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow-md);
-            border-bottom: 1px solid var(--gray-300);
+            border-bottom: 1px solid rgba(233, 236, 239, 0.6);
+            height: var(--header-height);
             transition: var(--transition);
         }
 
@@ -200,31 +240,48 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
+            padding: 0 20px;
         }
 
+        /* Enhanced Logo Styling */
         .logo {
             z-index: 1001;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo img {
-            height: 40px;
+            height: 65px; /* Enhanced size */
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
         }
 
         .logo h1 {
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: -0.025em;
         }
 
         .logo span {
-            font-weight: 300;
+            font-weight: 400;
             opacity: 0.8;
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-size: 0.9em;
         }
 
         nav {
@@ -234,14 +291,17 @@
 
         .nav-menu {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-menu a {
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             color: var(--text-dark);
+            font-size: 0.95rem;
+            letter-spacing: 0.025em;
         }
 
         .nav-menu a::after {
@@ -250,9 +310,10 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
+            height: 3px;
+            background: var(--secondary-gradient);
             transition: var(--transition);
+            border-radius: 2px;
         }
 
         .nav-menu a:hover::after,
@@ -273,51 +334,91 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 1001;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .nav-toggle:hover {
+            background-color: var(--gray-200);
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--secondary-gradient);
+            z-index: 10000;
+            transition: width 0.3s ease;
         }
 
         /* ================================
-           PAGE HERO SECTION
+           PAGE HERO SECTION - ENHANCED
         ================================ */
         .page-hero {
-            min-height: 60vh;
+            min-height: 70vh;
             display: flex;
             align-items: center;
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.3)), url('anachalimg.jpg') center/cover;
+            background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%), url('anachalimg.jpg') center/cover;
+            background-attachment: fixed;
             color: var(--text-light);
-            margin-bottom: 2rem;
             position: relative;
         }
 
         .page-hero-content {
             width: 100%;
             text-align: center;
-            padding-top: 90px;
+            padding-top: var(--header-height);
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .page-hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .page-hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.6;
         }
 
         .breadcrumbs {
             display: flex;
-            gap: 0.5rem;
+            gap: 0.75rem;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 1rem;
             opacity: 0.9;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2.5rem;
         }
 
         .breadcrumbs a {
             color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--secondary-light);
         }
 
         .breadcrumbs i {
@@ -325,143 +426,204 @@
         }
 
         /* ================================
-           TOUR INTRODUCTION SECTION
+           TOUR INTRODUCTION SECTION - ENHANCED
         ================================ */
         .tour-intro {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-subtle) 100%);
         }
 
         .intro-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .intro-img {
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-xl);
             transition: var(--transition);
         }
 
         .intro-img:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
 
         .intro-img img {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .intro-img:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .intro-content h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
         }
 
         .intro-content p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
-            line-height: 1.7;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            font-size: 1.1rem;
         }
 
         .intro-features {
-            margin-top: 2rem;
+            margin-top: 2.5rem;
         }
 
         .intro-feature {
             display: flex;
             align-items: flex-start;
-            margin-bottom: 1rem;
-            padding: 0.5rem 0;
+            margin-bottom: 1.25rem;
+            padding: 1rem;
+            background: var(--text-light);
+            border-radius: var(--radius-sm);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .intro-feature:hover {
+            transform: translateX(10px);
+            box-shadow: var(--shadow-md);
         }
 
         .intro-feature i {
             color: var(--secondary-color);
-            margin-right: 0.75rem;
+            margin-right: 1rem;
             margin-top: 0.25rem;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
+            width: 24px;
+            height: 24px;
+            background: var(--secondary-gradient);
+            color: var(--text-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
         }
 
         .intro-feature p {
             margin: 0;
             color: var(--text-dark);
-            font-weight: 500;
+            font-weight: 600;
+            font-size: 1.05rem;
         }
 
         /* ================================
-           TOUR CATEGORIES SECTION
+           TOUR CATEGORIES SECTION - ENHANCED
         ================================ */
         .tour-categories {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
+            padding: 6rem 0;
+            background: var(--gray-200);
         }
 
         .filter-buttons {
             display: flex;
             flex-wrap: wrap;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
         }
 
         .filter-btn {
-            background-color: var(--text-light);
+            background: var(--text-light);
             border-radius: var(--radius-md);
-            padding: 0.75rem 1.5rem;
+            padding: 1rem 2rem;
             box-shadow: var(--shadow-md);
             cursor: pointer;
             border: none;
-            font-weight: 500;
+            font-weight: 600;
             font-family: 'Poppins', sans-serif;
             color: var(--text-dark);
             transition: var(--transition);
-            font-size: 0.95rem;
+            font-size: 1rem;
+            position: relative;
+            overflow: hidden;
         }
 
-        .filter-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-lg);
+        .filter-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--secondary-gradient);
+            transition: var(--transition);
+            z-index: 0;
         }
 
+        .filter-btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        .filter-btn:hover::before,
+        .filter-btn.active::before {
+            left: 0;
+        }
+
+        .filter-btn:hover,
         .filter-btn.active {
-            background-color: var(--secondary-color);
             color: var(--text-light);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
 
         .tour-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
         }
 
         .tour-card {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-md);
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-lg);
             overflow: hidden;
             transition: var(--transition);
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        .tour-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(46, 125, 50, 0.03) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .tour-card:hover::before {
+            opacity: 1;
         }
 
         .tour-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
         }
 
         .tour-img {
             position: relative;
-            height: 240px;
+            height: 280px;
             overflow: hidden;
         }
 
@@ -469,60 +631,65 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .tour-card:hover .tour-img img {
-            transform: scale(1.05);
+            transform: scale(1.15);
         }
 
         .tour-category {
             position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background-color: var(--secondary-color);
+            top: 1.5rem;
+            right: 1.5rem;
+            background: var(--secondary-gradient);
             color: var(--text-light);
-            padding: 0.5rem 1rem;
-            border-radius: var(--radius-sm);
-            font-size: 0.875rem;
-            font-weight: 500;
+            padding: 0.75rem 1.25rem;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 600;
+            box-shadow: var(--shadow-md);
         }
 
         .tour-content {
-            padding: 1.5rem;
+            padding: 2rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
 
         .tour-title {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--primary-dark);
-            margin-bottom: 0.75rem;
-            font-weight: 600;
+            margin-bottom: 1rem;
+            font-weight: 700;
         }
 
         .tour-description {
-            color: var(--gray-600);
-            line-height: 1.6;
+            color: var(--text-medium);
+            line-height: 1.7;
             flex-grow: 1;
+            font-size: 1.05rem;
         }
 
         /* ================================
-           TOUR HIGHLIGHTS SECTION
+           TOUR HIGHLIGHTS SECTION - ENHANCED
         ================================ */
         .tour-highlights {
-            padding: 5rem 0;
-            background-color: var(--bg-light);
+            padding: 6rem 0;
+            background: var(--bg-light);
         }
 
         .highlights-title {
-            font-size: 2.25rem;
+            font-size: 2.75rem;
             text-align: center;
             margin-bottom: 1rem;
             color: var(--primary-dark);
             position: relative;
             padding-bottom: 1.5rem;
+            font-weight: 800;
         }
 
         .highlights-title::after {
@@ -532,185 +699,246 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
         }
 
         .highlights-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .highlight-card {
-            padding: 2rem;
-            border-radius: var(--radius-md);
-            background-color: var(--text-light);
-            box-shadow: var(--shadow-md);
+            padding: 2.5rem 2rem;
+            border-radius: var(--radius-lg);
+            background: var(--text-light);
+            box-shadow: var(--shadow-lg);
             text-align: center;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .highlight-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(230, 81, 0, 0.03) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .highlight-card:hover::before {
+            opacity: 1;
         }
 
         .highlight-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
         }
 
         .highlight-icon {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 1.5rem;
-            background-color: var(--primary-color);
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 2rem;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            font-size: 2rem;
             transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
         }
 
         .highlight-card:hover .highlight-icon {
-            background-color: var(--secondary-color);
+            background: var(--secondary-gradient);
             transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .highlight-title {
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-dark);
-            font-weight: 600;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .highlight-card p {
-            color: var(--gray-600);
-            line-height: 1.6;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* ================================
-           BOOKING PROCESS SECTION
+           BOOKING PROCESS SECTION - ENHANCED
         ================================ */
         .booking-process {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
+            padding: 6rem 0;
+            background: var(--gray-200);
         }
 
         .process-steps {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .process-step {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            padding: 2rem;
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
             text-align: center;
             transition: var(--transition);
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(46, 125, 50, 0.03) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .process-step:hover::before {
+            opacity: 1;
         }
 
         .process-step:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-xl);
         }
 
         .step-number {
-            width: 60px;
-            height: 60px;
-            background-color: var(--primary-color);
+            width: 80px;
+            height: 80px;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            font-weight: 800;
+            margin: 0 auto 2rem;
             transition: var(--transition);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            z-index: 1;
         }
 
         .process-step:hover .step-number {
-            background-color: var(--secondary-color);
+            background: var(--secondary-gradient);
             transform: scale(1.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .step-title {
             color: var(--primary-dark);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-            font-weight: 600;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+            position: relative;
+            z-index: 1;
         }
 
         .step-description {
-            color: var(--gray-600);
-            line-height: 1.6;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
+            position: relative;
+            z-index: 1;
         }
 
         /* ================================
-           FAQ SECTION
+           FAQ SECTION - ENHANCED
         ================================ */
         .faq-section {
-            padding: 5rem 0;
-            background-color: var(--bg-light);
+            padding: 6rem 0;
+            background: var(--bg-light);
         }
 
         .faq-container {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
         }
 
         .faq-item {
-            margin-bottom: 1rem;
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
             overflow: hidden;
             transition: var(--transition);
         }
 
         .faq-item:hover {
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-lg);
         }
 
         .faq-question {
-            padding: 1.5rem;
+            padding: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
-            font-weight: 500;
+            font-weight: 600;
             color: var(--primary-dark);
             transition: var(--transition);
         }
 
         .faq-question:hover {
-            background-color: var(--gray-100);
+            background: var(--bg-subtle);
         }
 
         .faq-question h3 {
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             margin: 0;
+            font-weight: 700;
         }
 
         .faq-answer {
-            padding: 0 1.5rem;
+            padding: 0 2rem;
             max-height: 0;
             overflow: hidden;
-            color: var(--gray-600);
+            color: var(--text-medium);
             transition: max-height 0.4s ease, padding 0.4s ease;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .faq-item.active .faq-answer {
-            max-height: 200px;
-            padding: 0 1.5rem 1.5rem;
+            max-height: 250px;
+            padding: 0 2rem 2rem;
         }
 
         .faq-question i {
             transition: transform 0.3s ease;
             color: var(--secondary-color);
+            font-size: 1.2rem;
         }
 
         .faq-item.active .faq-question i {
@@ -718,122 +946,149 @@
         }
 
         /* ================================
-           CTA SECTION
+           CTA SECTION - ENHANCED
         ================================ */
         .cta-section {
-            padding: 5rem 0;
-            background-color: var(--primary-dark);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
             color: var(--text-light);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 700px;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             flex-wrap: wrap;
             justify-content: center;
+            position: relative;
+            z-index: 1;
         }
 
         /* ================================
-           FOOTER
+           FOOTER - ENHANCED
         ================================ */
         footer {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--text-dark);
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
             border-top: 1px solid var(--gray-300);
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
         }
 
         .footer-logo {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
             color: var(--primary-color);
+            font-weight: 800;
         }
 
         .footer-logo span {
             opacity: 0.8;
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-weight: 400;
         }
 
         .footer-about p {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-            color: var(--gray-600);
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: var(--gray-200);
+            width: 45px;
+            height: 45px;
+            background: var(--gray-200);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
         }
 
         .social-link:hover {
-            background-color: var(--secondary-color);
+            background: var(--secondary-gradient);
             color: var(--text-light);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-md);
         }
 
         .footer-links h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
             color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .footer-link {
             display: block;
-            margin-bottom: 0.75rem;
-            opacity: 0.8;
+            margin-bottom: 1rem;
+            color: var(--text-medium);
             transition: var(--transition);
-            color: var(--gray-600);
+            font-size: 1.05rem;
         }
 
         .footer-link:hover {
-            opacity: 1;
-            padding-left: 5px;
             color: var(--secondary-color);
+            padding-left: 8px;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--gray-300);
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-size: 1.05rem;
         }
 
         /* ================================
-           RESPONSIVE DESIGN
+           ENHANCED RESPONSIVE DESIGN
         ================================ */
         
         /* Large Screens */
@@ -845,35 +1100,84 @@
 
         /* Medium Screens */
         @media (max-width: 992px) {
+            :root {
+                --header-height: 75px;
+            }
+            
             .intro-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
             
             .tour-grid {
-                grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            }
+            
+            .section-title,
+            .highlights-title {
+                font-size: 2.25rem;
+            }
+            
+            .page-hero-title {
+                font-size: 2.8rem;
+            }
+        }
+
+        /* Small-Medium Screens */
+        @media (max-width: 850px) {
+            .page-hero-title {
+                font-size: 2.4rem;
+            }
+            
+            .page-hero-subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .tour-intro,
+            .tour-categories,
+            .tour-highlights,
+            .booking-process,
+            .faq-section,
+            .cta-section {
+                padding: 4rem 0;
             }
         }
 
         /* Small Screens */
         @media (max-width: 768px) {
+            :root {
+                --header-height: var(--header-height-mobile);
+            }
+            
             .nav-toggle {
                 display: block;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
             }
             
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 75vw;
+                width: 80vw;
+                max-width: 350px;
                 height: 100vh;
                 flex-direction: column;
-                background-color: var(--text-light);
-                padding: 5rem 2rem 2rem;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 6rem 2rem 2rem;
                 transition: var(--transition);
-                box-shadow: var(--shadow-lg);
+                box-shadow: var(--shadow-xl);
                 border-left: 1px solid var(--gray-300);
                 z-index: 1200;
+                justify-content: flex-start;
+                gap: 0;
             }
             
             .nav-menu.active {
@@ -881,20 +1185,20 @@
             }
             
             .nav-menu li {
-                margin-bottom: 2rem;
+                width: 100%;
+                margin-bottom: 1rem;
             }
             
-            .page-hero-title {
-                font-size: 2.5rem;
+            .nav-menu a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid var(--gray-200);
             }
             
             .section-title,
             .highlights-title {
-                font-size: 1.75rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
+                font-size: 2rem;
             }
             
             .process-steps {
@@ -904,19 +1208,31 @@
             .filter-buttons {
                 justify-content: flex-start;
                 overflow-x: auto;
-                padding-bottom: 0.5rem;
+                padding-bottom: 1rem;
             }
             
             .filter-btn {
                 white-space: nowrap;
                 flex-shrink: 0;
             }
+            
+            .tour-grid {
+                grid-template-columns: 1fr;
+            }
         }
 
         /* Extra Small Screens */
         @media (max-width: 576px) {
             .container {
-                padding: 0 10px;
+                padding: 0 15px;
+            }
+            
+            .logo img {
+                height: 45px;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
             }
             
             .page-hero-title {
@@ -925,40 +1241,52 @@
             
             .section-title,
             .highlights-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .cta-section h2 {
-                font-size: 1.75rem;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .tour-card {
-                font-size: 0.95rem;
+                font-size: 2.2rem;
             }
             
             .tour-img {
-                height: 200px;
+                height: 220px;
             }
             
             .highlight-card,
             .process-step {
+                padding: 2rem 1.5rem;
+            }
+            
+            .faq-question {
                 padding: 1.5rem;
+            }
+            
+            .faq-item.active .faq-answer {
+                padding: 0 1.5rem 1.5rem;
             }
         }
 
         /* Very Small Screens */
         @media (max-width: 400px) {
+            .logo img {
+                height: 40px;
+            }
+            
+            .logo h1 {
+                font-size: 1.1rem;
+            }
+            
             .page-hero-title {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
             
             .section-title,
             .highlights-title {
-                font-size: 1.3rem;
+                font-size: 1.6rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
             }
             
             .cta-buttons {
@@ -966,23 +1294,73 @@
                 align-items: center;
             }
         }
+
+        /* ================================
+           SCROLL ANIMATIONS
+        ================================ */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================
+           LOADING STATES
+        ================================ */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
+            }
+        }
     </style>
 </head>
 
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
     <!-- ================================
          HEADER & NAVIGATION SECTION
     ================================ -->
     <header>
         <div class="container nav-container">
-            <!-- Logo Section -->
+            <!-- Enhanced Logo Section -->
             <div class="logo">
-                <img src="logo.png" alt="KVS Logo">
+                <img src="logo.png" alt="KVS Spices & Traders Logo" loading="eager">
                 <h1>KVS <span>Spices & Traders</span></h1>
             </div>
 
             <!-- Mobile Navigation Toggle -->
-            <button class="nav-toggle" id="navToggle">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -1013,19 +1391,19 @@
             </div>
             
             <h1 class="page-hero-title">Experience Kerala</h1>
-            <p class="page-hero-subtitle">Discover the beauty and culture of God's Own Country with our premium tour services</p>
+            <p class="page-hero-subtitle">Discover the enchanting beauty and rich culture of God's Own Country with our premium tour services</p>
         </div>
     </section>
 
     <!-- ================================
          TOUR INTRODUCTION SECTION
     ================================ -->
-    <section class="tour-intro">
+    <section class="tour-intro fade-in-on-scroll">
         <div class="container">
             <div class="intro-grid">
                 <!-- Introduction Image -->
                 <div class="intro-img">
-                    <img src="anachalimg.jpg" alt="Kerala Backwaters" />
+                    <img src="anachalimg.jpg" alt="Kerala Backwaters Tourism" loading="lazy" />
                 </div>
                 
                 <!-- Introduction Content -->
@@ -1061,18 +1439,18 @@
     <!-- ================================
          TOUR CATEGORIES SECTION
     ================================ -->
-    <section class="tour-categories">
+    <section class="tour-categories fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Our Tour Packages</h2>
-            <p class="section-subtitle">Choose from our selection of carefully curated tour experiences</p>
+            <p class="section-subtitle">Choose from our selection of carefully curated tour experiences that showcase Kerala's diverse beauty</p>
             
             <!-- Filter Buttons -->
             <div class="filter-buttons">
-                <button class="filter-btn active" data-filter="all">All Tours</button>
-                <button class="filter-btn" data-filter="backwater">Backwater Tours</button>
-                <button class="filter-btn" data-filter="wildlife">Wildlife Tours</button>
-                <button class="filter-btn" data-filter="cultural">Cultural Tours</button>
-                <button class="filter-btn" data-filter="adventure">Adventure Tours</button>
+                <button class="filter-btn active" data-filter="all"><span>All Tours</span></button>
+                <button class="filter-btn" data-filter="backwater"><span>Backwater Tours</span></button>
+                <button class="filter-btn" data-filter="wildlife"><span>Wildlife Tours</span></button>
+                <button class="filter-btn" data-filter="cultural"><span>Cultural Tours</span></button>
+                <button class="filter-btn" data-filter="adventure"><span>Adventure Tours</span></button>
             </div>
             
             <!-- Tour Cards Grid -->
@@ -1080,31 +1458,31 @@
                 <!-- Backwater Tour 1 -->
                 <div class="tour-card" data-category="backwater">
                     <div class="tour-img">
-                        <img src="alappeyhouseboat.jpg" alt="Alleppey Houseboat" />
+                        <img src="alappeyhouseboat.jpg" alt="Alleppey Houseboat Experience" loading="lazy" />
                         <div class="tour-category">Backwater</div>
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Alleppey Houseboat Cruise</h3>
-                        <p class="tour-description">Experience the tranquil backwaters of Kerala on a traditional houseboat. Cruise through the network of lagoons, lakes, and canals while enjoying authentic Kerala cuisine prepared fresh onboard.</p>
+                        <p class="tour-description">Experience the tranquil backwaters of Kerala on a traditional houseboat. Cruise through the network of lagoons, lakes, and canals while enjoying authentic Kerala cuisine prepared fresh onboard by expert chefs.</p>
                     </div>
                 </div>
                 
                 <!-- Backwater Tour 2 -->
                 <div class="tour-card" data-category="backwater">
                     <div class="tour-img">
-                        <img src="kumarokam.jpg" alt="Kumarakom Backwaters" />
+                        <img src="kumarokam.jpg" alt="Kumarakom Bird Sanctuary" loading="lazy" />
                         <div class="tour-category">Backwater</div>
                     </div>
                     <div class="tour-content">
                         <h3 class="tour-title">Kumarakom Bird Sanctuary & Backwaters</h3>
-                        <p class="tour-description">Combine bird watching at the famous Kumarakom Bird Sanctuary with a serene backwater cruise. Perfect for nature lovers and photographers wanting to capture Kerala's diverse ecosystem.</p>
+                        <p class="tour-description">Combine bird watching at the famous Kumarakom Bird Sanctuary with a serene backwater cruise. Perfect for nature lovers and photographers wanting to capture Kerala's diverse ecosystem and migratory birds.</p>
                     </div>
                 </div>
                 
                 <!-- Wildlife Tour 1 -->
                 <div class="tour-card" data-category="wildlife">
                     <div class="tour-img">
-                        <img src="periyar.jpg" alt="Periyar Wildlife" />
+                        <img src="periyar.jpg" alt="Periyar Wildlife Sanctuary" loading="lazy" />
                         <div class="tour-category">Wildlife</div>
                     </div>
                     <div class="tour-content">
@@ -1116,7 +1494,7 @@
                 <!-- Wildlife Tour 2 -->
                 <div class="tour-card" data-category="wildlife">
                     <div class="tour-img">
-                        <img src="eravikulam.jpg" alt="Eravikulam National Park" />
+                        <img src="eravikulam.jpg" alt="Eravikulam National Park" loading="lazy" />
                         <div class="tour-category">Wildlife</div>
                     </div>
                     <div class="tour-content">
@@ -1128,7 +1506,7 @@
                 <!-- Cultural Tour 1 -->
                 <div class="tour-card" data-category="cultural">
                     <div class="tour-img">
-                        <img src="kathakali.jpg" alt="Kathakali Performance" />
+                        <img src="kathakali.jpg" alt="Kathakali Performance" loading="lazy" />
                         <div class="tour-category">Cultural</div>
                     </div>
                     <div class="tour-content">
@@ -1140,7 +1518,7 @@
                 <!-- Cultural Tour 2 -->
                 <div class="tour-card" data-category="cultural">
                     <div class="tour-img">
-                        <img src="spiceplantation.jpg" alt="Spice Plantation Tour" />
+                        <img src="spiceplantation.jpg" alt="Spice Plantation Tour" loading="lazy" />
                         <div class="tour-category">Cultural</div>
                     </div>
                     <div class="tour-content">
@@ -1152,7 +1530,7 @@
                 <!-- Adventure Tour 1 -->
                 <div class="tour-card" data-category="adventure">
                     <div class="tour-img">
-                        <img src="munnarhillstation.jpg" alt="Trekking in Munnar" />
+                        <img src="munnarhillstation.jpg" alt="Munnar Hill Station Trekking" loading="lazy" />
                         <div class="tour-category">Adventure</div>
                     </div>
                     <div class="tour-content">
@@ -1164,7 +1542,7 @@
                 <!-- Adventure Tour 2 -->
                 <div class="tour-card" data-category="adventure">
                     <div class="tour-img">
-                        <img src="kayaking.jpg" alt="Kayaking in Kerala" />
+                        <img src="kayaking.jpg" alt="Backwater Kayaking Adventure" loading="lazy" />
                         <div class="tour-category">Adventure</div>
                     </div>
                     <div class="tour-content">
@@ -1179,7 +1557,7 @@
     <!-- ================================
          TOUR HIGHLIGHTS SECTION
     ================================ -->
-    <section class="tour-highlights">
+    <section class="tour-highlights fade-in-on-scroll">
         <div class="container">
             <h2 class="highlights-title">Why Choose Our Tour Services</h2>
             
@@ -1190,7 +1568,7 @@
                         <i class="fas fa-medal"></i>
                     </div>
                     <h3 class="highlight-title">Premium Quality</h3>
-                    <p>We partner only with the best tour operators and accommodations to ensure a high-quality experience that exceeds your expectations.</p>
+                    <p>We partner only with the best tour operators and accommodations to ensure a high-quality experience that exceeds your expectations every time.</p>
                 </div>
                 
                 <!-- Competitive Pricing -->
@@ -1199,7 +1577,7 @@
                         <i class="fas fa-hand-holding-usd"></i>
                     </div>
                     <h3 class="highlight-title">Competitive Pricing</h3>
-                    <p>Get the best value for your money with our transparent pricing structure and no hidden charges. We guarantee competitive rates.</p>
+                    <p>Get the best value for your money with our transparent pricing structure and no hidden charges. We guarantee competitive rates for all packages.</p>
                 </div>
                 
                 <!-- Personalized Service -->
@@ -1208,7 +1586,7 @@
                         <i class="fas fa-user-check"></i>
                     </div>
                     <h3 class="highlight-title">Personalized Service</h3>
-                    <p>We customize tour packages to match your preferences, time constraints, and interests for a truly unique experience.</p>
+                    <p>We customize tour packages to match your preferences, time constraints, and interests for a truly unique and memorable experience.</p>
                 </div>
                 
                 <!-- 24/7 Support -->
@@ -1244,24 +1622,24 @@
     <!-- ================================
          BOOKING PROCESS SECTION
     ================================ -->
-    <section class="booking-process">
+    <section class="booking-process fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">How To Book</h2>
-            <p class="section-subtitle">Follow these simple steps to book your perfect Kerala tour experience</p>
+            <p class="section-subtitle">Follow these simple steps to book your perfect Kerala tour experience with complete confidence</p>
             
             <div class="process-steps">
                 <!-- Step 1: Inquire -->
                 <div class="process-step">
                     <div class="step-number">1</div>
                     <h3 class="step-title">Inquire</h3>
-                    <p class="step-description">Visit our Anachal branch or contact us through phone or email to discuss your tour preferences and requirements.</p>
+                    <p class="step-description">Visit our Anachal branch or contact us through phone or email to discuss your tour preferences and requirements with our expert team.</p>
                 </div>
                 
                 <!-- Step 2: Customize -->
                 <div class="process-step">
                     <div class="step-number">2</div>
                     <h3 class="step-title">Customize</h3>
-                    <p class="step-description">Our experienced team will help you customize a tour package based on your interests, budget, and schedule.</p>
+                    <p class="step-description">Our experienced team will help you customize a tour package based on your interests, budget, and schedule for the perfect fit.</p>
                 </div>
                 
                 <!-- Step 3: Confirm -->
@@ -1284,10 +1662,10 @@
     <!-- ================================
          FAQ SECTION
     ================================ -->
-    <section class="faq-section">
+    <section class="faq-section fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Frequently Asked Questions</h2>
-            <p class="section-subtitle">Answers to common questions about our tour services</p>
+            <p class="section-subtitle">Answers to common questions about our tour services and booking process</p>
             
             <div class="faq-container">
                 <!-- FAQ Item 1 -->
@@ -1354,9 +1732,9 @@
     <section class="cta-section">
         <div class="container">
             <h2>Ready to Experience Kerala?</h2>
-            <p>Visit our Anachal branch or contact us to book your perfect Kerala tour. Let us help you create memories that will last a lifetime!</p>
+            <p>Visit our Anachal branch or contact us to book your perfect Kerala tour. Let us help you create memories that will last a lifetime in God's Own Country!</p>
             <div class="cta-buttons">
-                <a href="index.html#contact" class="btn btn-light">Contact Us</a>
+                <a href="index.html#contact" class="btn btn-light">Contact Us Today</a>
                 <a href="anachal.html" class="btn btn-outline-light">Visit Our Store</a>
             </div>
         </div>
@@ -1371,11 +1749,11 @@
                 <!-- Company Information -->
                 <div class="footer-about">
                     <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
-                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
+                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987. Experience authentic Kerala flavors and unforgettable journeys.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
@@ -1396,20 +1774,20 @@
                     <a href="munnar.html" class="footer-link">Spice Trading</a>
                     <a href="munnar.html" class="footer-link">Cardamom Processing</a>
                     <a href="tours.html" class="footer-link">Tour Booking</a>
-                    <a href="anachal.html" class="footer-link">Grocery Store</a>
+                    <a href="anachal.html" class="footer-link">Premium Spices</a>
                     <a href="munnar.html" class="footer-link">Farmer Support</a>
                 </div>
             </div>
             
             <!-- Copyright -->
             <div class="copyright">
-                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
+                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved. | Designed with ❤️ for Kerala's Spice Heritage</p>
             </div>
         </div>
     </footer>
 
     <!-- ================================
-         JAVASCRIPT FUNCTIONALITY
+         ENHANCED JAVASCRIPT FUNCTIONALITY
     ================================ -->
     <script>
         // ================================
@@ -1417,29 +1795,85 @@
         // ================================
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+        let isMenuOpen = false;
 
         // Toggle mobile navigation menu with icon change
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
-            const icon = navToggle.querySelector('i');
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isMenuOpen = !isMenuOpen;
+            navMenu.classList.toggle('active', isMenuOpen);
             
-            if (navMenu.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            icon.className = isMenuOpen ? 'fas fa-times' : 'fas fa-bars';
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
         });
 
         // Close mobile menu when clicking navigation links
-        document.querySelectorAll('.nav-menu a').forEach(link => {
+        const navLinks = document.querySelectorAll('.nav-menu a');
+        navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+                closeMenu();
             });
+        });
+
+        // Close menu function
+        function closeMenu() {
+            isMenuOpen = false;
+            navMenu.classList.remove('active');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+            document.body.style.overflow = '';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // SCROLL PROGRESS INDICATOR
+        // ================================
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollIndicator.style.width = scrollPercent + '%';
+        });
+
+        // ================================
+        // ENHANCED HEADER SCROLL EFFECT
+        // ================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Add/remove backdrop blur based on scroll position
+            if (currentScrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-lg)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            }
+            
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
         });
 
         // ================================
@@ -1462,7 +1896,7 @@
         });
 
         // ================================
-        // TOUR FILTER FUNCTIONALITY
+        // ENHANCED TOUR FILTER FUNCTIONALITY
         // ================================
         const filterBtns = document.querySelectorAll('.filter-btn');
         const tourCards = document.querySelectorAll('.tour-card');
@@ -1478,7 +1912,7 @@
                 // Get filter value
                 const filter = btn.getAttribute('data-filter');
                 
-                // Filter tour cards with animation
+                // Filter tour cards with enhanced animation
                 tourCards.forEach((card, index) => {
                     const category = card.getAttribute('data-category');
                     
@@ -1487,18 +1921,18 @@
                         setTimeout(() => {
                             card.style.display = 'block';
                             card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
+                            card.style.transform = 'translateY(30px) scale(0.9)';
                             
                             // Animate in
                             setTimeout(() => {
                                 card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
+                                card.style.transform = 'translateY(0) scale(1)';
                             }, 50);
                         }, index * 100);
                     } else {
-                        // Hide card
+                        // Hide card with animation
                         card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
+                        card.style.transform = 'translateY(30px) scale(0.9)';
                         setTimeout(() => {
                             card.style.display = 'none';
                         }, 300);
@@ -1515,45 +1949,22 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
+                    
+                    closeMenu();
                 }
             });
         });
 
         // ================================
-        // ADDITIONAL INTERACTIVE FEATURES
+        // INTERSECTION OBSERVER FOR ANIMATIONS
         // ================================
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-                const icon = navToggle.querySelector('i');
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
-            }
-        });
-
-        // Add scroll effect to navigation bar
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.backgroundColor = 'var(--text-light)';
-                header.style.backdropFilter = 'none';
-            }
-        });
-
-        // ================================
-        // ENHANCED CARD ANIMATIONS
-        // ================================
-        
-        // Intersection Observer for scroll animations
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -50px 0px'
@@ -1562,30 +1973,156 @@
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+                    entry.target.classList.add('visible');
                 }
             });
         }, observerOptions);
 
-        // Observe tour cards for scroll animations
-        document.querySelectorAll('.tour-card, .highlight-card, .process-step').forEach(card => {
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Enhanced card animations
+        document.querySelectorAll('.tour-card, .highlight-card, .process-step').forEach((card, index) => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(30px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
+            
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.style.opacity = '1';
+                            entry.target.style.transform = 'translateY(0)';
+                        }, index * 100);
+                        cardObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            
+            cardObserver.observe(card);
         });
 
         // Enhanced hover effects for tour cards
         document.querySelectorAll('.tour-card').forEach(card => {
             card.addEventListener('mouseenter', () => {
-                card.style.transform = 'translateY(-10px) scale(1.02)';
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(-15px) scale(1.02)';
+                }
             });
             
             card.addEventListener('mouseleave', () => {
-                card.style.transform = 'translateY(0) scale(1)';
+                if (window.innerWidth > 768) {
+                    card.style.transform = 'translateY(0) scale(1)';
+                }
             });
         });
+
+        // ================================
+        // PERFORMANCE OPTIMIZATIONS
+        // ================================
+        
+        // Lazy load images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loading');
+                    img.addEventListener('load', () => {
+                        img.classList.remove('loading');
+                    });
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // ================================
+        // KEYBOARD NAVIGATION SUPPORT
+        // ================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // TOUCH GESTURES FOR MOBILE
+        // ================================
+        let startX, startY, distX, distY;
+
+        navMenu.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        navMenu.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+            
+            distX = e.touches[0].clientX - startX;
+            distY = e.touches[0].clientY - startY;
+            
+            // Close menu on swipe right
+            if (distX > 100 && Math.abs(distY) < 100) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // REDUCE MOTION FOR ACCESSIBILITY
+        // ================================
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (prefersReducedMotion.matches) {
+            document.documentElement.style.scrollBehavior = 'auto';
+            // Remove transitions for users who prefer reduced motion
+            const style = document.createElement('style');
+            style.textContent = `
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // ================================
+        // LOADING OPTIMIZATION
+        // ================================
+        window.addEventListener('load', () => {
+            // Remove loading classes
+            document.querySelectorAll('.loading').forEach(el => {
+                el.classList.remove('loading');
+            });
+            
+            // Initialize animations after load
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+
+        // ================================
+        // ERROR HANDLING FOR IMAGES
+        // ================================
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.opacity = '0.5';
+                this.alt = 'Image could not be loaded';
+                console.warn('Failed to load image:', this.src);
+            });
+        });
+
+        // ================================
+        // THEME DETECTION AND ADJUSTMENT
+        // ================================
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDarkMode) {
+            document.documentElement.style.filter = 'brightness(0.95)';
+        }
     </script>
 </body>
 </html>

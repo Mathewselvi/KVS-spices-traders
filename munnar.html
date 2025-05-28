@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KVS 20 Acre Branch - Excellence in Spice Trading</title>
+    <title>KVS 20 Acre Branch - Excellence in Spice Trading | Munnar</title>
+    <meta name="description" content="Visit KVS Spices & Traders 20 Acre flagship facility in Munnar. Premium cardamom processing, spice trading, and farmer services since 1987.">
     
     <!-- External Fonts & Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     
     <style>
         /* ================================
@@ -18,36 +19,48 @@
             --primary-color: #2e7d32;
             --primary-light: #60ad5e;
             --primary-dark: #005005;
+            --primary-gradient: linear-gradient(135deg, #2e7d32 0%, #60ad5e 100%);
             
             /* Secondary Colors */
             --secondary-color: #e65100;
             --secondary-light: #ff833a;
             --secondary-dark: #ac1900;
+            --secondary-gradient: linear-gradient(135deg, #e65100 0%, #ff833a 100%);
             
             /* Text Colors */
             --text-dark: #263238;
             --text-light: #ffffff;
+            --text-medium: #546e7a;
             
             /* Background Colors */
             --bg-light: #ffffff;
+            --bg-subtle: #fafbfc;
             --gray-100: #ffffff;
             --gray-200: #f8f9fa;
             --gray-300: #e9ecef;
+            --gray-400: #dee2e6;
             --gray-600: #6c757d;
             
             /* Shadows */
             --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.04);
             --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.06);
             --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.08);
+            --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
             
             /* Border Radius */
-            --radius-sm: 4px;
-            --radius-md: 8px;
-            --radius-lg: 16px;
+            --radius-sm: 6px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 24px;
             
             /* Transitions & Layout */
-            --transition: all 0.3s ease;
+            --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-fast: all 0.15s ease;
             --container-width: 1200px;
+            
+            /* Header Heights */
+            --header-height: 85px;
+            --header-height-mobile: 70px;
         }
 
         /* ================================
@@ -61,14 +74,16 @@
 
         html {
             scroll-behavior: smooth;
+            font-size: 16px;
         }
 
         body {
             font-family: 'Poppins', sans-serif;
-            line-height: 1.6;
+            line-height: 1.7;
             color: var(--text-dark);
             background-color: var(--bg-light);
             overflow-x: hidden;
+            font-weight: 400;
         }
 
         a {
@@ -94,23 +109,25 @@
             width: 90%;
             max-width: var(--container-width);
             margin: 0 auto;
-            padding: 0 15px;
+            padding: 0 20px;
         }
 
         /* ================================
            TYPOGRAPHY STYLES
         ================================ */
         h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-            line-height: 1.3;
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 0.5em;
         }
 
         .section-title {
-            font-size: 2.25rem;
+            font-size: 2.75rem;
             text-align: center;
             margin-bottom: 1rem;
             color: var(--primary-dark);
             position: relative;
+            font-weight: 800;
             padding-bottom: 1.5rem;
         }
 
@@ -121,16 +138,18 @@
             left: 50%;
             transform: translateX(-50%);
             width: 80px;
-            height: 3px;
-            background-color: var(--secondary-color);
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
         }
 
         .section-subtitle {
             text-align: center;
-            color: var(--gray-600);
-            font-size: 1.125rem;
+            color: var(--text-medium);
+            font-size: 1.2rem;
             max-width: 700px;
-            margin: 0 auto 3rem;
+            margin: 0 auto 4rem;
+            font-weight: 400;
         }
 
         /* ================================
@@ -140,108 +159,146 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            padding: 12px 28px;
-            background-color: var(--primary-color);
+            padding: 14px 32px;
+            background: var(--primary-gradient);
             color: var(--text-light);
-            font-weight: 500;
+            font-weight: 600;
             border-radius: var(--radius-md);
             border: none;
             cursor: pointer;
             transition: var(--transition);
             text-align: center;
             font-size: 1rem;
-            box-shadow: var(--shadow-sm);
+            box-shadow: var(--shadow-md);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: var(--transition);
+        }
+
+        .btn:hover::before {
+            left: 100%;
         }
 
         .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
         }
 
         .btn-secondary {
-            background-color: var(--secondary-color);
-        }
-
-        .btn-secondary:hover {
-            background-color: var(--secondary-dark);
+            background: var(--secondary-gradient);
         }
 
         .btn-outline {
-            background-color: transparent;
+            background: transparent;
             color: var(--primary-color);
             border: 2px solid var(--primary-color);
+            box-shadow: none;
         }
 
         .btn-outline:hover {
-            background-color: var(--primary-color);
+            background: var(--primary-gradient);
             color: var(--text-light);
+            border-color: transparent;
         }
 
         .btn-light {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--primary-dark);
+            box-shadow: var(--shadow-md);
         }
 
         .btn-light:hover {
-            background-color: var(--gray-200);
+            background: var(--gray-200);
+            transform: translateY(-3px);
         }
 
         .btn-outline-light {
-            background-color: transparent;
+            background: transparent;
             color: var(--text-light);
             border: 2px solid var(--text-light);
+            box-shadow: none;
         }
 
         .btn-outline-light:hover {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--primary-dark);
         }
 
         /* ================================
-           HEADER & NAVIGATION
+           HEADER & NAVIGATION - ENHANCED
         ================================ */
         header {
-            background-color: var(--text-light);
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
             color: var(--text-dark);
-            padding: 1rem 0;
+            padding: 0;
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             box-shadow: var(--shadow-md);
-            border-bottom: 1px solid var(--gray-300);
+            border-bottom: 1px solid rgba(233, 236, 239, 0.6);
+            height: var(--header-height);
+            transition: var(--transition);
         }
 
         .nav-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            height: 100%;
+            padding: 0 20px;
         }
 
+        /* Enhanced Logo Styling */
         .logo {
             z-index: 1001;
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 16px;
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .logo:hover {
+            transform: scale(1.02);
         }
 
         .logo img {
-            height: 40px;
+            height: 65px; /* Enhanced size */
             width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+            transition: var(--transition);
+        }
+
+        .logo:hover img {
+            filter: drop-shadow(0 4px 8px rgba(0,0,0,0.15));
         }
 
         .logo h1 {
             margin: 0;
-            font-size: 1.5rem;
-            font-weight: 700;
+            font-size: 1.75rem;
+            font-weight: 800;
             color: var(--primary-color);
+            letter-spacing: -0.025em;
         }
 
         .logo span {
-            font-weight: 300;
+            font-weight: 400;
             opacity: 0.8;
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-size: 0.9em;
         }
 
         nav {
@@ -251,14 +308,17 @@
 
         .nav-menu {
             display: flex;
-            gap: 1.5rem;
+            gap: 2rem;
+            align-items: center;
         }
 
         .nav-menu a {
-            font-weight: 500;
+            font-weight: 600;
             position: relative;
-            padding: 0.5rem 0;
+            padding: 0.75rem 0;
             color: var(--text-dark);
+            font-size: 0.95rem;
+            letter-spacing: 0.025em;
         }
 
         .nav-menu a::after {
@@ -267,9 +327,10 @@
             bottom: 0;
             left: 0;
             width: 0;
-            height: 2px;
-            background-color: var(--primary-color);
+            height: 3px;
+            background: var(--secondary-gradient);
             transition: var(--transition);
+            border-radius: 2px;
         }
 
         .nav-menu a:hover::after,
@@ -289,225 +350,356 @@
             font-size: 1.8rem;
             cursor: pointer;
             z-index: 1001;
+            padding: 8px;
+            border-radius: var(--radius-sm);
+            transition: var(--transition);
+        }
+
+        .nav-toggle:hover {
+            background-color: var(--gray-200);
+        }
+
+        /* Scroll Progress Indicator */
+        .scroll-indicator {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: var(--secondary-gradient);
+            z-index: 10000;
+            transition: width 0.3s ease;
         }
 
         /* ================================
-           PAGE HERO SECTION
+           PAGE HERO SECTION - ENHANCED
         ================================ */
         .page-hero {
-            height: 60vh;
-            background-image: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.3)), url('main.jpg');
+            height: 70vh;
+            min-height: 500px;
+            background-image: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.5) 100%), url('main.jpg');
             background-size: cover;
             background-position: center;
+            background-attachment: fixed;
             color: var(--text-light);
             display: flex;
             align-items: center;
             text-align: center;
-            padding-top: 76px;
+            padding-top: var(--header-height);
             position: relative;
         }
 
         .page-hero-content {
-            max-width: 800px;
+            max-width: 900px;
             margin: 0 auto;
             position: relative;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .page-hero-title {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.3);
         }
 
         .page-hero-subtitle {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
             font-weight: 400;
-            opacity: 0.9;
+            opacity: 0.95;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+            line-height: 1.6;
         }
 
         .breadcrumbs {
             display: flex;
             align-items: center;
-            gap: 0.5rem;
-            margin-bottom: 2rem;
-            font-size: 0.875rem;
+            gap: 0.75rem;
+            margin-bottom: 2.5rem;
+            font-size: 1rem;
             justify-content: center;
+            opacity: 0.9;
+        }
+
+        .breadcrumbs a {
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .breadcrumbs a:hover {
+            color: var(--secondary-light);
         }
 
         .breadcrumbs i {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             color: var(--text-light);
             opacity: 0.7;
         }
 
         /* ================================
-           BRANCH OVERVIEW SECTION
+           BRANCH OVERVIEW SECTION - ENHANCED
         ================================ */
         .branch-overview {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--bg-light) 0%, var(--bg-subtle) 100%);
         }
 
         .overview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
+            gap: 4rem;
             align-items: center;
         }
 
         .overview-image {
             position: relative;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
+            box-shadow: var(--shadow-xl);
+            transition: var(--transition);
+        }
+
+        .overview-image:hover {
+            transform: scale(1.03);
+            box-shadow: var(--shadow-xl);
         }
 
         .overview-image img {
             width: 100%;
             aspect-ratio: 4/3;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .overview-image:hover img {
-            transform: scale(1.05);
+            transform: scale(1.1);
         }
 
         .overview-image::after {
-            content: 'KVS 20 Acre';
+            content: 'KVS 20 Acre Facility';
             position: absolute;
             bottom: 0;
             right: 0;
-            background-color: var(--primary-color);
+            background: var(--primary-gradient);
             color: var(--text-light);
-            padding: 0.5rem 1rem;
-            font-weight: 600;
+            padding: 0.75rem 1.5rem;
+            font-weight: 700;
+            font-size: 1.05rem;
+            border-top-left-radius: var(--radius-md);
         }
 
         .overview-content h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--primary-dark);
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
         }
 
         .overview-content p {
-            color: var(--gray-600);
-            margin-bottom: 1.5rem;
+            color: var(--text-medium);
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
         }
 
         .key-facts {
-            margin-top: 2rem;
+            margin-top: 3rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
+            gap: 2rem;
         }
 
         .fact-item {
             display: flex;
             align-items: flex-start;
-            gap: 1rem;
+            gap: 1.25rem;
+            padding: 1.5rem;
+            background: var(--text-light);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            transition: var(--transition);
+        }
+
+        .fact-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-md);
         }
 
         .fact-icon {
-            width: 40px;
-            height: 40px;
-            background-color: var(--primary-light);
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             flex-shrink: 0;
+            font-size: 1.2rem;
+            box-shadow: var(--shadow-sm);
         }
 
         .fact-text h4 {
-            font-size: 1.125rem;
-            margin-bottom: 0.25rem;
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
             color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .fact-text p {
+            color: var(--text-medium);
+            font-size: 1rem;
+            margin: 0;
         }
 
         /* ================================
-           BRANCH SERVICES SECTION
+           BRANCH SERVICES SECTION - ENHANCED
         ================================ */
         .branch-services {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
+            padding: 6rem 0;
+            background: var(--gray-200);
         }
 
         .services-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
         }
 
         .service-box {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
             height: 100%;
             display: flex;
             flex-direction: column;
+            position: relative;
+        }
+
+        .service-box::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, transparent 0%, rgba(46, 125, 50, 0.03) 100%);
+            opacity: 0;
+            transition: var(--transition);
+            pointer-events: none;
+        }
+
+        .service-box:hover::before {
+            opacity: 1;
         }
 
         .service-box:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-lg);
+            transform: translateY(-15px) scale(1.02);
+            box-shadow: var(--shadow-xl);
         }
 
         .service-info {
-            padding: 2rem;
+            padding: 2.5rem;
             flex-grow: 1;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1;
         }
 
         .service-info h3 {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            gap: 1rem;
+            font-size: 1.6rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .service-info h3 i {
             color: var(--secondary-color);
+            font-size: 1.4rem;
         }
 
         .service-info p {
-            margin-bottom: 1rem;
-            color: var(--gray-600);
+            margin-bottom: 2rem;
+            color: var(--text-medium);
             flex-grow: 1;
+            font-size: 1.05rem;
+            line-height: 1.7;
         }
 
         .service-definition {
             margin-top: auto;
-            background-color: var(--gray-100);
-            padding: 1rem;
-            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, var(--bg-subtle) 0%, var(--gray-200) 100%);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
             font-style: italic;
-            color: var(--gray-600);
-            font-size: 0.9rem;
+            color: var(--text-medium);
+            font-size: 0.95rem;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .service-definition strong {
+            color: var(--primary-dark);
+            font-weight: 700;
         }
 
         /* ================================
-           PROCESSING FACILITIES SECTION
+           PROCESSING FACILITIES SECTION - ENHANCED
         ================================ */
         .processing-facilities {
-            padding: 5rem 0;
+            padding: 6rem 0;
+            background: var(--bg-light);
         }
 
         .process-steps {
-            margin-top: 3rem;
+            margin-top: 4rem;
         }
 
         .process-step {
             display: flex;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
             position: relative;
+            opacity: 0;
+            transform: translateX(-30px);
+            animation: slideInLeft 0.8s ease-out forwards;
+        }
+
+        .process-step:nth-child(even) {
+            transform: translateX(30px);
+            animation: slideInRight 0.8s ease-out forwards;
+        }
+
+        @keyframes slideInLeft {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideInRight {
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
         }
 
         .process-step:last-child {
@@ -517,74 +709,98 @@
         .process-step:not(:last-child)::after {
             content: '';
             position: absolute;
-            top: 80px;
-            left: 40px;
-            width: 2px;
+            top: 90px;
+            left: 50px;
+            width: 3px;
             height: calc(100% - 40px);
-            background-color: var(--primary-light);
+            background: var(--primary-gradient);
+            border-radius: 2px;
         }
 
         .step-number {
-            width: 80px;
-            height: 80px;
-            background-color: var(--primary-color);
+            width: 100px;
+            height: 100px;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 600;
-            margin-right: 2rem;
+            font-size: 2rem;
+            font-weight: 800;
+            margin-right: 2.5rem;
             flex-shrink: 0;
+            box-shadow: var(--shadow-lg);
+            position: relative;
+            z-index: 2;
         }
 
         .step-content {
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            padding: 2rem;
-            box-shadow: var(--shadow-md);
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
             flex: 1;
+            transition: var(--transition);
+        }
+
+        .step-content:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
         }
 
         .step-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
+            font-size: 1.75rem;
+            margin-bottom: 1.5rem;
             color: var(--primary-dark);
+            font-weight: 700;
+        }
+
+        .step-content p {
+            color: var(--text-medium);
+            font-size: 1.05rem;
+            line-height: 1.8;
         }
 
         /* ================================
-           FACILITY GALLERY SECTION
+           FACILITY GALLERY SECTION - ENHANCED
         ================================ */
         .facility-gallery {
-            padding: 5rem 0;
-            background-color: var(--gray-200);
+            padding: 6rem 0;
+            background: var(--gray-200);
         }
 
         .gallery-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.5rem;
-            margin-top: 3rem;
+            gap: 2rem;
+            margin-top: 4rem;
         }
 
         .gallery-item {
             position: relative;
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            height: 250px;
+            height: 280px;
             cursor: pointer;
+            box-shadow: var(--shadow-lg);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+            box-shadow: var(--shadow-xl);
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
 
         .gallery-item:hover img {
-            transform: scale(1.05);
+            transform: scale(1.15);
         }
 
         .gallery-caption {
@@ -592,11 +808,13 @@
             bottom: 0;
             left: 0;
             right: 0;
-            padding: 1rem;
-            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0.3), transparent);
             color: var(--text-light);
             opacity: 0;
             transition: var(--transition);
+            font-weight: 600;
+            font-size: 1.1rem;
         }
 
         .gallery-item:hover .gallery-caption {
@@ -604,26 +822,27 @@
         }
 
         /* ================================
-           CONTACT SECTION
+           CONTACT SECTION - ENHANCED
         ================================ */
         .contact {
-            padding: 5rem 0;
-            background-color: var(--bg-light);
+            padding: 6rem 0;
+            background: var(--bg-light);
         }
 
         .contact-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
+            gap: 4rem;
+            margin-top: 4rem;
         }
 
         .contact-info h3 {
-            font-size: 1.75rem;
+            font-size: 2rem;
             color: var(--primary-dark);
-            margin-bottom: 2rem;
+            margin-bottom: 2.5rem;
             position: relative;
-            padding-bottom: 0.75rem;
+            padding-bottom: 1rem;
+            font-weight: 700;
         }
 
         .contact-info h3::after {
@@ -631,99 +850,123 @@
             position: absolute;
             bottom: 0;
             left: 0;
-            width: 60px;
-            height: 3px;
-            background-color: var(--secondary-color);
+            width: 80px;
+            height: 4px;
+            background: var(--secondary-gradient);
+            border-radius: 2px;
         }
 
         .contact-detail {
             display: flex;
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            align-items: flex-start;
         }
 
         .contact-detail i {
-            width: 50px;
-            height: 50px;
-            background-color: var(--primary-light);
+            width: 55px;
+            height: 55px;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin-right: 1rem;
+            margin-right: 1.5rem;
             flex-shrink: 0;
-            font-size: 1.25rem;
-            box-shadow: var(--shadow-sm);
+            font-size: 1.3rem;
+            box-shadow: var(--shadow-md);
+        }
+
+        .contact-detail div {
+            flex: 1;
         }
 
         .contact-detail strong {
             color: var(--primary-dark);
-            font-weight: 600;
+            font-weight: 700;
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1.05rem;
+        }
+
+        .contact-detail p {
+            color: var(--text-medium);
+            line-height: 1.6;
+            margin-bottom: 0.25rem;
         }
 
         .business-hours {
-            margin: 2.5rem 0;
-            padding: 1.5rem;
-            background-color: var(--text-light);
-            border-radius: var(--radius-md);
-            box-shadow: var(--shadow-sm);
+            margin: 3rem 0;
+            padding: 2rem;
+            background: var(--text-light);
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-md);
         }
 
         .business-hours h4 {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            font-size: 1.25rem;
+            gap: 1rem;
+            font-size: 1.4rem;
             color: var(--primary-dark);
-            margin-bottom: 1rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 1px solid var(--gray-300);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--gray-300);
+            font-weight: 700;
         }
 
         .hours-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 0.5rem;
+            gap: 0.75rem;
         }
 
         .day {
-            font-weight: 500;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .time {
+            color: var(--text-medium);
         }
 
         .social-contact h4 {
-            font-size: 1.25rem;
+            font-size: 1.4rem;
             color: var(--primary-dark);
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
         }
 
         .social-icons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .social-icon {
-            width: 45px;
-            height: 45px;
-            background-color: var(--primary-color);
+            width: 50px;
+            height: 50px;
+            background: var(--primary-gradient);
             color: var(--text-light);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.25rem;
+            font-size: 1.3rem;
             transition: var(--transition);
+            box-shadow: var(--shadow-md);
         }
 
         .social-icon:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-5px);
+            background: var(--secondary-gradient);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .map-container {
-            border-radius: var(--radius-md);
+            border-radius: var(--radius-lg);
             overflow: hidden;
-            box-shadow: var(--shadow-md);
-            background-color: var(--text-light);
+            box-shadow: var(--shadow-lg);
+            background: var(--text-light);
             height: 100%;
             display: flex;
             flex-direction: column;
@@ -731,154 +974,170 @@
 
         .map-container iframe {
             width: 100%;
-            height: 450px;
+            height: 500px;
             display: block;
             border: 0;
             flex-grow: 1;
         }
 
         .map-directions {
-            padding: 1rem;
+            padding: 1.5rem;
             text-align: center;
-            background-color: var(--text-light);
+            background: var(--text-light);
         }
 
         .map-directions .btn {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
-            padding: 12px 24px;
-            background-color: var(--primary-color);
-            color: var(--text-light);
-            border-radius: var(--radius-md);
-            transition: var(--transition);
-            font-weight: 500;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .map-directions .btn:hover {
-            background-color: var(--primary-dark);
-            transform: translateY(-2px);
-            box-shadow: var(--shadow-md);
+            gap: 0.75rem;
+            padding: 14px 28px;
+            font-weight: 600;
         }
 
         /* ================================
-           CTA SECTION
+           CTA SECTION - ENHANCED
         ================================ */
         .cta-section {
-            padding: 5rem 0;
-            background-color: var(--primary-dark);
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary-color) 100%);
             color: var(--text-light);
             text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.3;
         }
 
         .cta-section h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-section p {
-            font-size: 1.125rem;
-            margin-bottom: 2.5rem;
-            opacity: 0.9;
-            max-width: 700px;
+            font-size: 1.3rem;
+            margin-bottom: 3rem;
+            opacity: 0.95;
+            max-width: 800px;
             margin-left: auto;
             margin-right: auto;
+            line-height: 1.7;
+            position: relative;
+            z-index: 1;
         }
 
         .cta-buttons {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
             justify-content: center;
             flex-wrap: wrap;
+            position: relative;
+            z-index: 1;
         }
 
         /* ================================
-           FOOTER
+           FOOTER - ENHANCED
         ================================ */
         footer {
-            background-color: var(--text-light);
+            background: var(--text-light);
             color: var(--text-dark);
-            padding: 4rem 0 2rem;
+            padding: 5rem 0 2rem;
             border-top: 1px solid var(--gray-300);
         }
 
         .footer-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 4rem;
         }
 
         .footer-logo {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.75rem;
+            margin-bottom: 2rem;
             color: var(--primary-color);
+            font-weight: 800;
         }
 
         .footer-logo span {
             opacity: 0.8;
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-weight: 400;
         }
 
         .footer-about p {
-            margin-bottom: 1.5rem;
-            opacity: 0.8;
-            color: var(--gray-600);
+            margin-bottom: 2rem;
+            color: var(--text-medium);
+            line-height: 1.7;
+            font-size: 1.05rem;
         }
 
         .social-links {
             display: flex;
-            gap: 1rem;
+            gap: 1.5rem;
         }
 
         .social-link {
-            width: 40px;
-            height: 40px;
-            background-color: var(--gray-200);
+            width: 45px;
+            height: 45px;
+            background: var(--gray-200);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             transition: var(--transition);
             color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
         }
 
         .social-link:hover {
-            background-color: var(--secondary-color);
+            background: var(--secondary-gradient);
             color: var(--text-light);
-            transform: translateY(-3px);
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: var(--shadow-md);
         }
 
         .footer-links h3 {
-            font-size: 1.25rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            margin-bottom: 2rem;
             color: var(--primary-dark);
+            font-weight: 700;
         }
 
         .footer-link {
             display: block;
-            margin-bottom: 0.75rem;
-            opacity: 0.8;
+            margin-bottom: 1rem;
+            color: var(--text-medium);
             transition: var(--transition);
-            color: var(--gray-600);
+            font-size: 1.05rem;
         }
 
         .footer-link:hover {
-            opacity: 1;
-            padding-left: 5px;
             color: var(--secondary-color);
+            padding-left: 8px;
         }
 
         .copyright {
             text-align: center;
-            margin-top: 3rem;
-            padding-top: 1.5rem;
+            margin-top: 4rem;
+            padding-top: 2rem;
             border-top: 1px solid var(--gray-300);
-            color: var(--gray-600);
+            color: var(--text-medium);
+            font-size: 1.05rem;
         }
 
         /* ================================
-           RESPONSIVE DESIGN
+           ENHANCED RESPONSIVE DESIGN
         ================================ */
         
         /* Large Screens */
@@ -890,9 +1149,13 @@
 
         /* Medium Screens */
         @media (max-width: 992px) {
+            :root {
+                --header-height: 75px;
+            }
+            
             .overview-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
+                gap: 3rem;
             }
             
             .gallery-grid {
@@ -900,23 +1163,37 @@
             }
             
             .key-facts {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
             
             .contact-container {
                 grid-template-columns: 1fr;
+                gap: 3rem;
             }
             
             .map-container {
                 order: -1;
                 height: 500px;
             }
+            
+            .section-title {
+                font-size: 2.25rem;
+            }
+            
+            .page-hero-title {
+                font-size: 2.8rem;
+            }
         }
 
         /* Small-Medium Screens */
         @media (max-width: 850px) {
             .page-hero-title {
-                font-size: 2rem;
+                font-size: 2.4rem;
+            }
+            
+            .page-hero-subtitle {
+                font-size: 1.2rem;
             }
             
             .branch-overview,
@@ -925,29 +1202,49 @@
             .facility-gallery,
             .contact,
             .cta-section {
-                padding: 2.5rem 0;
+                padding: 4rem 0;
+            }
+            
+            .services-wrapper {
+                grid-template-columns: 1fr;
             }
         }
 
         /* Small Screens */
         @media (max-width: 768px) {
+            :root {
+                --header-height: var(--header-height-mobile);
+            }
+            
             .nav-toggle {
                 display: block;
+            }
+            
+            .logo img {
+                height: 50px;
+            }
+            
+            .logo h1 {
+                font-size: 1.4rem;
             }
             
             .nav-menu {
                 position: fixed;
                 top: 0;
                 right: -100%;
-                width: 70vw;
+                width: 80vw;
+                max-width: 350px;
                 height: 100vh;
                 flex-direction: column;
-                background-color: var(--text-light);
-                padding: 5rem 2rem 2rem;
+                background: rgba(255, 255, 255, 0.98);
+                backdrop-filter: blur(20px);
+                padding: 6rem 2rem 2rem;
                 transition: var(--transition);
-                box-shadow: var(--shadow-lg);
+                box-shadow: var(--shadow-xl);
                 border-left: 1px solid var(--gray-300);
                 z-index: 1200;
+                justify-content: flex-start;
+                gap: 0;
             }
             
             .nav-menu.active {
@@ -955,11 +1252,15 @@
             }
             
             .nav-menu li {
-                margin-bottom: 2rem;
+                width: 100%;
+                margin-bottom: 1rem;
             }
             
-            .key-facts {
-                grid-template-columns: 1fr;
+            .nav-menu a {
+                display: block;
+                padding: 1rem 0;
+                font-size: 1.1rem;
+                border-bottom: 1px solid var(--gray-200);
             }
             
             .process-step {
@@ -968,10 +1269,10 @@
             }
             
             .process-step:not(:last-child)::after {
-                left: 40px;
-                top: 80px;
-                width: 2px;
-                height: 40px;
+                left: 50px;
+                top: 100px;
+                width: 3px;
+                height: 60px;
             }
             
             .step-number {
@@ -995,70 +1296,147 @@
                 grid-template-columns: 1fr;
             }
             
-            .footer-container {
-                grid-template-columns: 1fr 1fr;
+            .day {
+                font-weight: 700;
+                color: var(--primary-dark);
+            }
+            
+            .time {
+                margin-bottom: 0.5rem;
+                padding-bottom: 0.5rem;
+                border-bottom: 1px dashed var(--gray-300);
+            }
+            
+            .hours-grid div.time:last-child {
+                border-bottom: none;
             }
         }
 
         /* Extra Small Screens */
         @media (max-width: 576px) {
             .container {
-                padding: 0 6px;
+                padding: 0 15px;
             }
             
-            .gallery-grid {
-                grid-template-columns: 1fr;
+            .logo img {
+                height: 45px;
+            }
+            
+            .logo h1 {
+                font-size: 1.2rem;
+            }
+            
+            .page-hero-title {
+                font-size: 2rem;
             }
             
             .section-title {
-                font-size: 1.35rem;
+                font-size: 2rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                gap: 1rem;
             }
             
             .map-container {
-                height: 250px;
+                height: 300px;
             }
             
             .map-container iframe {
-                height: 200px;
-            }
-            
-            .footer-container {
-                grid-template-columns: 1fr;
+                height: 250px;
             }
         }
 
         /* Very Small Screens */
         @media (max-width: 400px) {
-            .page-hero-title {
-                font-size: 1.3rem;
+            .logo img {
+                height: 40px;
             }
             
-            .cta-buttons {
-                flex-direction: column;
-                gap: 0.5rem;
-            }
-            
-            .footer-logo {
+            .logo h1 {
                 font-size: 1.1rem;
+            }
+            
+            .page-hero-title {
+                font-size: 1.8rem;
+            }
+            
+            .cta-section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* ================================
+           SCROLL ANIMATIONS
+        ================================ */
+        .fade-in-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ================================
+           LOADING STATES
+        ================================ */
+        .loading {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .loading::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.4),
+                transparent
+            );
+            animation: loading 1.5s infinite;
+        }
+
+        @keyframes loading {
+            0% {
+                left: -100%;
+            }
+            100% {
+                left: 100%;
             }
         }
     </style>
 </head>
 
 <body>
+    <!-- Scroll Progress Indicator -->
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
     <!-- ================================
          HEADER & NAVIGATION SECTION
     ================================ -->
     <header>
         <div class="container nav-container">
-            <!-- Logo Section -->
+            <!-- Enhanced Logo Section -->
             <div class="logo">
-                <img src="logo.png" alt="KVS Logo">
+                <img src="logo.png" alt="KVS Spices & Traders Logo" loading="eager">
                 <h1>KVS <span>Spices & Traders</span></h1>
             </div>
 
             <!-- Mobile Navigation Toggle -->
-            <button class="nav-toggle" id="navToggle">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation menu">
                 <i class="fas fa-bars"></i>
             </button>
 
@@ -1089,26 +1467,26 @@
             </div>
             
             <h1 class="page-hero-title">KVS 20 Acre Branch</h1>
-            <p class="page-hero-subtitle">Our flagship facility in the heart of Kerala's spice country</p>
+            <p class="page-hero-subtitle">Our flagship facility in the heart of Kerala's spice country - Where tradition meets excellence</p>
         </div>
     </section>
 
     <!-- ================================
          BRANCH OVERVIEW SECTION
     ================================ -->
-    <section class="branch-overview">
+    <section class="branch-overview fade-in-on-scroll">
         <div class="container">
             <div class="overview-grid">
                 <!-- Facility Image -->
                 <div class="overview-image">
-                    <img src="main.jpg" alt="KVS 20 Acre Facility" />
+                    <img src="main.jpg" alt="KVS 20 Acre Main Facility" loading="lazy" />
                 </div>
                 
                 <!-- Overview Content -->
                 <div class="overview-content">
                     <h2>Main Facility – Excellence in Spice Trading</h2>
                     <p>Our flagship facility at 20 Acre is the heart of KVS Spices & Traders, established in 1987. This expansive property serves as our primary spice processing and trading center, where we connect local farmers with global markets.</p>
-                    <p>Nestled among the lush hills of Kerala, our facility combines traditional knowledge with modern facilities to ensure the highest quality spices for our customers around the world.</p>
+                    <p>Nestled among the lush hills of Kerala, our facility combines traditional knowledge with modern infrastructure to ensure the highest quality spices for our customers around the world.</p>
                     
                     <!-- Key Facts Grid -->
                     <div class="key-facts">
@@ -1116,7 +1494,7 @@
                             <div class="fact-icon"><i class="fas fa-calendar-alt"></i></div>
                             <div class="fact-text">
                                 <h4>Established</h4>
-                                <p>1987</p>
+                                <p>1987 - 38+ Years of Excellence</p>
                             </div>
                         </div>
                         <div class="fact-item">
@@ -1129,8 +1507,8 @@
                         <div class="fact-item">
                             <div class="fact-icon"><i class="fas fa-ruler-combined"></i></div>
                             <div class="fact-text">
-                                <h4>Property</h4>
-                                <p>20 Acre</p>
+                                <h4>Property Size</h4>
+                                <p>20 Acre Facility</p>
                             </div>
                         </div>
                         <div class="fact-item">
@@ -1149,17 +1527,17 @@
     <!-- ================================
          BRANCH SERVICES SECTION
     ================================ -->
-    <section class="branch-services">
+    <section class="branch-services fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Our Services</h2>
-            <p class="section-subtitle">Comprehensive spice trading and processing services at our 20 Acre facility</p>
+            <p class="section-subtitle">Comprehensive spice trading and processing services at our 20 Acre flagship facility</p>
             
             <div class="services-wrapper">
                 <!-- Spice Buying Service -->
                 <div class="service-box">
                     <div class="service-info">
                         <h3><i class="fas fa-balance-scale"></i> Spice Buying</h3>
-                        <p>We purchase premium quality cardamom, pepper, cloves, nutmeg, and dry cocoa directly from farmers at competitive prices, ensuring fair value for their produce.</p>
+                        <p>We purchase premium quality cardamom, pepper, cloves, nutmeg, and dry cocoa directly from farmers at competitive prices, ensuring fair value for their produce while maintaining our quality standards.</p>
                         <div class="service-definition">
                             <strong>Definition:</strong> The process of directly sourcing spices from local farmers at fair market prices, eliminating middlemen and ensuring quality through careful inspection and grading.
                         </div>
@@ -1170,7 +1548,7 @@
                 <div class="service-box">
                     <div class="service-info">
                         <h3><i class="fas fa-sort-amount-up"></i> Cardamom Grading</h3>
-                        <p>Our expert graders sort and classify cardamom based on size, color, and quality, ensuring proper market categorization and optimal pricing for farmers.</p>
+                        <p>Our expert graders sort and classify cardamom based on size, color, and quality, ensuring proper market categorization and optimal pricing for farmers while meeting international standards.</p>
                         <div class="service-definition">
                             <strong>Definition:</strong> A specialized process where cardamom is categorized into different grades (Extra Bold, Bold, Medium, Small) based on size, color, aroma, and oil content to determine market value.
                         </div>
@@ -1181,7 +1559,7 @@
                 <div class="service-box">
                     <div class="service-info">
                         <h3><i class="fas fa-truck-loading"></i> Farmer Produce Collection</h3>
-                        <p>We provide a central collection point for farmer produce, making it convenient for small and large-scale farmers to sell their harvest directly to us.</p>
+                        <p>We provide a central collection point for farmer produce, making it convenient for small and large-scale farmers to sell their harvest directly to us with immediate payment and fair pricing.</p>
                         <div class="service-definition">
                             <strong>Definition:</strong> A centralized system where farmers can bring their harvest for assessment, weighing, and immediate payment, reducing transportation costs and time for local producers.
                         </div>
@@ -1192,7 +1570,7 @@
                 <div class="service-box">
                     <div class="service-info">
                         <h3><i class="fas fa-temperature-high"></i> Cardamom Drying Unit</h3>
-                        <p>Our state-of-the-art drying facility ensures proper moisture content for cardamom, preserving its essential oils, flavor, and shelf life.</p>
+                        <p>Our state-of-the-art drying facility ensures proper moisture content for cardamom, preserving its essential oils, natural color, flavor, and extending shelf life through controlled processing.</p>
                         <div class="service-definition">
                             <strong>Definition:</strong> A controlled environment process that reduces moisture content in cardamom to 10-11% using calibrated temperature and humidity settings to preserve color, flavor, and aromatic compounds.
                         </div>
@@ -1203,7 +1581,7 @@
                 <div class="service-box">
                     <div class="service-info">
                         <h3><i class="fas fa-store"></i> Grocery Store</h3>
-                        <p>Visit our on-site grocery store for premium spices and local products available directly from our farm to your kitchen.</p>
+                        <p>Visit our on-site grocery store for premium spices and local products available directly from our farm to your kitchen, ensuring freshness and authenticity in every purchase.</p>
                         <div class="service-definition">
                             <strong>Definition:</strong> A retail outlet offering freshly processed spices, local agricultural products, and specialty items with direct farm-to-consumer traceability for guaranteed quality and authenticity.
                         </div>
@@ -1214,7 +1592,7 @@
                 <div class="service-box">
                     <div class="service-info">
                         <h3><i class="fas fa-boxes"></i> Wholesale Distribution</h3>
-                        <p>We supply high-quality spices to retailers, exporters, and bulk buyers across India and internationally through our established distribution network.</p>
+                        <p>We supply high-quality spices to retailers, exporters, and bulk buyers across India and internationally through our established distribution network with quality certification.</p>
                         <div class="service-definition">
                             <strong>Definition:</strong> Business-to-business supply of large quantities of graded and processed spices with quality certification, competitive pricing, and reliable logistics support for commercial clients.
                         </div>
@@ -1227,10 +1605,10 @@
     <!-- ================================
          PROCESSING FACILITIES SECTION
     ================================ -->
-    <section class="processing-facilities">
+    <section class="processing-facilities fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Our Cardamom Processing</h2>
-            <p class="section-subtitle">From harvest to package, discover our meticulous cardamom processing workflow</p>
+            <p class="section-subtitle">From harvest to package, discover our meticulous cardamom processing workflow that maintains quality and preserves natural flavors</p>
             
             <div class="process-steps">
                 <!-- Step 1: Collection & Inspection -->
@@ -1238,7 +1616,7 @@
                     <div class="step-number">1</div>
                     <div class="step-content">
                         <h3>Collection & Inspection</h3>
-                        <p>Freshly harvested cardamom capsules are collected from local farmers and undergo thorough inspection for quality, maturity, and consistency. Our skilled inspectors examine each batch to ensure only the finest cardamom enters our processing chain.</p>
+                        <p>Freshly harvested cardamom capsules are collected from local farmers and undergo thorough inspection for quality, maturity, and consistency. Our skilled inspectors examine each batch to ensure only the finest cardamom enters our processing chain, maintaining our reputation for excellence.</p>
                     </div>
                 </div>
 
@@ -1247,7 +1625,7 @@
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h3>Washing & Cleaning</h3>
-                        <p>The collected cardamom capsules are gently washed to remove dust, soil, and other impurities. This process is carefully managed to preserve the delicate essential oils that give cardamom its distinctive flavor and aroma.</p>
+                        <p>The collected cardamom capsules are gently washed to remove dust, soil, and other impurities. This process is carefully managed to preserve the delicate essential oils that give cardamom its distinctive flavor and aroma while ensuring cleanliness.</p>
                     </div>
                 </div>
 
@@ -1256,7 +1634,7 @@
                     <div class="step-number">3</div>
                     <div class="step-content">
                         <h3>Precision Drying</h3>
-                        <p>Our state-of-the-art drying facility uses controlled temperature and humidity to bring the moisture content to the optimal level (10-11%). This precision drying preserves the cardamom's natural green color, flavor compounds, and essential oils.</p>
+                        <p>Our state-of-the-art drying facility uses controlled temperature and humidity to bring the moisture content to the optimal level (10-11%). This precision drying preserves the cardamom's natural green color, flavor compounds, and essential oils that make our spices exceptional.</p>
                     </div>
                 </div>
 
@@ -1265,7 +1643,7 @@
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h3>Grading & Sorting</h3>
-                        <p>Dried cardamom capsules are meticulously sorted and graded according to size, color, and quality. Our expert graders use both traditional knowledge and modern standards to classify the cardamom into various grades for different market segments.</p>
+                        <p>Dried cardamom capsules are meticulously sorted and graded according to size, color, and quality. Our expert graders use both traditional knowledge and modern standards to classify the cardamom into various grades for different market segments worldwide.</p>
                     </div>
                 </div>
 
@@ -1284,35 +1662,35 @@
     <!-- ================================
          FACILITY GALLERY SECTION
     ================================ -->
-    <section class="facility-gallery">
+    <section class="facility-gallery fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Facility Gallery</h2>
-            <p class="section-subtitle">Explore our 20 Acre facility through these images</p>
+            <p class="section-subtitle">Explore our 20 Acre facility through these images showcasing our operations and commitment to quality</p>
             
             <div class="gallery-grid">
                 <div class="gallery-item">
-                    <img src="main.jpg" alt="Main Store" />
-                    <div class="gallery-caption">Main Store</div>
+                    <img src="main.jpg" alt="KVS Main Store Exterior" loading="lazy" />
+                    <div class="gallery-caption">Main Store & Trading Center</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="grosery.jpg" alt="Grocery Section" />
-                    <div class="gallery-caption">Grocery Section</div>
+                    <img src="grosery.jpg" alt="Grocery Section Interior" loading="lazy" />
+                    <div class="gallery-caption">Premium Grocery Section</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="malancherak.jpg" alt="Spice Buying Area" />
-                    <div class="gallery-caption">Spice Buying Area</div>
+                    <img src="malancherak.jpg" alt="Spice Buying Area" loading="lazy" />
+                    <div class="gallery-caption">Farmer Spice Buying Area</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="sorting.jpg" alt="Cardamom Sorting" />
+                    <img src="sorting.jpg" alt="Cardamom Sorting Process" loading="lazy" />
                     <div class="gallery-caption">Advanced Cardamom Sorting</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="sorting.jpg" alt="Quality Control" />
+                    <img src="sorting.jpg" alt="Quality Control Process" loading="lazy" />
                     <div class="gallery-caption">Quality Control Process</div>
                 </div>
                 <div class="gallery-item">
-                    <img src="sorting.jpg" alt="Processing Area" />
-                    <div class="gallery-caption">Processing Area</div>
+                    <img src="sorting.jpg" alt="Processing Area" loading="lazy" />
+                    <div class="gallery-caption">Modern Processing Area</div>
                 </div>
             </div>
         </div>
@@ -1321,10 +1699,10 @@
     <!-- ================================
          CONTACT SECTION
     ================================ -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact fade-in-on-scroll">
         <div class="container">
             <h2 class="section-title">Contact Our 20 Acre Branch</h2>
-            <p class="section-subtitle">Get in touch with our main facility for spice trading and processing services</p>
+            <p class="section-subtitle">Get in touch with our main facility for spice trading, processing services, and partnership opportunities</p>
             
             <div class="contact-container">
                 <!-- Contact Information -->
@@ -1335,8 +1713,10 @@
                     <div class="contact-detail">
                         <i class="fas fa-map-marker-alt"></i>
                         <div>
-                            <p><strong>Main Address:</strong> Spice Valley Road, 20 Acre, Munnar, Kerala</p>
-                            <p><strong>Facility Type:</strong> Spice Processing & Trading Center</p>
+                            <strong>Main Address:</strong>
+                            <p>Spice Valley Road, 20 Acre, Munnar, Kerala</p>
+                            <strong>Facility Type:</strong>
+                            <p>Spice Processing & Trading Center</p>
                         </div>
                     </div>
                     
@@ -1344,8 +1724,10 @@
                     <div class="contact-detail">
                         <i class="fas fa-phone"></i>
                         <div>
-                            <p><strong>Processing Unit:</strong> +91 XXXXX XXXXX</p>
-                            <p><strong>Trading Office:</strong> +91 XXXXX XXXXX</p>
+                            <strong>Processing Unit:</strong>
+                            <p>+91 XXXXX XXXXX</p>
+                            <strong>Trading Office:</strong>
+                            <p>+91 XXXXX XXXXX</p>
                         </div>
                     </div>
                     
@@ -1353,8 +1735,10 @@
                     <div class="contact-detail">
                         <i class="fas fa-envelope"></i>
                         <div>
-                            <p><strong>Trading Inquiries:</strong> trading@kvsspices.com</p>
-                            <p><strong>Farmer Services:</strong> farmers@kvsspices.com</p>
+                            <strong>Trading Inquiries:</strong>
+                            <p>trading@kvsspices.com</p>
+                            <strong>Farmer Services:</strong>
+                            <p>farmers@kvsspices.com</p>
                         </div>
                     </div>
                     
@@ -1375,10 +1759,10 @@
                     <div class="social-contact">
                         <h4>Connect With Us</h4>
                         <div class="social-icons">
-                            <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
-                            <a href="#" class="social-icon"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                            <a href="#" class="social-icon" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
                         </div>
                     </div>
                 </div>
@@ -1388,13 +1772,14 @@
                     <iframe 
                         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125525.30030296426!2d77.00174583217794!3d10.085069974947842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0799794d099a6d%3A0x63250e5553c7e0c!2sMunnar%2C%20Kerala!5e0!3m2!1sen!2sin!4v1621500015000!5m2!1sen!2sin"
                         width="100%" 
-                        height="450" 
+                        height="500" 
                         style="border:0;" 
                         allowfullscreen="" 
-                        loading="lazy">
+                        loading="lazy"
+                        title="KVS 20 Acre Branch Location Map">
                     </iframe>
                     <div class="map-directions">
-                        <a href="https://goo.gl/maps/YourActualGoogleMapsLink" class="btn" target="_blank">
+                        <a href="https://goo.gl/maps/YourActualGoogleMapsLink" class="btn" target="_blank" rel="noopener">
                             <i class="fas fa-directions"></i> Get Directions to 20 Acre
                         </a>
                     </div>
@@ -1409,9 +1794,9 @@
     <section class="cta-section">
         <div class="container">
             <h2>Experience the KVS Difference</h2>
-            <p>Visit our 20 Acre facility to see our premium spice processing operations, learn about sustainable farming practices, or discuss partnership opportunities with our team.</p>
+            <p>Visit our 20 Acre facility to see our premium spice processing operations, learn about sustainable farming practices, or discuss partnership opportunities with our experienced team. Discover why we've been Kerala's trusted spice partner for over three decades.</p>
             <div class="cta-buttons">
-                <a href="#contact" class="btn btn-light">Contact Us</a>
+                <a href="#contact" class="btn btn-light">Contact Us Today</a>
                 <a href="anachal.html" class="btn btn-outline-light">Visit Our Retail Store</a>
             </div>
         </div>
@@ -1426,11 +1811,11 @@
                 <!-- Company Information -->
                 <div class="footer-about">
                     <h3 class="footer-logo">KVS <span>Spices & Traders</span></h3>
-                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987.</p>
+                    <p>Premium spice trading and tourism services in Kerala's spice heartland since 1987. Experience authentic Kerala flavors and unforgettable journeys.</p>
                     <div class="social-links">
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                     </div>
                 </div>
 
@@ -1458,13 +1843,13 @@
             
             <!-- Copyright -->
             <div class="copyright">
-                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved.</p>
+                <p>&copy; 2025 KVS Spices & Traders. All Rights Reserved. | Designed with ❤️ for Kerala's Spice Heritage</p>
             </div>
         </div>
     </footer>
 
     <!-- ================================
-         JAVASCRIPT FUNCTIONALITY
+         ENHANCED JAVASCRIPT FUNCTIONALITY
     ================================ -->
     <script>
         // ================================
@@ -1472,18 +1857,85 @@
         // ================================
         const navToggle = document.getElementById('navToggle');
         const navMenu = document.getElementById('navMenu');
+        let isMenuOpen = false;
 
         // Toggle mobile navigation menu
-        navToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            isMenuOpen = !isMenuOpen;
+            navMenu.classList.toggle('active', isMenuOpen);
+            
+            // Change icon based on menu state
+            const icon = navToggle.querySelector('i');
+            icon.className = isMenuOpen ? 'fas fa-times' : 'fas fa-bars';
+            
+            // Prevent body scroll when menu is open
+            document.body.style.overflow = isMenuOpen ? 'hidden' : '';
         });
 
         // Close mobile menu when clicking navigation links
         const navLinks = document.querySelectorAll('.nav-menu a');
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                navMenu.classList.remove('active');
+                closeMenu();
             });
+        });
+
+        // Close menu function
+        function closeMenu() {
+            isMenuOpen = false;
+            navMenu.classList.remove('active');
+            navToggle.querySelector('i').className = 'fas fa-bars';
+            document.body.style.overflow = '';
+        }
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (isMenuOpen && !navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // SCROLL PROGRESS INDICATOR
+        // ================================
+        const scrollIndicator = document.getElementById('scrollIndicator');
+        
+        window.addEventListener('scroll', () => {
+            const scrollTop = window.pageYOffset;
+            const docHeight = document.body.scrollHeight - window.innerHeight;
+            const scrollPercent = (scrollTop / docHeight) * 100;
+            scrollIndicator.style.width = scrollPercent + '%';
+        });
+
+        // ================================
+        // ENHANCED HEADER SCROLL EFFECT
+        // ================================
+        const header = document.querySelector('header');
+        let lastScrollY = window.scrollY;
+
+        window.addEventListener('scroll', () => {
+            const currentScrollY = window.scrollY;
+            
+            // Add/remove backdrop blur based on scroll position
+            if (currentScrollY > 100) {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-lg)';
+            } else {
+                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                header.style.backdropFilter = 'blur(20px)';
+                header.style.boxShadow = 'var(--shadow-md)';
+            }
+            
+            // Hide/show header on scroll
+            if (currentScrollY > lastScrollY && currentScrollY > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            
+            lastScrollY = currentScrollY;
         });
 
         // ================================
@@ -1494,35 +1946,38 @@
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({ 
-                        behavior: 'smooth',
-                        block: 'start'
+                    const headerHeight = document.querySelector('header').offsetHeight;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+                    
+                    window.scrollTo({
+                        top: targetPosition,
+                        behavior: 'smooth'
                     });
+                    
+                    closeMenu();
                 }
             });
         });
 
         // ================================
-        // ADDITIONAL INTERACTIVE FEATURES
+        // INTERSECTION OBSERVER FOR ANIMATIONS
         // ================================
-        
-        // Close mobile menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
-                navMenu.classList.remove('active');
-            }
-        });
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-        // Add scroll effect to navigation bar
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 100) {
-                header.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
-                header.style.backdropFilter = 'blur(10px)';
-            } else {
-                header.style.backgroundColor = 'var(--text-light)';
-                header.style.backdropFilter = 'none';
-            }
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in-on-scroll').forEach(el => {
+            observer.observe(el);
         });
 
         // ================================
@@ -1533,8 +1988,123 @@
             item.addEventListener('click', () => {
                 // Add click functionality for gallery items if needed
                 // Could open in lightbox or modal
+                console.log('Gallery item clicked:', item.querySelector('.gallery-caption').textContent);
+            });
+            
+            // Add keyboard navigation
+            item.setAttribute('tabindex', '0');
+            item.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    item.click();
+                }
             });
         });
+
+        // ================================
+        // PERFORMANCE OPTIMIZATIONS
+        // ================================
+        
+        // Lazy load images
+        const images = document.querySelectorAll('img[loading="lazy"]');
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.classList.add('loading');
+                    img.addEventListener('load', () => {
+                        img.classList.remove('loading');
+                    });
+                    observer.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+
+        // ================================
+        // KEYBOARD NAVIGATION SUPPORT
+        // ================================
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && isMenuOpen) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // TOUCH GESTURES FOR MOBILE
+        // ================================
+        let startX, startY, distX, distY;
+
+        navMenu.addEventListener('touchstart', (e) => {
+            startX = e.touches[0].clientX;
+            startY = e.touches[0].clientY;
+        });
+
+        navMenu.addEventListener('touchmove', (e) => {
+            if (!startX || !startY) return;
+            
+            distX = e.touches[0].clientX - startX;
+            distY = e.touches[0].clientY - startY;
+            
+            // Close menu on swipe right
+            if (distX > 100 && Math.abs(distY) < 100) {
+                closeMenu();
+            }
+        });
+
+        // ================================
+        // REDUCE MOTION FOR ACCESSIBILITY
+        // ================================
+        const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+        
+        if (prefersReducedMotion.matches) {
+            document.documentElement.style.scrollBehavior = 'auto';
+            // Remove transitions for users who prefer reduced motion
+            const style = document.createElement('style');
+            style.textContent = `
+                *, *::before, *::after {
+                    animation-duration: 0.01ms !important;
+                    animation-iteration-count: 1 !important;
+                    transition-duration: 0.01ms !important;
+                }
+            `;
+            document.head.appendChild(style);
+        }
+
+        // ================================
+        // LOADING OPTIMIZATION
+        // ================================
+        window.addEventListener('load', () => {
+            // Remove loading classes
+            document.querySelectorAll('.loading').forEach(el => {
+                el.classList.remove('loading');
+            });
+            
+            // Initialize animations after load
+            setTimeout(() => {
+                document.body.classList.add('loaded');
+            }, 100);
+        });
+
+        // ================================
+        // ERROR HANDLING FOR IMAGES
+        // ================================
+        document.querySelectorAll('img').forEach(img => {
+            img.addEventListener('error', function() {
+                this.style.opacity = '0.5';
+                this.alt = 'Image could not be loaded';
+                console.warn('Failed to load image:', this.src);
+            });
+        });
+
+        // ================================
+        // THEME DETECTION AND ADJUSTMENT
+        // ================================
+        const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (isDarkMode) {
+            document.documentElement.style.filter = 'brightness(0.95)';
+        }
     </script>
 </body>
 </html>
